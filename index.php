@@ -1,3 +1,7 @@
+<?php
+require 'top.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -9,7 +13,18 @@
   <body>
     <div class="wrapper">
       <?php
+
+      if (isset($_SESSION["isLoggedIn"])) {
+        if ($_SESSION["isLoggedIn"]==true) {
+          echo "You are logged in";
+        }else{
+          require 'html/loginPage.php';
+        }
+      }else{
         require 'html/loginPage.php';
+      }
+
+
       ?>
     </div>
   </body>

@@ -20,15 +20,46 @@
 #wrapperLogin{
   background-color: white;
   height: 100vh;
+  background-color: grey;
 }
 
 #wrapperLoginWindow{
-  background-color: grey;
-  height: 30vh;
+position: absolute;
+  background-color: white;
+  height: auto;
+  margin-top: 20vh;
+  padding: 1rem;
 }
+
+#submitLogin{
+    color: white;
+    background-color: rgb(77, 148, 255);
+    font-size: 125%;
+    text-align: center;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+    margin-top: 1rem;
+}
+#inputPassword{
+  background-color: rgb(230, 230, 230);
+   border: 1px solid rgb(191, 191, 191);
+   height: 2rem;
+   font-size: 2rem;
+}
+#outputLoginError{
+  font-size: 2rem;
+  text-align: center;
+  padding: 0;
+}
+
+
 /* For mobile phones: */
 [class*="col-"] {
   width: 100%;
+
+
 }
 
 @media only screen and (min-width: 600px) {
@@ -45,6 +76,18 @@
   .col-s-10 {width: 83.33%;}
   .col-s-11 {width: 91.66%;}
   .col-s-12 {width: 100%;}
+
+/* LoginPage */
+  #wrapperLoginWindow{
+    margin-left: 33.335%;
+  }
+
+  #inputPassword{
+    margin-left: 8.335%;
+  }
+  #submitLogin{
+    margin-left: 8.335%;
+  }
 }
 
 @media only screen and (min-width: 768px) {
@@ -61,4 +104,9 @@
   .col-10 {width: 83.33%;}
   .col-11 {width: 91.66%;}
   .col-12 {width: 100%;}
+
+/* LoginPage */
+  #wrapperLoginWindow{
+    margin-left: 33.335%;
+  }
 }
