@@ -3,5 +3,5 @@
     <div class="menuPageLinkWrappers col-s-10 col-2" id="menuPageLinkWrapper2"><a href="kassaPage.php">Kassa</a></div>
     <div class="menuPageLinkWrappers col-s-10 col-2" id="menuPageLinkWrapper3"><a href="depoPage.php">Depo</a></div>
     <div class="menuPageLinkWrappers col-s-10 col-2" id="menuPageLinkWrapper4"><a href="settingsPage.php">Inställningar</a></div>
-    <div class="menuPageLinkWrappers col-s-10 col-2" id="menuPageLinkWrapper5"><a href="html/logout.php">Logout</a></div>
+    <div class="menuPageLinkWrappers col-s-10 col-2" id="menuPageLinkWrapper5"><a href="html/logoutPage.php">Logout</a></div>
 </div>

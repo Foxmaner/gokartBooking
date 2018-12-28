@@ -1,5 +1,5 @@
 <?php
-require 'top.php';
+require 'html/top.php';
 ?>
 
 <!DOCTYPE html>
@@ -7,7 +7,7 @@ require 'top.php';
   <head>
     <meta charset="utf-8">
     <title>Glabo Bokningssida</title>
-    <link rel="stylesheet" type="text/css" href="style/myStyle.css">
+    <link rel="stylesheet" type="text/css" href="style/indexStyle.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   </head>
