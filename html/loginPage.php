@@ -1,3 +1,4 @@
+
 <div id="wrapperLogin" class="wrapper">
   <div id="wrapperLoginWindow" class="wrapper col-s-4 col-4">
     <form method="post" action="">
@@ -9,6 +10,7 @@
 
       <?php
       if (isset($_SESSION["error"])) {
+        // code...
         // code...
         echo $_SESSION["error"];
         unset($_SESSION["error"]);
