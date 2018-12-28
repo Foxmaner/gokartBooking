@@ -9,8 +9,10 @@ require 'top.php';
     <title>Glabo Bokningssida</title>
     <link rel="stylesheet" type="text/css" href="style/myStyle.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   </head>
   <body>
+    <noscript id="noscript">Sorry, your browser does not support JavaScript!</noscript>
     <div class="wrapper">
       <?php
 
