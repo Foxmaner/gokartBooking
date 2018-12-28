@@ -16,7 +16,7 @@ require 'top.php';
 
       if (isset($_SESSION["isLoggedIn"])) {
         if ($_SESSION["isLoggedIn"]==true) {
-          echo "You are logged in";
+          require 'html/menuPage.php';
         }else{
           require 'html/loginPage.php';
         }

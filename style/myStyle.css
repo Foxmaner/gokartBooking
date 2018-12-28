@@ -8,6 +8,24 @@
     border-collapse: collapse;
 
 }
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a:active {
+    text-decoration: none;
+}
+a:link {
+  color: black;
+}
 /* General */
 .wrapper{
   width: auto;
@@ -52,6 +70,37 @@ position: absolute;
   font-size: 2rem;
   text-align: center;
   padding: 0;
+}
+
+/* MenuPage */
+.menuPageLinkWrappers{
+	font-size: 5vh;
+	background-color: rgb(191, 191, 191);
+	padding: 4vh;
+	border-radius: 50%;
+	text-align: center;
+	float: left;
+	height: auto;
+
+}
+.menuPageLinkWrappers:hover{
+	background-color: green;
+}
+a:hover{
+	color: white;
+}
+#menuPageLinkWrapper1{
+	margin-top: 25vh;
+	margin-left: 41.67%;
+}
+#menuPageLinkWrapper2{
+	margin-left: 27.78%;
+}
+#menuPageLinkWrapper3{
+	margin-left: 11.12%;
+}
+#menuPageLinkWrapper4{
+	margin-left: 41.67%;
 }
 
 
