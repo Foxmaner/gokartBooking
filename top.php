@@ -56,9 +56,18 @@ $sql = "SELECT userPassword FROM user WHERE userID = 1";
 
 }
 
+function logout(){
+	session_destroy();
+}
+
 if (isset($_POST["passwordData"])) {
   // code...
   loginUser(sanatize_input($_POST["passwordData"]),connecttoDB());
+}
+
+if (isset($_POST["btn_logout"])) {
+	# code...
+	logout();
 }
 
 ?>

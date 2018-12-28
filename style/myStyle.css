@@ -32,6 +32,11 @@ a:link {
   height: auto;
 
 }
+#noscript{
+	font-size: 5rem;
+	text-align: center;
+	width: 100%;
+}
 
 
 /* LoginPage */
@@ -47,6 +52,7 @@ position: absolute;
   height: auto;
   margin-top: 20vh;
   padding: 1rem;
+
 }
 
 #submitLogin{
@@ -74,34 +80,30 @@ position: absolute;
 
 /* MenuPage */
 .menuPageLinkWrappers{
-	font-size: 5vh;
-	background-color: rgb(191, 191, 191);
-	padding: 4vh;
-	border-radius: 50%;
+	background-color: grey;
+	margin: auto;
+	padding: 15px;
+	margin-top: 10vh;
+	font-size: 2rem;
 	text-align: center;
-	float: left;
-	height: auto;
+	content: align center;
+}
+#btnLogout{
+	text-align: right;
+}
+#a_logout{
+	margin-right: 50%;
+}
 
+/*LogoutPage*/
+#wrapperLogout{
+  background-color: white;
+  height: 100vh;
+  background-color: grey;
+	text-align: center;
+	padding-top: 35vh;
 }
-.menuPageLinkWrappers:hover{
-	background-color: green;
-}
-a:hover{
-	color: white;
-}
-#menuPageLinkWrapper1{
-	margin-top: 25vh;
-	margin-left: 41.67%;
-}
-#menuPageLinkWrapper2{
-	margin-left: 27.78%;
-}
-#menuPageLinkWrapper3{
-	margin-left: 11.12%;
-}
-#menuPageLinkWrapper4{
-	margin-left: 41.67%;
-}
+
 
 
 /* For mobile phones: */
@@ -137,6 +139,10 @@ a:hover{
   #submitLogin{
     margin-left: 8.335%;
   }
+
+/* MoenuPage */
+
+
 }
 
 @media only screen and (min-width: 768px) {
@@ -158,4 +164,7 @@ a:hover{
   #wrapperLoginWindow{
     margin-left: 33.335%;
   }
+
+	/* Menu Page*/
+
 }
