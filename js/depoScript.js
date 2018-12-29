@@ -1,8 +1,42 @@
+function outputEditRaceA(){
+  var tempRaceNr = document.getElementById("outputEditLopp").innerHTML;
+
+  tempRaceNr = parseInt(tempRaceNr, 10);
+
+  tempRaceNr++;
+  document.getElementById("outputEditLopp").innerHTML = tempRaceNr;
+}
+function outputEditRaceS(){
+  var tempRaceNr = document.getElementById("outputEditLopp").innerHTML;
+
+  tempRaceNr = parseInt(tempRaceNr, 10);
+  if (tempRaceNr>1) {
+    tempRaceNr--;
+  }
+  document.getElementById("outputEditLopp").innerHTML = tempRaceNr;
+}
+
+function addRace() {
+  var raceNr = document.getElementById("outputEditLopp").innerHTML;
+
+  var xhttp = new XMLHttpRequest();
+   xhttp.onreadystatechange = function() {
+   	if (this.readyState == 4 && this.status == 200) {
+ 	    document.getElementById("outputTest").innerHTML = this.responseText;
+ 	}
+   };
+   xhttp.open("GET", "../dbConnections/addRaceConnection.php?racenr="+raceNr, true);
+   xhttp.send();
+}
+
+
+
 function editRace() {
   var large = document.getElementById("inputLargeKart").value;
   var small = document.getElementById("inputSmallKart").value;
   var double = document.getElementById("inputDoubleKart").value;
-  var raceNr = document.getElementById("textEditLopp").value;
+  var raceNr = document.getElementById("outputEditLopp").innerHTML;
+  raceNr = parseInt(raceNr, 10);
 
   var xhttp = new XMLHttpRequest();
    xhttp.onreadystatechange = function() {

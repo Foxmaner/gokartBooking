@@ -2,7 +2,7 @@
 
   <p id="textEditLopp">Lopp: </p> <div id="outputEditLopp">0</div>
   <br>
-  <button> _<_ </button> <button> _>_ </button>
+  <button onclick="outputEditRaceS();addRace();"> _<_ </button> <button onclick="outputEditRaceA();addRace();"> _>_ </button>
   <br>
   Stora <input id="inputLargeKart" class="kartInputs" type="number" min="0" max="25" oninput="editRace()">
   <br>

@@ -21,10 +21,10 @@ require 'top.php';
         if ($_SESSION["isLoggedIn"]==true) {
         require "depoContentPage.php";
         }else{
-        echo "Hörru logga in FFS!";
+        require 'loginErrorPage.php';
         }
       }else{
-        echo "Hörru logga in FFS!";
+        require 'loginErrorPage.php';
       }
 
 
