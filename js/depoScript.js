@@ -16,7 +16,7 @@ function outputEditRaceS(){
   document.getElementById("outputEditLopp").innerHTML = tempRaceNr;
 }
 
-function addRace() {
+function selectNextRace() {
   var raceNr = document.getElementById("outputEditLopp").innerHTML;
 
   var xhttp = new XMLHttpRequest();
@@ -25,11 +25,22 @@ function addRace() {
  	    document.getElementById("outputTest").innerHTML = this.responseText;
  	}
    };
-   xhttp.open("GET", "../dbConnections/addRaceConnection.php?racenr="+raceNr, true);
+   xhttp.open("GET", "../dbConnections/selectNextRaceConnection.php?racenr="+raceNr, true);
    xhttp.send();
 }
 
+function selectPreviusRace() {
+  var raceNr = document.getElementById("outputEditLopp").innerHTML;
 
+  var xhttp = new XMLHttpRequest();
+   xhttp.onreadystatechange = function() {
+   	if (this.readyState == 4 && this.status == 200) {
+ 	    document.getElementById("outputTest").innerHTML = this.responseText;
+ 	}
+   };
+   xhttp.open("GET", "../dbConnections/selectPreviusRaceConnection.php?racenr="+raceNr, true);
+   xhttp.send();
+}
 
 function editRace() {
   var large = document.getElementById("inputLargeKart").value;

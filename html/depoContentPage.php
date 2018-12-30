@@ -1,8 +1,8 @@
 <div class="section" id="section1">
 
-  <p id="textEditLopp">Lopp: </p> <div id="outputEditLopp">0</div>
+  <p id="textEditLopp">Lopp: </p> <div id="outputEditLopp">1</div>
   <br>
-  <button onclick="outputEditRaceS();addRace();"> _<_ </button> <button onclick="outputEditRaceA();addRace();"> _>_ </button>
+  <button onclick="outputEditRaceS();selectPreviusRace()"> _<_ </button> <button onclick="outputEditRaceA();selectNextRace();"> _>_ </button>
   <br>
   Stora <input id="inputLargeKart" class="kartInputs" type="number" min="0" max="25" oninput="editRace()">
   <br>

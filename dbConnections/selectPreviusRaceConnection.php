@@ -42,13 +42,7 @@ if ($conn->query($sql)) {
 
 
 
-
-
-
-
-
-
-if ($nRace<=$_GET["racenr"]) {
+if ($nRace<$_GET["racenr"]) {
   // code...
   $conn = connecttoDB();
   $stmt = $conn->prepare("INSERT INTO race (raceNr, largeKart, smallKart, doubleKart) VALUES (?, ?, ?, ?)");
@@ -62,9 +56,6 @@ if ($nRace<=$_GET["racenr"]) {
   $stmt->execute();		//Exekvera queryn
 
   $stmt->close();
-
-
-
 
 
 }
