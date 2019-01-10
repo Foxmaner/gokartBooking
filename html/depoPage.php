@@ -12,7 +12,7 @@ require 'top.php';
     <script src="../js/depoScript.js"></script>
 
   </head>
-  <body>
+  <body onload="selectNextRace()">
     <noscript id="noscript">Sorry, your browser does not support JavaScript!</noscript>
     <div class="wrapper">
       <?php

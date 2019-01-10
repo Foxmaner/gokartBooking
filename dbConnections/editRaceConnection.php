@@ -38,22 +38,22 @@ $inputLarge = $_GET["large"];	//Sätt värden på variablerna
 $inputSmall = $_GET["small"];	//Sätt värden på variablerna
 $inputDouble = $_GET["double"];	//Sätt värden på variablerna
 $inputRaceNr = $_GET["racenr"];	//Sätt värden på variablerna
-$serverDate = date("Y-m-d"); 
+$serverDate = date("Y-m-d");
 
 $stmt->execute();		//Exekvera queryn
 
 $stmt->close();
-echo $inputLarge;
-echo $inputSmall;
-echo $inputDouble;
+//echo $inputLarge;
+//echo $inputSmall;
+//echo $inputDouble;
 
-echo "raceNR";
-echo $inputRaceNr;
-echo "<br>";
-echo "serverdate";
-echo $serverDate;
+//echo "raceNR";
+//echo $inputRaceNr;
+//echo "<br>";
+//echo "serverdate";
+//echo $serverDate;
 
 
 
-echo "lyckat mannen"
+//echo "lyckat mannen"
 ?>
