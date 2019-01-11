@@ -2,7 +2,11 @@
 
   <p id="textEditLopp">Lopp: </p> <div id="outputEditLopp">1</div>
   <br>
+<<<<<<< HEAD
   <button onclick="selectPreviusRace(); outputEditRaceS();"> _<_ </button> <button onclick="selectNextRace(); outputEditRaceA();"> _>_ </button>
+=======
+  <button onclick="selectPreviusRace();outputEditRaceS();"> _<_ </button> <button onclick="selectNextRace();outputEditRaceA();"> _>_ </button>
+>>>>>>> 2b94f2ad9483e364cdd0d276ce77fac64f6441f0
   <br>
   Stora <input id="inputLargeKart" class="kartInputs" type="number" min="0" max="25" oninput="editRace()">
   <br>
