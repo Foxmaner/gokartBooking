@@ -56,7 +56,7 @@ if ($nRace<=$_GET["racenr"]) {
   $stmt->close();
 
 }
-
+loadRace($_GET["racenr"]);
 
 
 
@@ -88,7 +88,6 @@ function loadRace($raceNr){
 	$stmt->close();
 
 }
-loadRace($_GET["racenr"]);
 
 
 
