@@ -1,6 +1,6 @@
 <?php
 require 'top.php';
-?>
+?>e
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
