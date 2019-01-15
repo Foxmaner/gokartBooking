@@ -9,7 +9,7 @@ require 'top.php';
     <title>Glabo Bokningssida</title>
     <link rel="stylesheet" type="text/css" href="../style/cashStyle.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="../js/cashScript.js"></script>
+    <script src="../js/depotScript.js"></script>
 
   </head>
   <body onload="selectNextRace()">
@@ -19,7 +19,7 @@ require 'top.php';
 
       if (isset($_SESSION["isLoggedIn"])) {
         if ($_SESSION["isLoggedIn"]==true) {
-        require "cashContentPage.php";
+        require "depotContentPage.php";
         }else{
         require 'loginErrorPage.php';
         }
