@@ -13,22 +13,57 @@
   width: 50%;
   height: 50vh;
   float: left;
+
 }
+.changeRaceButton{
+
+		color: white;
+    background-color: rgb(77, 148, 255);
+    font-size: 125%;
+    text-align: center;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+    margin-top: 1rem;
+		width: 50%;
+		float: left;
+
+}
+
 #section1{
-background-color: red;
+background-color: grey;
+border-radius: 15px;
+padding: auto;
+align-content:center;
+margin-left: 41.67%;
+margin-top: 5vh;
+margin-bottom: 5vh;
+height: 30vh;
+font-size: 2rem;
+text-align: center;
 }
 #section2{
-background-color: green;
+background-color: lightgray;
 }
 
 
 
 #textEditLopp{
   display:inline;
-  float: left;
+float: left;
+	text-align: center;
 }
 #outputEditLopp{
-  float: left;
+ float: left;
+	text-align: center;
+}
+
+#changeRaceButtonRecent{
+	border-radius: 0 0 0 15px;
+}
+#changeRaceButtonNext{
+	border-radius: 0 0 15px 0;
 }
 
 
