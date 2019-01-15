@@ -7,7 +7,7 @@ require 'top.php';
   <head>
     <meta charset="utf-8">
     <title>Glabo Bokningssida</title>
-    <link rel="stylesheet" type="text/css" href="../style/depoStyle.css">
+    <link rel="stylesheet" type="text/css" href="../style/cashStyle.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="../js/depoScript.js"></script>
 
@@ -19,7 +19,7 @@ require 'top.php';
 
       if (isset($_SESSION["isLoggedIn"])) {
         if ($_SESSION["isLoggedIn"]==true) {
-        require "depoContentPage.php";
+        require "cashContentPage.php";
         }else{
         require 'loginErrorPage.php';
         }
