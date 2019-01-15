@@ -40,7 +40,7 @@ if ($conn->query($sql)) {
       echo "error" . $conn->error;
 }
 
-if ($nRace<=$_GET["racenr"]) {
+if ($nRace<$_GET["racenr"]) {
   // code...
   $conn = connecttoDB();
   $stmt = $conn->prepare("INSERT INTO race (raceNr, largeKart, smallKart, doubleKart) VALUES (?, ?, ?, ?)");

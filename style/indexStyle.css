@@ -71,6 +71,7 @@ position: absolute;
    border: 1px solid rgb(191, 191, 191);
    height: 2rem;
    font-size: 2rem;
+	 text-align:  center;
 }
 #outputLoginError{
   font-size: 2rem;

@@ -20,12 +20,7 @@ background-color: red;
 #section2{
 background-color: green;
 }
-#section3{
-background-color: blue;
-}
-#section4{
-background-color: yellow;
-}
+
 
 
 #textEditLopp{
@@ -80,5 +75,9 @@ background-color: yellow;
   .col-10 {width: 83.33%;}
   .col-11 {width: 91.66%;}
   .col-12 {width: 100%;}
+
+	#section2{
+		margin-left: 4.17%;
+	}
 
 }

@@ -1,4 +1,4 @@
-<div class="section" id="section1">
+<div class="section col-4 col-s-5" id="section1">
 
   <p id="textEditLopp">Lopp: </p> <div id="outputEditLopp">1</div>
   <br>
@@ -13,6 +13,4 @@
   <div id="outputTest"></div>
 </div>
 
-<div class="section" id="section2">Div2 </div>
-<div class="section" id="section3">Div3 </div>
-<div class="section" id="section4">Div4 - Data </div>
+<div class="section col-11 col-s-5" id="section2">Div2 </div>
