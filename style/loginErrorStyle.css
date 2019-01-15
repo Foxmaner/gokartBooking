@@ -32,73 +32,18 @@ a:link {
   height: auto;
 
 }
-#noscript{
-	font-size: 5rem;
-	text-align: center;
-	width: 100%;
-}
 
 
-/* LoginPage */
-#wrapperLogin{
+
+
+/*LogoutPage*/
+#wrapperLogout{
   background-color: white;
   height: 100vh;
   background-color: grey;
-}
-
-#wrapperLoginWindow{
-position: absolute;
-  background-color: white;
-  height: auto;
-  margin-top: 20vh;
-  padding: 1rem;
-
-}
-
-#submitLogin{
-    color: white;
-    background-color: rgb(77, 148, 255);
-    font-size: 125%;
-    text-align: center;
-    padding-top: 0.75rem;
-    padding-bottom: 0.75rem;
-    padding-left: 0.25rem;
-    padding-right: 0.25rem;
-    margin-top: 1rem;
-}
-#inputPassword{
-  background-color: rgb(230, 230, 230);
-   border: 1px solid rgb(191, 191, 191);
-   height: 2rem;
-   font-size: 2rem;
-	 text-align:  center;
-}
-#outputLoginError{
-  font-size: 2rem;
-  text-align: center;
-  padding: 0;
-}
-
-/* MenuPage */
-.menuPageLinkWrappers{
-	background-color: grey;
-	margin: auto;
-	padding: 15px;
-	margin-top: 10vh;
-	font-size: 2rem;
 	text-align: center;
-	content: align center;
+	padding-top: 35vh;
 }
-#btnLogout{
-	text-align: right;
-}
-#a_logout{
-	margin-right: 50%;
-}
-
-
-
-
 
 /* For mobile phones: */
 [class*="col-"] {
@@ -122,21 +67,6 @@ position: absolute;
   .col-s-11 {width: 91.66%;}
   .col-s-12 {width: 100%;}
 
-/* LoginPage */
-  #wrapperLoginWindow{
-    margin-left: 33.335%;
-  }
-
-  #inputPassword{
-    margin-left: 8.335%;
-  }
-  #submitLogin{
-    margin-left: 8.335%;
-  }
-
-/* MoenuPage */
-
-
 }
 
 @media only screen and (min-width: 768px) {
@@ -154,11 +84,6 @@ position: absolute;
   .col-11 {width: 91.66%;}
   .col-12 {width: 100%;}
 
-/* LoginPage */
-  #wrapperLoginWindow{
-    margin-left: 33.335%;
-  }
 
-	/* Menu Page*/
 
 }
