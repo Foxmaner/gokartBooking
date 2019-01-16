@@ -12,9 +12,9 @@ require 'top.php';
     <script src="../js/depotScript.js"></script>
 
   </head>
-  <body onload="startUpdate()">
+  <body onload="startUpdate();updateData();">
     <noscript id="noscript">Sorry, your browser does not support JavaScript!</noscript>
-    <div class="wrapper">
+    <div class="wrapper" id="depotPageWrapper">
       <?php
 
       if (isset($_SESSION["isLoggedIn"])) {
