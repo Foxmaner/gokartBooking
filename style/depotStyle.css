@@ -8,6 +8,22 @@
     border-collapse: collapse;
 
 }
+.depotOutput{
+	
+}
+.depotText{
+	float: left;
+}
+#section1{
+	height: 100vh;
+	background-color: blue;
+	float: left;
+}
+#section2{
+	height: 100vh;
+	background-color: red;
+	float: left;
+}
 
 
 

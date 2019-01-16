@@ -7,12 +7,12 @@ require 'top.php';
   <head>
     <meta charset="utf-8">
     <title>Glabo Bokningssida</title>
-    <link rel="stylesheet" type="text/css" href="../style/cashStyle.css">
+    <link rel="stylesheet" type="text/css" href="../style/depotStyle.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="../js/depotScript.js"></script>
 
   </head>
-  <body onload="selectNextRace()">
+  <body onload="startUpdate()">
     <noscript id="noscript">Sorry, your browser does not support JavaScript!</noscript>
     <div class="wrapper">
       <?php
