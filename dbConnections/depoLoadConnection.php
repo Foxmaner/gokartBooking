@@ -23,6 +23,21 @@ function connecttoDB(){
 
 }
 
+function raceNr(){
+	$conn = connecttoDB();
+
+	$stmt = $conn->prepare("SELECT activeRace FROM editdata WHERE CURDATE() = date(dateStamp)");
+
+	$stmt->execute();
+	$result = $stmt->get_result();
+	 while ($row = $result->fetch_assoc()) {
+	        return $row['activeRace'];
+		}
+	$stmt->close();
+
+
+}
+
 
 function loadData(){
 
@@ -45,18 +60,26 @@ if ($conn->query($sql)) {
 
 if ($nRace==1) {
   // code...
-  $conn = connecttoDB();
-  $stmt = $conn->prepare("INSERT INTO race (raceNr, largeKart, smallKart, doubleKart) VALUES (?, ?, ?, ?)");
-  $stmt->bind_param("iiii", $inputRaceNr, $inputLarge, $inputSmall, $inputDouble);	//Bind ? till variabler. Bestäm format.
+	$conn = connecttoDB();
 
+	$stmt = $conn->prepare("SELECT * FROM race WHERE raceNr = ? and CURDATE() = date(raceDate)");
+	$stmt->bind_param("i", $raceNrI);
+	$raceNrI = raceNr();
+	$stmt->execute();
+	$result = $stmt->get_result();
+	$myObj = new stdClass();
+	 while ($row = $result->fetch_assoc()) {
 
-  $inputLarge = 0;	//Sätt värden på variablerna
-  $inputSmall = 0;	//Sätt värden på variablerna
-  $inputDouble = 0;	//Sätt värden på variablerna
-  $inputRaceNr = $_GET["racenr"];	//Sätt värden på variablerna
-  $stmt->execute();		//Exekvera queryn
+		 $myObj->large = $row["largeKart"];
+		 $myObj->small = $row["smallKart"];
+		 $myObj->double = $row["doubleKart"];
 
-  $stmt->close();
+		 $myJSON = json_encode($myObj);
+		 echo $myJSON;
+		 //print_r($myObj);
+
+		}
+	$stmt->close();
 
 }else{
 
