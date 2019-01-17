@@ -3,7 +3,7 @@
   <br>
   <h1 class="depotText">Race kvar:</h1> <h1 class="depotOutput" id="outputRaceLeft">Loading...</h1>
   <br>
-  <h1 class="depotText">Kötid:</h1> <h1 class="depotOutput" id="outputQueueTime">Loading...</h1>
+  <h1 class="depotText">Kötid:</h1> <h1 class="depotOutput" id="outputQueueTime" style="float:left;">Loading...</h1> <h1 style="float:left;">min</h1>
 
 </div>
 <div id="section2" class="col-8 col-s-8">
@@ -16,7 +16,7 @@
   </div>
     <br>
   <div>
-    <h1 class="depotText">Dubbla:</h1><h1 class="depotOutput" id="outputDouble">Loading...</h1>
+    <h1 class="depotText">Dubbla:</h1><h1 class="depotOutput" id="outputDouble">Loading..</h1>
   </div>
 
 

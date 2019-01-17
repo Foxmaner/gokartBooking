@@ -38,6 +38,24 @@ function raceNr(){
 
 }
 
+function getRaceLength(){
+  $conn = connecttoDB();
+
+  $sql = "SELECT COUNT(*) as count FROM race WHERE CURDATE() = date(raceDate)";
+  if ($conn->query($sql)) {
+    $result = $conn->query($sql);
+    $nRace = $result->fetch_assoc()["count"];
+
+    } else {
+        echo "error" . $conn->error;
+  }
+  return $nRace;
+
+}
+
+
+
+
 
 function loadData(){
 
@@ -73,6 +91,13 @@ if ($nRace==1) {
 		 $myObj->large = $row["largeKart"];
 		 $myObj->small = $row["smallKart"];
 		 $myObj->double = $row["doubleKart"];
+
+		 $raceNr = raceNr();
+	
+
+		 $myObj->nextRace = ($raceNr+1);
+		 $myObj->racesLeft = getRaceLength()-$raceNr;
+		 $myObj->queueTime = (getRaceLength()-$raceNr)*7;
 
 		 $myJSON = json_encode($myObj);
 		 echo $myJSON;

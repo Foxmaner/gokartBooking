@@ -2,9 +2,9 @@ function loadData(jsonInput) {
 
   var obj = JSON.parse(jsonInput);
 
-  //document.getElementById("outputNextRace").value = obj.nextRace;
-  //document.getElementById("outputRaceLeft").value = obj.raceLeft;
-  //document.getElementById("outputQueueTime").value = obj.queueTime;
+  document.getElementById("outputNextRace").innerHTML = obj.nextRace;
+  document.getElementById("outputRaceLeft").innerHTML = obj.racesLeft;
+  document.getElementById("outputQueueTime").innerHTML = obj.queueTime;
 
   document.getElementById("outputLarge").innerHTML = obj.large;
   document.getElementById("outputSmall").innerHTML = obj.small;
