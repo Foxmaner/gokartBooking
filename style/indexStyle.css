@@ -1,164 +1,231 @@
-*{
-	box-sizing: border-box;
-	font-family: 'Roboto', sans-serif;
-
-	border: 0px;
-    padding:0;
-    margin:0;
-    border-collapse: collapse;
-
+* {
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+  border: 0px;
+  padding: 0;
+  margin: 0;
+  border-collapse: collapse;
 }
+
 a:link {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 a:visited {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 a:hover {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 a:active {
-    text-decoration: none;
+  text-decoration: none;
 }
+
 a:link {
   color: black;
 }
+
 /* General */
-.wrapper{
+.wrapper {
   width: auto;
   height: auto;
-
-}
-#noscript{
-	font-size: 5rem;
-	text-align: center;
-	width: 100%;
 }
 
+#noscript {
+  font-size: 5rem;
+  text-align: center;
+  width: 100%;
+}
 
 /* LoginPage */
-#wrapperLogin{
+#wrapperLogin {
   background-color: white;
   height: 100vh;
   background-color: grey;
 }
 
-#wrapperLoginWindow{
-position: absolute;
+#wrapperLoginWindow {
+  position: absolute;
   background-color: white;
   height: auto;
   margin-top: 20vh;
   padding: 1rem;
-
 }
 
-#submitLogin{
-    color: white;
-    background-color: rgb(77, 148, 255);
-    font-size: 125%;
-    text-align: center;
-    padding-top: 0.75rem;
-    padding-bottom: 0.75rem;
-    padding-left: 0.25rem;
-    padding-right: 0.25rem;
-    margin-top: 1rem;
+#submitLogin {
+  color: white;
+  background-color: rgb(77, 148, 255);
+  font-size: 125%;
+  text-align: center;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+  margin-top: 1rem;
 }
-#inputPassword{
+
+#inputPassword {
   background-color: rgb(230, 230, 230);
-   border: 1px solid rgb(191, 191, 191);
-   height: 2rem;
-   font-size: 2rem;
-	 text-align:  center;
+  border: 1px solid rgb(191, 191, 191);
+  height: 2rem;
+  font-size: 2rem;
+  text-align: center;
 }
-#outputLoginError{
+
+#outputLoginError {
   font-size: 2rem;
   text-align: center;
   padding: 0;
 }
 
 /* MenuPage */
-.menuPageLinkWrappers{
-	background-color: grey;
-	margin: auto;
-	padding: 15px;
-	margin-top: 10vh;
-	font-size: 2rem;
-	text-align: center;
-	content: align center;
-}
-#btnLogout{
-	text-align: right;
-}
-#a_logout{
-	margin-right: 50%;
+.menuPageLinkWrappers {
+  background-color: grey;
+  margin: auto;
+  padding: 15px;
+  margin-top: 10vh;
+  font-size: 2rem;
+  text-align: center;
+  content: align center;
 }
 
+#btnLogout {
+  text-align: right;
+}
 
-
-
+#a_logout {
+  margin-right: 50%;
+}
 
 /* For mobile phones: */
 [class*="col-"] {
   width: 100%;
-
-
 }
 
 @media only screen and (min-width: 600px) {
-  /* For tablets: */
-  .col-s-1 {width: 8.33%;}
-  .col-s-2 {width: 16.66%;}
-  .col-s-3 {width: 25%;}
-  .col-s-4 {width: 33.33%;}
-  .col-s-5 {width: 41.66%;}
-  .col-s-6 {width: 50%;}
-  .col-s-7 {width: 58.33%;}
-  .col-s-8 {width: 66.66%;}
-  .col-s-9 {width: 75%;}
-  .col-s-10 {width: 83.33%;}
-  .col-s-11 {width: 91.66%;}
-  .col-s-12 {width: 100%;}
 
-/* LoginPage */
-  #wrapperLoginWindow{
+  /* For tablets: */
+  .col-s-1 {
+    width: 8.33%;
+  }
+
+  .col-s-2 {
+    width: 16.66%;
+  }
+
+  .col-s-3 {
+    width: 25%;
+  }
+
+  .col-s-4 {
+    width: 33.33%;
+  }
+
+  .col-s-5 {
+    width: 41.66%;
+  }
+
+  .col-s-6 {
+    width: 50%;
+  }
+
+  .col-s-7 {
+    width: 58.33%;
+  }
+
+  .col-s-8 {
+    width: 66.66%;
+  }
+
+  .col-s-9 {
+    width: 75%;
+  }
+
+  .col-s-10 {
+    width: 83.33%;
+  }
+
+  .col-s-11 {
+    width: 91.66%;
+  }
+
+  .col-s-12 {
+    width: 100%;
+  }
+
+  /* LoginPage */
+  #wrapperLoginWindow {
     margin-left: 33.335%;
   }
 
-  #inputPassword{
-    margin-left: 8.335%;
-  }
-  #submitLogin{
+  #inputPassword {
     margin-left: 8.335%;
   }
 
-/* MoenuPage */
+  #submitLogin {
+    margin-left: 8.335%;
+  }
 
-
+  /* MoenuPage */
 }
 
 @media only screen and (min-width: 768px) {
-  /* For desktop: */
-  .col-1 {width: 8.33%;}
-  .col-2 {width: 16.66%;}
-  .col-3 {width: 25%;}
-  .col-4 {width: 33.33%;}
-  .col-5 {width: 41.66%;}
-  .col-6 {width: 50%;}
-  .col-7 {width: 58.33%;}
-  .col-8 {width: 66.66%;}
-  .col-9 {width: 75%;}
-  .col-10 {width: 83.33%;}
-  .col-11 {width: 91.66%;}
-  .col-12 {width: 100%;}
 
-/* LoginPage */
-  #wrapperLoginWindow{
+  /* For desktop: */
+  .col-1 {
+    width: 8.33%;
+  }
+
+  .col-2 {
+    width: 16.66%;
+  }
+
+  .col-3 {
+    width: 25%;
+  }
+
+  .col-4 {
+    width: 33.33%;
+  }
+
+  .col-5 {
+    width: 41.66%;
+  }
+
+  .col-6 {
+    width: 50%;
+  }
+
+  .col-7 {
+    width: 58.33%;
+  }
+
+  .col-8 {
+    width: 66.66%;
+  }
+
+  .col-9 {
+    width: 75%;
+  }
+
+  .col-10 {
+    width: 83.33%;
+  }
+
+  .col-11 {
+    width: 91.66%;
+  }
+
+  .col-12 {
+    width: 100%;
+  }
+
+  /* LoginPage */
+  #wrapperLoginWindow {
     margin-left: 33.335%;
   }
 
-	/* Menu Page*/
-
+  /* Menu Page*/
 }

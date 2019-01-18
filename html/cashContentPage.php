@@ -13,7 +13,7 @@
   <div id="outputTest"></div>
   <p id="textEditLopp">Lopp: </p> <div id="outputEditLopp">1</div>
   <br>
-  <button class="changeRaceButton" id="changeRaceButtonRecent" onclick="outputEditRaceS();selectPreviusRace()"> _<_ </button> <button id="changeRaceButtonNext" class="changeRaceButton" onclick="outputEditRaceA();selectNextRace();"> _>_ </button>
+  <button class="changeRaceButton" id="changeRaceButtonRecent" onclick="outputEditRaceS();selectPreviusRace()"> ◀ </button> <button id="changeRaceButtonNext" class="changeRaceButton" onclick="outputEditRaceA();selectNextRace();"> ▶ </button>
 </div>
 
 <div class="section col-11 col-s-5" id="section2">Div2 </div>

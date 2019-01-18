@@ -11,21 +11,21 @@ function loadData(jsonInput) {
   document.getElementById("outputDouble").innerHTML = obj.double;
 }
 
-function updateData(){
+function updateData() {
   var xhttp = new XMLHttpRequest();
-   xhttp.onreadystatechange = function() {
-     if (this.readyState == 4 && this.status == 200) {
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
       //alert(this.responseText);
       loadData(this.responseText);
-   }
-   };
-   xhttp.open("GET", "../dbConnections/depoLoadConnection.php", true);
-   xhttp.send();
+    }
+  };
+  xhttp.open("GET", "../dbConnections/depoLoadConnection.php", true);
+  xhttp.send();
 
 }
 
-function startUpdate(){
-  setInterval(function(){
+function startUpdate() {
+  setInterval(function() {
 
     updateData();
 
@@ -33,16 +33,16 @@ function startUpdate(){
   }, 10000);
 }
 
-function changeActiveRace(input){
+function changeActiveRace(input) {
   var xhttp = new XMLHttpRequest();
-   xhttp.onreadystatechange = function() {
-     if (this.readyState == 4 && this.status == 200) {
-       updateData();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      updateData();
 
-   }
-   };
-   xhttp.open("GET", "../dbConnections/changeActiveRaceConnection.php?input="+input , true);
-   xhttp.send();
+    }
+  };
+  xhttp.open("GET", "../dbConnections/changeActiveRaceConnection.php?input=" + input, true);
+  xhttp.send();
 }
 
 
@@ -50,10 +50,9 @@ function changeActiveRace(input){
 window.addEventListener('keyup', keyUp, false);
 
 function keyUp(e) {
- if (e.keyCode === 39) { //39 is the keyCode # for the right arrow key
-   changeActiveRace("a")
- }
- else if (e.keyCode === 37) { //39 is the keyCode # for the right arrow key
-   changeActiveRace("s")
- }
+  if (e.keyCode === 39) { //39 is the keyCode # for the right arrow key
+    changeActiveRace("a")
+  } else if (e.keyCode === 37) { //39 is the keyCode # for the right arrow key
+    changeActiveRace("s")
+  }
 }

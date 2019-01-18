@@ -82,7 +82,7 @@ if ($nRace==1) {
 
 	$stmt = $conn->prepare("SELECT * FROM race WHERE raceNr = ? and CURDATE() = date(raceDate)");
 	$stmt->bind_param("i", $raceNrI);
-	$raceNrI = raceNr();
+	$raceNrI = raceNr()+1;
 	$stmt->execute();
 	$result = $stmt->get_result();
 	$myObj = new stdClass();
@@ -93,11 +93,11 @@ if ($nRace==1) {
 		 $myObj->double = $row["doubleKart"];
 
 		 $raceNr = raceNr();
-	
+
 
 		 $myObj->nextRace = ($raceNr+1);
-		 $myObj->racesLeft = getRaceLength()-$raceNr;
-		 $myObj->queueTime = (getRaceLength()-$raceNr)*7;
+		 $myObj->racesLeft = (getRaceLength()-$raceNr)-1;
+		 $myObj->queueTime = ((getRaceLength()-$raceNr-1))*7;
 
 		 $myJSON = json_encode($myObj);
 		 echo $myJSON;
@@ -113,8 +113,8 @@ if ($nRace==1) {
 	$stmt = $conn->prepare("INSERT INTO editdata (raceChange, activeRace) VALUES (?, ?)");
 	$stmt->bind_param("ii", $raceChange, $activeRace);	//Bind ? till variabler. Bestäm format.
 
-	$raceChange = 1;
-	$activeRace = 1;
+	$raceChange = 0;
+	$activeRace = 0;
 	$stmt->execute();		//Exekvera queryn
 
 	$stmt->close();

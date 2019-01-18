@@ -61,9 +61,9 @@ function activeRaceNext(){
 
   $activeRace = (getActiveRace()+1);
 
-  if ($activeRace >= (getRaceLength()+1)) {
+  if ($activeRace > (getRaceLength())) {
     // code...
-    $activeRace = getRaceLength();
+    $activeRace = getRaceLength()-1;
   }
 
   $stmt->execute();		//Exekvera queryn
@@ -79,9 +79,9 @@ function activeRacePrevius(){
 
   $activeRace = (getActiveRace()-1);
 
-  if ($activeRace <= 0) {
+  if ($activeRace <= -1) {
     // code...
-    $activeRace=1;
+    $activeRace=0;
   }
 
   $stmt->execute();		//Exekvera queryn
