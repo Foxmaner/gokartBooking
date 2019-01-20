@@ -40,8 +40,9 @@
   text-align: center;
 }
 
-#section2 {
-  background-color: lightgray;
+#myChart {
+  background-color: grey;
+  height: 10vh;
 }
 
 #textEditLopp {
