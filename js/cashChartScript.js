@@ -4,6 +4,7 @@ var dataPack3 = [5, 4, 3, 2, 1, 5, 0, 1, 5, 7, 5];
 var dates = ["Race1", "Race2", "Race3", "Race4", "Race5", "Race6", "Race7", "Race8", "Race9", "Race10", "Race11"];
 
 var myChart = document.getElementById('myChart').getContext('2d');
+
 var raceChart = new Chart(myChart, {
   type:'bar',
   data: {

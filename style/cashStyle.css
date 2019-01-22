@@ -5,6 +5,16 @@
   padding: 0;
   margin: 0;
   border-collapse: collapse;
+
+}
+
+body{
+  height: 100vh;
+  width: 100%;
+}
+.wrapper{
+  height: 100vh;
+  width: 100%;
 }
 
 .section {
@@ -32,7 +42,6 @@
   border-radius: 15px;
   padding: auto;
   align-content: center;
-  margin-left: 41.67%;
   margin-top: 5vh;
   margin-bottom: 5vh;
   height: 30vh;
@@ -42,7 +51,7 @@
 
 #myChart {
   background-color: grey;
-  height: 10vh;
+  height: 60vh;
 }
 
 #textEditLopp {
@@ -125,6 +134,9 @@
   .col-s-12 {
     width: 100%;
   }
+  #section1{
+    margin-left: 29.17%;
+  }
 }
 
 @media only screen and (min-width: 768px) {
@@ -178,7 +190,9 @@
     width: 100%;
   }
 
-  #section2 {
-    margin-left: 4.17%;
-  }
+ #section1{
+   margin-left: 41.7%;
+ }
+
+
 }

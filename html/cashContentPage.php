@@ -17,7 +17,7 @@
 </div>
 
 <div  id="section2">
-  <canvas class="section col-11 col-s-5" id="myChart" width="3px" height="1px"></canvas>
+  <canvas class="section col-12 col-s-12" id="myChart"></canvas>
 </div>
 <?php
 echo "<script>";
