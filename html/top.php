@@ -37,7 +37,7 @@ function sanatize_input($data){
 
 function createNewDefaultUser($conn){
 	// code...
-	$newPassword = hash("sha256", "test", false);
+	$newPassword = password_hash("test", PASSWORD_BCRYPT);
 	$sql = "INSERT INTO user (userPassword) VALUES ('$newPassword')";
 		if ($conn->query($sql)) {
 			echo "NyStandardAnvändareSkapad: lyckat";
@@ -68,21 +68,20 @@ if ($userCount > 0) {
 		if ($conn->query($sql)) {
 			$result = $conn->query($sql);
 			$userPassword = $result->fetch_assoc()["userPassword"];
-
 	    } else {
 	        echo $conn->error;
 
 	}
 
 
-		if (password_verify ($inputPassword , $userPassword)) {
+		if (password_verify ($inputPassword,$userPassword)) {
 			# code...
 			$_SESSION["isLoggedIn"] = true;
 			$_SESSION["error"]="";
 		}else{
 			$_SESSION["isLoggedIn"] = false;
 			$_SESSION["error"]="Fel lösenord";
-			echo $userPassword;
+
 		}
 }else {
 	createNewDefaultUser(connecttoDB());
