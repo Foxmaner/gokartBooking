@@ -19,7 +19,7 @@ function updateData() {
       loadData(this.responseText);
     }
   };
-  xhttp.open("GET", "../dbConnections/depoLoadConnection.php", true);
+  xhttp.open("GET", "../../dbConnections/depotConnections/depoLoadConnection.php", true);
   xhttp.send();
 
 }
@@ -41,7 +41,7 @@ function changeActiveRace(input) {
 
     }
   };
-  xhttp.open("GET", "../dbConnections/changeActiveRaceConnection.php?input=" + input, true);
+  xhttp.open("GET", "../../dbConnections/depotConnections/changeActiveRaceConnection.php?input=" + input, true);
   xhttp.send();
 }
 

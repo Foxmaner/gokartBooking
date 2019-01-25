@@ -45,7 +45,7 @@ function selectNextRace() {
 
     }
   };
-  xhttp.open("GET", "../dbConnections/selectNextRaceConnection.php?racenr=" + raceNr, true);
+  xhttp.open("GET", "../../dbConnections/cashConnections/selectNextRaceConnection.php?racenr=" + raceNr, true);
   xhttp.send();
 }
 
@@ -62,7 +62,7 @@ function selectPreviusRace() {
       loadRace(this.responseText);
     }
   };
-  xhttp.open("GET", "../dbConnections/selectPreviusRaceConnection.php?racenr=" + raceNr, true);
+  xhttp.open("GET", "../../dbConnections/cashConnections/selectPreviusRaceConnection.php?racenr=" + raceNr, true);
   xhttp.send();
 
 }
@@ -88,6 +88,6 @@ function editRace() {
       document.getElementById("outputTest").innerHTML = this.responseText;
     }
   };
-  xhttp.open("GET", "../dbConnections/editRaceConnection.php?large=" + large + "&small=" + small + "&double=" + double + "&racenr=" + raceNr, true);
+  xhttp.open("GET", "../../dbConnections/cashConnections/editRaceConnection.php?large=" + large + "&small=" + small + "&double=" + double + "&racenr=" + raceNr, true);
   xhttp.send();
 }

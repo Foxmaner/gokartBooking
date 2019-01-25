@@ -21,6 +21,6 @@
 </div>
 <?php
 echo "<script>";
-require "../js/cashChartScript.js";
+require "../../js/cashScript/cashChartScript.js";
 echo "</script>";
 ?>

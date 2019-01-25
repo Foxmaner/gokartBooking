@@ -61,7 +61,7 @@ function activeRaceNext(){
 
   $activeRace = (getActiveRace()+1);
 
-  if ($activeRace > (getRaceLength())) {
+  if ($activeRace > (getRaceLength()-1)) {
     // code...
     $activeRace = getRaceLength()-1;
   }

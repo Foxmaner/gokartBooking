@@ -1,5 +1,5 @@
 <?php
-require 'html/top.php';
+require 'html/topCode/top.php';
 ?>
 
 <!DOCTYPE html>
@@ -7,7 +7,7 @@ require 'html/top.php';
   <head>
     <meta charset="utf-8">
     <title>Glabo Bokningssida</title>
-    <link rel="stylesheet" type="text/css" href="style/indexStyle.css">
+    <link rel="stylesheet" type="text/css" href="style/indexStyle/indexStyle.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   </head>
@@ -18,12 +18,12 @@ require 'html/top.php';
 
       if (isset($_SESSION["isLoggedIn"])) {
         if ($_SESSION["isLoggedIn"]==true) {
-          require 'html/menuPage.php';
+          require 'html/menuPage/menuPage.php';
         }else{
-          require 'html/loginPage.php';
+          require 'html/loginPage/loginPage.php';
         }
       }else{
-        require 'html/loginPage.php';
+        require 'html/loginPage/loginPage.php';
       }
 
 
