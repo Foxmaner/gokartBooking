@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 10, 2019 at 04:18 PM
+-- Generation Time: Jan 16, 2019 at 01:24 PM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.2.9
 
@@ -21,6 +21,19 @@ SET time_zone = "+00:00";
 --
 -- Database: `glabo_bokningar`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `editdata`
+--
+
+CREATE TABLE `editdata` (
+  `raceDataID` int(11) NOT NULL,
+  `raceChange` int(11) NOT NULL,
+  `activeRace` int(11) NOT NULL,
+  `dateStamp` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -60,6 +73,12 @@ INSERT INTO `user` (`userID`, `userPassword`) VALUES
 --
 
 --
+-- Indexes for table `editdata`
+--
+ALTER TABLE `editdata`
+  ADD PRIMARY KEY (`raceDataID`);
+
+--
 -- Indexes for table `race`
 --
 ALTER TABLE `race`
@@ -74,6 +93,12 @@ ALTER TABLE `user`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `editdata`
+--
+ALTER TABLE `editdata`
+  MODIFY `raceDataID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `race`

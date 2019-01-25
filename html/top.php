@@ -34,25 +34,59 @@ function sanatize_input($data){
 	return $data;
 }
 
-function loginUser($inputPassword,$conn){
-$sql = "SELECT userPassword FROM user WHERE userID = 1";
-	if ($conn->query($sql)) {
-		$result = $conn->query($sql);
-		$userPassword = $result->fetch_assoc()["userPassword"];
 
-    } else {
-        echo $conn->error;
+function createNewDefaultUser($conn){
+	// code...
+	$newPassword = password_hash("test", PASSWORD_BCRYPT);
+	$sql = "INSERT INTO user (userPassword) VALUES ('$newPassword')";
+		if ($conn->query($sql)) {
+			echo "NyStandardAnvändareSkapad: lyckat";
+
+			} else {
+					echo $conn->error;
+	}
+
 }
 
 
-	if ($userPassword == $inputPassword) {
-		# code...
-		$_SESSION["isLoggedIn"] = true;
-		$_SESSION["error"]="";
-	}else{
-		$_SESSION["isLoggedIn"] = false;
-		$_SESSION["error"]="Fel lösenord";
+function loginUser($inputPassword,$conn){
+
+	$sql = "SELECT COUNT(*) as count FROM user WHERE 1=1";
+		if ($conn->query($sql)) {
+			$result = $conn->query($sql);
+			$userCount = $result->fetch_assoc()["count"];
+
+	    } else {
+	        echo $conn->error;
 	}
+
+
+
+if ($userCount > 0) {
+	// code...
+	$sql = "SELECT userPassword FROM user WHERE userID = 1";
+		if ($conn->query($sql)) {
+			$result = $conn->query($sql);
+			$userPassword = $result->fetch_assoc()["userPassword"];
+	    } else {
+	        echo $conn->error;
+
+	}
+
+
+		if (password_verify ($inputPassword,$userPassword)) {
+			# code...
+			$_SESSION["isLoggedIn"] = true;
+			$_SESSION["error"]="";
+		}else{
+			$_SESSION["isLoggedIn"] = false;
+			$_SESSION["error"]="Fel lösenord";
+
+		}
+}else {
+	createNewDefaultUser(connecttoDB());
+}
+
 
 }
 
