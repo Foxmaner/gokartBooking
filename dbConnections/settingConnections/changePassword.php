@@ -30,10 +30,10 @@ function sanatize_input($data){
 	return $data;
 }
 
-if (isset($_POST["inputPassword"])) {
+
   // code...
   $conn=connecttoDB();
-  $inputPassword = $_POST["inputPassword"];
+  $inputPassword = $_GET["inputPassword"];
   $inputPassword = sanatize_input($inputPassword);
   $newPassword = password_hash($inputPassword, PASSWORD_BCRYPT);
   $sql = "UPDATE user SET userPassword = '$newPassword' WHERE userID = 1";
@@ -43,9 +43,7 @@ if (isset($_POST["inputPassword"])) {
       } else {
           echo $conn->error;
   }
-}else {
-  echo "ServerError: inputNewPassword not set!";
-}
+
 
 
 
