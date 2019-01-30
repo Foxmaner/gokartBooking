@@ -17,7 +17,7 @@ require '../topCode/top.php';
     <noscript id="noscript">Sorry, your browser does not support JavaScript!</noscript>
     <div class="wrapper">
       <?php
-
+      require '../headerPage/staticHeader.php';
       if (isset($_SESSION["isLoggedIn"])) {
         if ($_SESSION["isLoggedIn"]==true) {
         require "cashContentPage.php";
