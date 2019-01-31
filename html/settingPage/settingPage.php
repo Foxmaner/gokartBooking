@@ -10,6 +10,7 @@ require '../topCode/top.php';
     <link rel="stylesheet" type="text/css" href="../../style/settingStyle/settingStyle.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="../../js/settingScript/settingScript.js"></script>
+    <script src="../../plugins/alertify.js-0.3.11/lib/alertify.min.js"></script>
   </head>
   <body>
     <noscript id="noscript">Sorry, your browser does not support JavaScript!</noscript>
