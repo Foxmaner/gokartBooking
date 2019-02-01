@@ -9,8 +9,13 @@ require '../topCode/top.php';
     <title>Glabo Bokningssida</title>
     <link rel="stylesheet" type="text/css" href="../../style/settingStyle/settingStyle.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script src="../../plugins/alertifyjs/alertify.min.js"></script>
+    <link rel="stylesheet" href="../../plugins/alertifyjs/css/alertify.css" />
+    <link rel="stylesheet" href="../../plugins/alertifyjs/css/themes/default.min.css" />
+
     <script src="../../js/settingScript/settingScript.js"></script>
-    <script src="../../plugins/alertify.js-0.3.11/lib/alertify.min.js"></script>
   </head>
   <body>
     <noscript id="noscript">Sorry, your browser does not support JavaScript!</noscript>

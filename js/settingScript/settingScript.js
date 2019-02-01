@@ -58,18 +58,53 @@ function deleteRace() {
 
 }
 
+
+function validateAdminPassword(inputPassword){
+  var booleanReturn;
+
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      console.log(this.responseText);
+      console.log("test!");
+      if (this.responseText==="true") {
+        console.log("boo");
+        booleanReturn = true;
+      } else{
+        console.log("AA");
+        booleanReturn = false;
+      }
+    }
+  }
+  xhttp.open("POST", "../../dbConnections/settingConnections/validateAdminPassword.php", true);
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhttp.send("sentPassword="+inputPassword);
+
+  return booleanReturn;
+}
+
 function validateActionClearRace() {
 
-  var inputPrompt = prompt("Är du verkligen säker?\nEfter denna handling går datan inte att återställa\nBekräfta genom att skriva Glabogokarts gatuadress och nummer, utan mellanslag.");
-  if (inputPrompt.localeCompare("glabo", 'en', {
-      sensitivity: 'base'
-    })) {
-    document.getElementById("outputClearDB").innerHTML = "Försök igen: Fel valideringstext";
-  } else {
-    deleteRace();
-
-  }
+  alertify.prompt("Är du verkligen säker? Efter denna handling går datan inte att återställa. Bekräfta genom att skriva adminlösenordet", "",
+    function(evt, value ){
+      if (validateAdminPassword(value)) {
+        deleteRace();
+        alertify.notify('Lyckat: Race raderade!');
+      }else{
+        alertify.error('Misslyckat: Fel lösenord')
+      }
+    },
+    function(){
+      alertify.error('Misslyckat: Handligen avbröts');
+    }).setHeader('<em> Bekräftelse </em> ').set('type', 'password');
 }
+
+
+
+
+
+
+
 
 function deleteAllData() {
   var xhttp = new XMLHttpRequest();
