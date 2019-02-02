@@ -26,10 +26,10 @@ require '../topCode/top.php';
         if ($_SESSION["isLoggedIn"]==true) {
         require "settingContentPage.php";
         }else{
-        require 'loginErrorPage.php';
+        require '../loginPage/loginErrorPage.php';
         }
       }else{
-        require 'loginErrorPage.php';
+        require '../loginPage/loginErrorPage.php';
       }
 
 

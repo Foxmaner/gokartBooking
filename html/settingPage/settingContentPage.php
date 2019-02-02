@@ -2,9 +2,9 @@
   <h1 class="title">Inställningar</h1>
   <h2 class="subTitle">Lösenord</h2>
   <p>Ändra lösenord:</p>
-  <input id="inputChangePassword1" type="password" placeholder="Nytt lösenord" onkeyup="checkPasswordParameters()"></input>
+  <input id="inputChangePassword1" type="password" placeholder="Nytt lösenord"></input>
   <br>
-  <div id="outputPasswordStrength"></div>
+  
   <br>
   <input id="inputChangePassword2" type="password" placeholder="Repetera lösenord" onkeyup="checkSecondPassword()"></input>
   <div id="outputCheckPassword2"></div>

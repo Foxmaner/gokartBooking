@@ -1,22 +1,3 @@
-function checkPasswordParameters() {
-  var strength = document.getElementById("outputPasswordStrength");
-  var strongRegex = new RegExp("^(?=.{8,})(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*\\W).*$", "g");
-  var mediumRegex = new RegExp("^(?=.{7,})(((?=.*[A-Z])(?=.*[a-z]))|((?=.*[A-Z])(?=.*[0-9]))|((?=.*[a-z])(?=.*[0-9]))).*$", "g");
-  var enoughRegex = new RegExp("(?=.{6,}).*", "g");
-  var pwd = document.getElementById("inputChangePassword1");
-  if (pwd.value.length == 0) {
-    strength.innerHTML = "Type Password";
-  } else if (false == enoughRegex.test(pwd.value)) {
-    strength.innerHTML = "More Characters";
-  } else if (strongRegex.test(pwd.value)) {
-    strength.innerHTML = " <span style = 'color:green' > Strong! </span>";
-  } else if (mediumRegex.test(pwd.value)) {
-    strength.innerHTML = " <span style = 'color:orange' > Medium! </span>";
-  } else {
-    strength.innerHTML = " <span style = 'color:red' > Weak! </span>";
-  }
-}
-
 function checkSecondPassword() {
   var password1 = document.getElementById("inputChangePassword1").value;
   var password2 = document.getElementById("inputChangePassword2").value;
@@ -41,7 +22,7 @@ function changePassword() {
     };
     xhttp.open("GET", "../../dbConnections/settingConnections/changePassword.php?inputPassword=" + (document.getElementById("inputChangePassword1").value), true);
     xhttp.send();
-  }else{
+  } else {
     alert("Lösenorden stämmer inte")
   }
 }
@@ -59,52 +40,74 @@ function deleteRace() {
 }
 
 
-function validateAdminPassword(inputPassword){
+function validateAdminPassword(inputPassword, action) {
   var booleanReturn;
 
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       console.log(this.responseText);
-      console.log("test!");
-      if (this.responseText==="true") {
+      if (this.responseText === "true") {
         console.log("boo");
-        booleanReturn = true;
-      } else{
+        validateAdminPasswordResponse(true, action);
+      } else {
         console.log("AA");
-        booleanReturn = false;
+        validateAdminPasswordResponse(false, action);
       }
     }
   }
   xhttp.open("POST", "../../dbConnections/settingConnections/validateAdminPassword.php", true);
   xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  xhttp.send("sentPassword="+inputPassword);
+  xhttp.send("sentPassword=" + inputPassword);
 
-  return booleanReturn;
+}
+
+function validateAdminPasswordResponse(response, action) {
+
+  if (action == 1) {
+    if (response == true) {
+      deleteRace();
+      alertify.notify('Lyckat: Race raderade!');
+
+    }else{
+      alertify.error('Misslyckat: Fel lösenord')
+    }
+  } else if (action == 2) {
+    if (response == true) {
+      deleteAllData();
+      alertify.notify('Lyckat: All data raderad!');
+      alertify.notify('Stäng ner webbläsaren innan du fortsätter att använda hemsidan');
+
+    }else{
+      alertify.error('Misslyckat: Fel lösenord')
+    }
+  }
+
 }
 
 function validateActionClearRace() {
 
   alertify.prompt("Är du verkligen säker? Efter denna handling går datan inte att återställa. Bekräfta genom att skriva adminlösenordet", "",
-    function(evt, value ){
-      if (validateAdminPassword(value)) {
-        deleteRace();
-        alertify.notify('Lyckat: Race raderade!');
-      }else{
-        alertify.error('Misslyckat: Fel lösenord')
-      }
+    function(evt, value) {
+      //2 = radera race data
+      validateAdminPassword(value, 1)
     },
-    function(){
+    function() {
       alertify.error('Misslyckat: Handligen avbröts');
     }).setHeader('<em> Bekräftelse </em> ').set('type', 'password');
 }
 
+function validateActionClearAllData() {
 
-
-
-
-
-
+  alertify.prompt("Är du verkligen säker? Efter denna handling går datan inte att återställa. Bekräfta genom att skriva adminlösenordet", "",
+    function(evt, value) {
+      //2 = radera all data
+      validateAdminPassword(value, 2)
+    },
+    function() {
+      alertify.error('Misslyckat: Handligen avbröts');
+    }).setHeader('<em> Bekräftelse </em> ').set('type', 'password');
+}
 
 function deleteAllData() {
   var xhttp = new XMLHttpRequest();
@@ -118,15 +121,14 @@ function deleteAllData() {
 
 }
 
-function validateActionClearAllData() {
+function logoutUser(){
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
 
-  var inputPrompt = prompt("Är du verkligen säker?\nEfter denna handling går datan inte att återställa\nBekräfta genom att skriva Glabogokarts gatuadress och nummer, utan mellanslag.");
-  if (inputPrompt.localeCompare("glabo2", 'en', {
-      sensitivity: 'base'
-    })) {
-    document.getElementById("outputClearDB").innerHTML = "Försök igen: Fel valideringstext";
-  } else {
-    deleteAllData();
 
-  }
+    }
+  };
+  xhttp.open("POST", "../../dbConnections/settingConnections/logoutUser.php", true);
+  xhttp.send();
 }
