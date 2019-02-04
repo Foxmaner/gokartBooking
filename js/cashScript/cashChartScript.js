@@ -1,3 +1,29 @@
+
+
+function loadChart() {
+  var raceChart = {
+    raceNr: [],
+    largeKarts: [],
+    smallKarts: [],
+    doubleKarts: []
+  };
+
+  var raceNr = document.getElementById("outputEditLopp").innerHTML;
+
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      alert(this.responseText);
+      var obj = JSON.parse(this.responseText);
+      console.log(obj.double[2]);
+
+    }
+  };
+  xhttp.open("POST", "../../dbConnections/cashConnections/getCashChartConnection.php", true);
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhttp.send("racenr=" + raceNr);
+}
+
 var dataPack1 = [5, 4, 3, 2, 1, 5, 0, 1, 5, 2, 5];
 var dataPack2 = [5, 4, 3, 2, 1, 7, 1, 1, 2, 5, 5];
 var dataPack3 = [5, 4, 3, 2, 1, 5, 0, 1, 5, 7, 5];
