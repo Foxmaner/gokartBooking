@@ -33,6 +33,13 @@ a:link {
   height: auto;
 }
 
+.title{
+  text-align: center;
+  padding-bottom: 2vh;
+  width: 100%;
+  font-size: 3rem;
+
+}
 #noscript {
   font-size: 5rem;
   text-align: center;
@@ -50,8 +57,12 @@ a:link {
   position: absolute;
   background-color: white;
   height: auto;
-  margin-top: 20vh;
+  margin-top: 10vh;
   padding: 1rem;
+}
+
+#errorText{
+  color: red;
 }
 
 #submitLogin {

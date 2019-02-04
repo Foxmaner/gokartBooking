@@ -37,7 +37,7 @@ function sanatize_input($data){
 
 function createNewDefaultUser($conn){
 	// code...
-	$newPassword = password_hash("test", PASSWORD_BCRYPT);
+	$newPassword = password_hash("password", PASSWORD_BCRYPT);
 	$newAdminPassword = password_hash("admin", PASSWORD_BCRYPT);
 	$sql = "INSERT INTO user (userPassword, adminPassword) VALUES ('$newPassword', '$newAdminPassword')";
 		if ($conn->query($sql)) {

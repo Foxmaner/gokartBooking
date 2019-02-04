@@ -1,30 +1,91 @@
-function checkSecondPassword() {
-  var password1 = document.getElementById("inputChangePassword1").value;
-  var password2 = document.getElementById("inputChangePassword2").value;
+function checkSecondUserPassword() {
+  var password1 = document.getElementById("inputChangeUserPassword1").value;
+  var password2 = document.getElementById("inputChangeUserPassword2").value;
 
   if (password1 == password2) {
-    document.getElementById("outputCheckPassword2").innerHTML = "Godkänt";
     return true;
   } else {
-    document.getElementById("outputCheckPassword2").innerHTML = "Lösenordet stämmer inte överens";
+
     return false;
   }
 
 }
 
-function changePassword() {
-  if (checkSecondPassword()) {
+function checkSecondAdminPassword() {
+  var password1 = document.getElementById("inputChangeAdminPassword1").value;
+  var password2 = document.getElementById("inputChangeAdminPassword2").value;
+
+  if (password1 == password2) {
+    return true;
+  } else {
+
+    return false;
+  }
+
+}
+
+function validateChangeUserPassword() {
+  if (checkSecondUserPassword()) {
+
+    alertify.prompt("Är du verkligen säker? Efter denna handling går datan inte att återställa. Bekräfta genom att skriva adminlösenordet", "",
+      function(evt, value) {
+        //2 = radera race data
+        validateAdminPassword(value, 3)
+      },
+      function() {
+        alertify.error('Misslyckat: Handligen avbröts');
+      }).setHeader('<em> Bekräftelse </em> ').set('type', 'password');
+  } else {
+    alertify.error("Lösenorden stämmer inte");
+    document.getElementById("inputChangeUserPassword1").value = "";
+    document.getElementById("inputChangeUserPassword2").value = "";
+  }
+}
+
+function validateChangeAdminPassword() {
+  if (checkSecondAdminPassword()) {
+
+    alertify.prompt("Är du verkligen säker? Efter denna handling går datan inte att återställa. Bekräfta genom att skriva adminlösenordet", "",
+      function(evt, value) {
+        //2 = radera race data
+        validateAdminPassword(value, 4)
+      },
+      function() {
+        alertify.error('Misslyckat: Handligen avbröts');
+      }).setHeader('<em> Bekräftelse </em> ').set('type', 'password');
+  } else {
+    alertify.error("Lösenorden stämmer inte");
+    document.getElementById("inputChangeAdminPassword1").value = "";
+    document.getElementById("inputChangeAdminPassword2").value = "";
+  }
+}
+
+function changeUserPassword() {
+
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
-        document.getElementById("outputChangePassword").innerHTML = (this.responseText);
+        document.getElementById("inputChangeUserPassword1").value = "";
+        document.getElementById("inputChangeUserPassword2").value = "";
       }
     };
-    xhttp.open("GET", "../../dbConnections/settingConnections/changePassword.php?inputPassword=" + (document.getElementById("inputChangePassword1").value), true);
+    xhttp.open("GET", "../../dbConnections/settingConnections/changeUserPassword.php?inputPassword=" + (document.getElementById("inputChangeUserPassword1").value), true);
     xhttp.send();
-  } else {
-    alert("Lösenorden stämmer inte")
-  }
+
+}
+
+function changeAdminPassword() {
+
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("inputChangeAdminPassword1").value = "";
+        document.getElementById("inputChangeAdminPassword2").value = "";
+      }
+    };
+    xhttp.open("GET", "../../dbConnections/settingConnections/changeAdminPassword.php?inputPassword=" + (document.getElementById("inputChangeAdminPassword1").value), true);
+    xhttp.send();
+
 }
 
 function deleteRace() {
@@ -81,6 +142,22 @@ function validateAdminPasswordResponse(response, action) {
     }else{
       alertify.error('Misslyckat: Fel lösenord')
     }
+  }else if (action == 3) {
+    if (response == true) {
+      changeUserPassword();
+      alertify.notify('Lyckat: Userlösenord ändrat!');
+
+    }else{
+      alertify.error('Misslyckat: Fel lösenord')
+    }
+  }else if (action == 4) {
+    if (response == true) {
+      changeAdminPassword();
+      alertify.notify('Lyckat: Adminlösenord ändrat!');
+
+    }else{
+      alertify.error('Misslyckat: Fel lösenord')
+    }
   }
 
 }
@@ -103,6 +180,18 @@ function validateActionClearAllData() {
     function(evt, value) {
       //2 = radera all data
       validateAdminPassword(value, 2)
+    },
+    function() {
+      alertify.error('Misslyckat: Handligen avbröts');
+    }).setHeader('<em> Bekräftelse </em> ').set('type', 'password');
+}
+
+function validateActionClearAllData() {
+
+  alertify.prompt("Är du verkligen säker? Detta kommer att byta användarens lösenord. Bekräfta genom att skriva adminlösenordet", "",
+    function(evt, value) {
+      //2 = radera all data
+      validateAdminPassword(value, 3)
     },
     function() {
       alertify.error('Misslyckat: Handligen avbröts');

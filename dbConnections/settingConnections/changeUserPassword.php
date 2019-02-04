@@ -38,7 +38,7 @@ function sanatize_input($data){
   $newPassword = password_hash($inputPassword, PASSWORD_BCRYPT);
   $sql = "UPDATE user SET userPassword = '$newPassword' WHERE userID = 1";
     if ($conn->query($sql)) {
-      echo "Lösenordet är nu ändrat";
+      echo "Userlösenordet är nu ändrat";
 
       } else {
           echo $conn->error;

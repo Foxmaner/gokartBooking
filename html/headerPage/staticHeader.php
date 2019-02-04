@@ -13,16 +13,17 @@ html{
 }
 #linkMenu{
   position: absolute;
-  width: 5vh;
+  width: auto;
   height: 5vh;
   background-color: darkgrey;
   padding-top: 8px;
-  border-radius: 0 0 50px 0;
   padding-right: 15px;
   padding-bottom: 15px;
+  padding-left: 15px;
   text-align: center;
   margin-left: 0%;
   font-size: 1.5rem;
+
 
 }
 
