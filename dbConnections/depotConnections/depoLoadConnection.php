@@ -94,10 +94,17 @@ if ($nRace==1) {
 
 		 $raceNr = raceNr();
 
+		 $queueTime = (((getRaceLength()-$raceNr-1))*7);
+		 if ($queueTime > 60) {
+		 	// code...
+			$queueTime = date('H:i', mktime(0,$queueTime))."h";
+		}else{
+			$queueTime=$queueTime."min";
+		};
 
 		 $myObj->nextRace = ($raceNr+1);
 		 $myObj->racesLeft = (getRaceLength()-$raceNr)-1;
-		 $myObj->queueTime = ((getRaceLength()-$raceNr-1))*7;
+		 $myObj->queueTime = $queueTime;
 
 		 $myJSON = json_encode($myObj);
 		 echo $myJSON;
