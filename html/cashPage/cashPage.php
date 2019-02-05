@@ -13,7 +13,7 @@ require '../topCode/top.php';
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
 
   </head>
-  <body onload="selectNextRace()">
+  <body onload="selectNextRace();loadChart()">
     <noscript id="noscript">Sorry, your browser does not support JavaScript!</noscript>
     <div class="wrapper">
       <?php

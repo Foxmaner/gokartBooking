@@ -4,16 +4,16 @@
 
 
   <br>
-  Stora <input id="inputLargeKart" class="kartInputs" type="number" min="0" max="10" oninput="editRace()">
+  Stora <input id="inputLargeKart" class="kartInputs" type="number" min="0" max="10" oninput="editRace();loadChart()">
   <br>
-  Små <input id="inputSmallKart" class="kartInputs" type="number" min="0" max="6" oninput="editRace()">
+  Små <input id="inputSmallKart" class="kartInputs" type="number" min="0" max="6" oninput="editRace();loadChart()">
   <br>
-  Dubbla <input id="inputDoubleKart" class="kartInputs" type="number" min="0" max="2" oninput="editRace()">
+  Dubbla <input id="inputDoubleKart" class="kartInputs" type="number" min="0" max="2" oninput="editRace();loadChart()">
 
   <div id="outputTest"></div>
   <p id="textEditLopp">Lopp: </p> <div id="outputEditLopp">1</div>
   <br>
-  <button class="changeRaceButton" id="changeRaceButtonRecent" onclick="outputEditRaceS();selectPreviusRace()"> ◀ </button> <button id="changeRaceButtonNext" class="changeRaceButton" onclick="outputEditRaceA();selectNextRace();loadChart()"> ▶ </button>
+  <button class="changeRaceButton" id="changeRaceButtonRecent" onclick="outputEditRaceS();selectPreviusRace();loadChart()"> ◀ </button> <button id="changeRaceButtonNext" class="changeRaceButton" onclick="outputEditRaceA();selectNextRace();loadChart()"> ▶ </button>
 </div>
 
 <div  id="section2">

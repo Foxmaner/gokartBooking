@@ -42,24 +42,29 @@ if (isset($_POST["racenr"])) {
   // code...
 
 
-  if ($_POST["racenr"] < 11) {
+  if ($_POST["racenr"] <= 6) {
     // code...
     $conn = connecttoDB();
 
     $myObj = new stdClass();
     $myObj->raceNr = $_POST["racenr"];
-    $arrayLargeKart = array();
+		$arrayRaceNr = array();
+		$arrayLargeKart = array();
     $arraySmallKart = array();
     $arrayDoubleKart = array();
 
     $stmt = $conn->prepare("SELECT * FROM race WHERE 1 <= raceNr and raceNr <= ? and CURDATE() = date(raceDate)");
     $stmt->bind_param("i", $raceNrI);
     $raceNrI = getRaceLength();
+		if ($raceNrI > 11) {
+			// code...
+			$raceNrI=11;
+		}
     $stmt->execute();
     $result = $stmt->get_result();
     $i = 0;
      while ($row = $result->fetch_assoc()) {
-
+			 array_push($arrayRaceNr,$i+1);
        array_push($arrayLargeKart,$row["largeKart"]);
        array_push($arraySmallKart,$row["smallKart"]);
        array_push($arrayDoubleKart,$row["doubleKart"]);
@@ -70,7 +75,7 @@ if (isset($_POST["racenr"])) {
       }
     $stmt->close();
 
-
+		$myObj->raceNrArray = $arrayRaceNr;
     $myObj->large = $arrayLargeKart;
     $myObj->small = $arraySmallKart;
     $myObj->double = $arrayDoubleKart;
@@ -84,6 +89,49 @@ if (isset($_POST["racenr"])) {
 
 
   }else{
+
+
+
+		$conn = connecttoDB();
+
+    $myObj = new stdClass();
+    $myObj->raceNr = $_POST["racenr"];
+		$arrayRaceNr = array();
+    $arrayLargeKart = array();
+    $arraySmallKart = array();
+    $arrayDoubleKart = array();
+
+    $stmt = $conn->prepare("SELECT * FROM race WHERE ? <= raceNr and raceNr <= ? and CURDATE() = date(raceDate)");
+    $stmt->bind_param("ii", $raceNrF, $raceNrL);
+    $raceNrF = $_POST["racenr"]-5;
+		$raceNrL = $_POST["racenr"]+5;
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $i = $_POST["racenr"]-5;
+     while ($row = $result->fetch_assoc()) {
+			 array_push($arrayRaceNr,$i+1);
+       array_push($arrayLargeKart,$row["largeKart"]);
+       array_push($arraySmallKart,$row["smallKart"]);
+       array_push($arrayDoubleKart,$row["doubleKart"]);
+
+
+
+       $i=$i+1;
+      }
+    $stmt->close();
+
+		$myObj->raceNrArray = $arrayRaceNr;
+    $myObj->large = $arrayLargeKart;
+    $myObj->small = $arraySmallKart;
+    $myObj->double = $arrayDoubleKart;
+
+
+
+
+
+    $myJSON = json_encode($myObj);
+    echo $myJSON;
+
 
   }
 }
