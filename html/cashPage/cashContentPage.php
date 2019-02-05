@@ -4,11 +4,11 @@
 
 
   <br>
-  Stora <input id="inputLargeKart" class="kartInputs" type="number" min="0" max="10" onchange="editRace();loadChart()">
+  Stora <input id="inputLargeKart" class="kartInputs" type="number" min="0" max="10" onchange="editRace();loadChart()" readonly>
   <br>
-  Små <input id="inputSmallKart" class="kartInputs" type="number" min="0" max="6" onchange="editRace();loadChart()">
+  Små <input id="inputSmallKart" class="kartInputs" type="number" min="0" max="6" onchange="editRace();loadChart()" readonly>
   <br>
-  Dubbla <input id="inputDoubleKart" class="kartInputs" type="number" min="0" max="2" onchange="editRace();loadChart()">
+  Dubbla <input id="inputDoubleKart" class="kartInputs" type="number" min="0" max="2" onchange="editRace();loadChart()" readonly>
 
   <div id="outputTest"></div>
   <p id="textEditLopp">Lopp: </p> <div id="outputEditLopp">1</div>
