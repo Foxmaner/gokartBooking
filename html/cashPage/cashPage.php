@@ -1,5 +1,5 @@
 <?php
-require 'html/topCode/top.php';
+require '../topCode/top.php';
 ?>
 
 <!DOCTYPE html>
@@ -7,24 +7,25 @@ require 'html/topCode/top.php';
   <head>
     <meta charset="utf-8">
     <title>Glabo Bokningssida</title>
-    <link rel="stylesheet" type="text/css" href="style/indexStyle/indexStyle.css">
+    <link rel="stylesheet" type="text/css" href="../../style/cashStyle/cashStyle.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../../js/cashScript/cashScript.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
 
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
   </head>
-  <body>
+  <body onload="selectNextRace();loadChart()">
     <noscript id="noscript">Sorry, your browser does not support JavaScript!</noscript>
     <div class="wrapper">
       <?php
-
+      require '../headerPage/staticHeader.php';
       if (isset($_SESSION["isLoggedIn"])) {
         if ($_SESSION["isLoggedIn"]==true) {
-          require 'html/menuPage/menuPage.php';
+        require "cashContentPage.php";
         }else{
-          require 'html/loginPage/loginPage.php';
+        require '../loginPage/loginErrorPage.php';
         }
       }else{
-        require 'html/loginPage/loginPage.php';
+        require '../loginPage/loginErrorPage.php';
       }
 
 
