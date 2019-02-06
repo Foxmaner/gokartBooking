@@ -11,10 +11,15 @@ require 'html/topCode/top.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light" rel="stylesheet">
+
+    <script src="plugins/alertifyjs/alertify.min.js"></script>
+    <link rel="stylesheet" href="plugins/alertifyjs/css/alertify.css" />
+    <link rel="stylesheet" href="plugins/alertifyjs/css/themes/default.min.css" />
   </head>
   <body>
     <noscript id="noscript">Sorry, your browser does not support JavaScript!</noscript>
-    <div class="wrapper">
+
       <?php
 
       if (isset($_SESSION["isLoggedIn"])) {
@@ -29,6 +34,6 @@ require 'html/topCode/top.php';
 
 
       ?>
-    </div>
+
   </body>
 </html>

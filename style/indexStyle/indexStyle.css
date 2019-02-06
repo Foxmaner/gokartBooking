@@ -5,110 +5,121 @@
   padding: 0;
   margin: 0;
   border-collapse: collapse;
+  float: left;
 }
 
-a:link {
-  text-decoration: none;
+body{
+  width: 100%;
+  height: 100vh;
 }
 
-a:visited {
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: none;
-}
-
-a:active {
-  text-decoration: none;
-}
-
-a:link {
-  color: black;
-}
-
-/* General */
-.wrapper {
+/* --*/
+/* Wrapper*/
+/* --*/
+.wrapper{
   width: auto;
   height: auto;
 }
 
-.title{
-  text-align: center;
-  padding-bottom: 2vh;
-  width: 100%;
-  font-size: 3rem;
+  /* --*/
+  /* Bakgrundsbild */
+  /* --*/
 
-}
-#noscript {
-  font-size: 5rem;
-  text-align: center;
-  width: 100%;
+  /* Zoom in/Zoom out animation */
+@keyframes breath {
+  0%   { background-size: 100% auto; }
+  50% { background-size: 110% auto; }
+  100% { background-size: 100% auto; }
 }
 
-/* LoginPage */
-#wrapperLogin {
-  background-color: white;
+#loginBackground{
   height: 100vh;
-  background-color: grey;
-}
-
-#wrapperLoginWindow {
+  width: 100%;
   position: absolute;
-  background-color: white;
-  height: auto;
-  margin-top: 10vh;
-  padding: 1rem;
+
+  animation: breath 30s ease-in-out infinite;
+  /* Links to the picture */
+  background-image: url("../../media/pictures/topdownView.JPG");
+
+  /* Add the blur effect */
+  filter: blur(3px);
+  -webkit-filter: blur(3px);
+
+  /* Center and scale the image nicely */
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  z-index: -1;
 }
 
-#errorText{
-  color: red;
-}
+/* --*/
+/* Loginfönster */
+/* --*/
+#wrapperTransparentLoginWindow{
+  background-color: rgb(255,255,255,0.39);
+  margin-left: 37.5%;
 
-#submitLogin {
-  color: white;
-  background-color: rgb(77, 148, 255);
-  font-size: 125%;
+
+  padding-bottom: 1vh;
+
   text-align: center;
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
-  padding-left: 0.25rem;
-  padding-right: 0.25rem;
-  margin-top: 1rem;
+
+  margin-top: 30vh;
+}
+.title{
+  position: relative;
+  bottom: 3vh;
+}
+#loginTitleIcon{
+  background-image: url("../../media/icons/flagIcon.PNG");
+  /* Center and scale the image nicely */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: rgb(163,150,116);
+  width: 10vh;
+  height: 10vh;
+  border-radius: 50%;
+
+  float: none;
+  margin:0px auto;
+
+  position: relative;
+  bottom: 5vh;
+}
+#loginForm{
+  text-align: left;
+
 }
 
-#inputPassword {
-  background-color: rgb(230, 230, 230);
-  border: 1px solid rgb(191, 191, 191);
+#inputPassword:focus {
+    outline: none;
+}
+
+#inputPassword{
+  border-bottom: 2px solid rgb(216,201,180);
+  background-color: transparent;
+
+  margin-left: 33.335%;
+
   height: 2rem;
   font-size: 2rem;
-  text-align: center;
-}
 
-#outputLoginError {
+  background-image: url("../../media/icons/lockIcon.PNG");
+  background-position:0px 0.2rem;
+  background-repeat: no-repeat;
+  background-size: 1.6rem;
+  padding-left: 40px;
+
+}
+#submitLogin{
+  background-color: rgb(96,116,29);
+  height: 3rem;
   font-size: 2rem;
-  text-align: center;
-  padding: 0;
+  margin-top: 3vh;
 }
 
-/* MenuPage */
-.menuPageLinkWrappers {
-  background-color: grey;
-  margin: auto;
-  padding: 15px;
-  margin-top: 10vh;
-  font-size: 2rem;
-  text-align: center;
-  content: align center;
-}
 
-#btnLogout {
-  text-align: right;
-}
-
-#a_logout {
-  margin-right: 50%;
-}
+/* Viewports for a responsive website */
 
 /* For mobile phones: */
 [class*="col-"] {
@@ -166,20 +177,6 @@ a:link {
     width: 100%;
   }
 
-  /* LoginPage */
-  #wrapperLoginWindow {
-    margin-left: 33.335%;
-  }
-
-  #inputPassword {
-    margin-left: 8.335%;
-  }
-
-  #submitLogin {
-    margin-left: 8.335%;
-  }
-
-  /* MoenuPage */
 }
 
 @media only screen and (min-width: 768px) {
@@ -233,10 +230,4 @@ a:link {
     width: 100%;
   }
 
-  /* LoginPage */
-  #wrapperLoginWindow {
-    margin-left: 33.335%;
-  }
-
-  /* Menu Page*/
 }

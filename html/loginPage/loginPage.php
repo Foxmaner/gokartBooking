@@ -1,22 +1,25 @@
+<div id="loginBackground"></div>
+<div id="wrapperLogin" class="wrapper col-s-12 col-12">
+  <div id="wrapperTransparentLoginWindow" class="wrapper col-s-3 col-3">
+    <div id="loginTitleIcon"></div>
+    <h1 class="title col-s-12 col-12">Glabo Gokart Bokningssytem</h1>
 
-<div id="wrapperLogin" class="wrapper">
-  <div id="wrapperLoginWindow" class="wrapper col-s-4 col-4">
-    <h1 class="title">Glabo Gokart Bokningsssytem</h1>
-    <form method="post" action="">
-      <input id="inputPassword" class="col-s-10 col-10" type="password" placeholder="Lösenord" name="passwordData">
+    <form id="loginForm" class="col-s-12 col-12" method="post" action="">
+      <input id="inputPassword" class="col-s-5 col-5" type="password" placeholder="Lösenord" name="passwordData">
       <br>
-        <a href="lool.php">Glömt lösenord?</a>
+        <!-- <a href="lool.php" class="col-s-12 col-12">Glömt lösenord?</a>-->
       <br>
-      <input id="submitLogin" class="col-s-10 col-10" type="submit" value="Logga in">
+      <input id="submitLogin" class="col-s-12 col-12" type="submit" value="Logga in">
     </form>
+  </div>
     <div id="outputLoginError" class="col-s-12 col-12">
 
       <?php
       if (isset($_SESSION["error"])) {
         // code...
         // code...
-        echo "<p id='errorText'>";
-        echo $_SESSION["error"];
+
+        echo "<script> alertify.error('Misslyckat: Handligen avbröts'); </script>";
         unset($_SESSION["error"]);
         echo "</p>";
       }
