@@ -56,9 +56,9 @@ a:active {
 
   /* Zoom in/Zoom out animation */
 @keyframes breath {
-  0%   { background-size: auto 110%; }
-  50% { background-size: auto 120%; }
-  100% { background-size: auto 110%; }
+  0%   { background-size: auto 120%; }
+  50% { background-size: auto 130%; }
+  100% { background-size: auto 120%; }
 }
 
 #loginBackground{
@@ -76,7 +76,7 @@ a:active {
 
   /* Center and scale the image nicely */
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: auto 120%;
 
 
   z-index: -1;
