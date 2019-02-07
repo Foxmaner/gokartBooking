@@ -8,10 +8,39 @@
   float: left;
 }
 
+html{
+  margin:0px;
+  padding:0px;
+  width:100%;
+}
 body{
   width: 100%;
   height: 100vh;
 }
+
+/* --*/
+/* Links*/
+/* --*/
+a:link {
+  text-decoration: none;
+  color: black;
+}
+
+a:visited {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: black;
+}
+
+a:active {
+  text-decoration: underline;
+  color: black;
+}
+
 
 /* --*/
 /* Wrapper*/
@@ -27,9 +56,9 @@ body{
 
   /* Zoom in/Zoom out animation */
 @keyframes breath {
-  0%   { background-size: 100% auto; }
-  50% { background-size: 110% auto; }
-  100% { background-size: 100% auto; }
+  0%   { background-size: auto 110%; }
+  50% { background-size: auto 120%; }
+  100% { background-size: auto 110%; }
 }
 
 #loginBackground{
@@ -49,6 +78,7 @@ body{
   background-repeat: no-repeat;
   background-size: cover;
 
+
   z-index: -1;
 }
 
@@ -57,7 +87,7 @@ body{
 /* --*/
 #wrapperTransparentLoginWindow{
   background-color: rgb(255,255,255,0.39);
-  margin-left: 37.5%;
+
 
 
   padding-bottom: 1vh;
@@ -70,6 +100,7 @@ body{
   position: relative;
   bottom: 3vh;
 }
+
 #loginTitleIcon{
   background-image: url("../../media/icons/flagIcon.PNG");
   /* Center and scale the image nicely */
@@ -99,7 +130,6 @@ body{
   border-bottom: 2px solid rgb(216,201,180);
   background-color: transparent;
 
-  margin-left: 33.335%;
 
   height: 2rem;
   font-size: 2rem;
@@ -118,6 +148,33 @@ body{
   margin-top: 3vh;
 }
 
+
+
+/* --*/
+/* MenyPage */
+/* --*/
+#wrapperMenu{
+  height: 100vh;
+  float: none;
+  margin:0px auto;
+}
+
+.menuPageLinkWrappers{
+    font-size: 3rem;
+    background-color: rgb(255,255,255,0.39);
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    padding-left: 1%;
+    padding-right: 1%;
+    width: 100%;
+    height: auto;
+    margin-top: 10vh;
+}
+
+.menuPageLinkText{
+  text-align: center;
+  width: 100%;
+}
 
 /* Viewports for a responsive website */
 
@@ -177,6 +234,12 @@ body{
     width: 100%;
   }
 
+  #inputPassword{
+
+    margin-left: 8.335%;
+
+  }
+
 }
 
 @media only screen and (min-width: 768px) {
@@ -228,6 +291,18 @@ body{
 
   .col-12 {
     width: 100%;
+  }
+
+
+  #wrapperTransparentLoginWindow{
+
+    margin-left: 37.5%;
+
+  }
+  #inputPassword{
+
+    margin-left: 20.835%;
+
   }
 
 }
