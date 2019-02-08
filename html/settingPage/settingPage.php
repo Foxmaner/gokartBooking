@@ -19,9 +19,7 @@ require '../topCode/top.php';
   </head>
   <body>
     <noscript id="noscript">Sorry, your browser does not support JavaScript!</noscript>
-    <div class="wrapper" id="settingPageWrapper">
       <?php
-      require '../headerPage/staticHeader.php';
       if (isset($_SESSION["isLoggedIn"])) {
         if ($_SESSION["isLoggedIn"]==true) {
         require "settingContentPage.php";
@@ -34,6 +32,5 @@ require '../topCode/top.php';
 
 
       ?>
-    </div>
   </body>
 </html>

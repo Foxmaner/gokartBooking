@@ -1,4 +1,3 @@
-
 * {
   box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
@@ -6,64 +5,134 @@
   padding: 0;
   margin: 0;
   border-collapse: collapse;
-  color: rgb(150, 150, 150);
-
 }
 
-a:link {
-  text-decoration: none;
+html{
+  margin:0px;
+  padding:0px;
+  width:100%;
+}
+body{
+  width: 100%;
+  height: 100vh;
 }
 
-a:visited {
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: none;
-}
-
-a:active {
-  text-decoration: none;
-}
-
-a:link {
-  color: black;
-}
-
-/* General */
-.wrapper {
+/* --*/
+/* Wrapper*/
+/* --*/
+.wrapper{
   width: auto;
   height: auto;
-}
-.title{
-  text-align: center;
-  padding-bottom: 2vh;
-  width: 100%;
-  background-color: rgb(22, 22, 22);
-}
-.subTitle{
-
-  padding: 1vh;
-
-}
-p{
-  padding: 1vh;
+  float: left;
 }
 
-/*LogoutPage*/
-#settingPageWrapper {
-  height: 100vh;
-  background-color: rgb(22, 22, 22);
+/* Zoom in/Zoom out animation */
+@keyframes breath {
+0%   { background-size: auto 110%; }
+50% { background-size: auto 120%; }
+100% { background-size: auto 110%; }
+}
+
+#loginBackground{
+height: 100vh;
+width: 100%;
+position: absolute;
+
+animation: breath 30s ease-in-out infinite;
+/* Links to the picture */
+background-image: url("../../media/pictures/topdownView.JPG");
+
+/* Add the blur effect */
+filter: blur(3px);
+-webkit-filter: blur(3px);
+
+/* Center and scale the image nicely */
+background-repeat: no-repeat;
+background-size: cover;
+
+
+z-index: -1;
+float: left;
 
 }
+
 #settingSection{
-  height: 50vh;
-  background-color: rgb(30, 30, 30);
-  position: relative;
-  top:10vh;
-  margin-left: 29.17%;
+  background-color: rgb(255,255,255,0.39);
+
+
+
+  padding-bottom: 1vh;
+
   text-align: center;
+
+  margin-top: 30vh;
+float: left;
 }
+
+#settingTitleIcon{
+  background-image: url("../../media/icons/settingIcon.PNG");
+  /* Center and scale the image nicely */
+  background-repeat: no-repeat;
+  background-size: 80% auto;
+  background-position: center;
+  background-color: rgb(163,150,116);
+  width: 10vh;
+  height: 10vh;
+  border-radius: 50%;
+
+  float: none;
+  margin:0px auto;
+
+  position: relative;
+  bottom: 5vh;
+
+}
+
+.title{
+  position: relative;
+  bottom: 3vh;
+  float: left;
+}
+
+.settingCategory{
+
+  width: 50%;
+  float: left;
+}
+#settingCategory2{
+  border-left: 1px solid red;
+}
+#settingCategory3{
+  width: 100%;
+}
+
+.inputs{
+  border-bottom: 2px solid rgb(216,201,180);
+  background-color: transparent;
+
+
+  height: 2rem;
+  font-size: 2rem;
+
+  background-image: url("../../media/icons/lockIcon.PNG");
+  background-position:0px 0.2rem;
+  background-repeat: no-repeat;
+  background-size: 1.6rem;
+  padding-left: 40px;
+  float: none;
+  margin:0px auto;
+
+}
+.buttons{
+    background-color: rgb(96,116,29);
+    height: 3rem;
+    font-size: 2rem;
+    float: none;
+    margin:0px auto;
+    margin-top: 10px;
+
+}
+
 
 /* For mobile phones: */
 [class*="col-"] {
@@ -171,5 +240,10 @@ p{
 
   .col-12 {
     width: 100%;
+  }
+
+  #settingSection{
+    margin-left: 29.17%;
+
   }
 }
