@@ -19,7 +19,7 @@
         // code...
         // code...
 
-        echo "<script> alertify.error('Misslyckat: Handligen avbröts'); </script>";
+        echo "<script> alertify.error('Misslyckat: " . $_SESSION["error"] . "'); </script>";
         unset($_SESSION["error"]);
         echo "</p>";
       }
