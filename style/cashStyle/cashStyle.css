@@ -62,21 +62,72 @@ float: left;
 
 }
 
+#raceNrWrapper{
+  float: left;
+  text-align: center;
+  position: relative;
+  bottom: 2vh;
+}
+
+#outputEditLopp{
+
+  text-align: center;
+  display: inline
+}
+#textEditLopp{
+
+  text-align: center;
+  display: inline
+
+}
+
+.kartInputs{
+
+    border-bottom: 2px solid rgb(216,201,180);
+    background-color: transparent;
+
+
+    height: 2rem;
+    font-size: 2rem;
+
+    background-image: url("../../media/icons/kartIcon.PNG");
+    background-position:0px 0.2rem;
+    background-repeat: no-repeat;
+    background-size: 1.6rem;
+    padding-left: 40px;
+    width: auto;
+    margin-top: 1vh;
+
+}
+.raceKartInputWrapper{
+  float: left;
+
+
+}
+.kartInputTitle{
+margin-top: 1vh:
+}
+.changeRaceButton{
+  background-color: rgb(163,150,116);
+  height: 3rem;
+  font-size: 2rem;
+  margin-top: 1vh;
+  width: 10%;
+}
+
 #cashSection{
   background-color: rgb(255,255,255,0.39);
-
-
 
   padding-bottom: 1vh;
 
   text-align: center;
 
-  margin-top: 25vh;
+  margin-top: 20vh;
   float: left;
 }
 
-#settingTitleIcon{
-  background-image: url("../../media/icons/kartIcon.PNG");
+#depotTitleIcon{
+  background-image: url("../../media/icons/cashIcon.PNG");
   /* Center and scale the image nicely */
   background-repeat: no-repeat;
   background-size: 80% auto;

@@ -1,30 +1,129 @@
 * {
   box-sizing: border-box;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Righteous', cursive;
   border: 0px;
   padding: 0;
   margin: 0;
   border-collapse: collapse;
 }
 
-.depotOutput {}
-
-.depotText {
-  float: left;
-	
+html{
+  margin:0px;
+  padding:0px;
+  width:100%;
+}
+body{
+  width: 100%;
+  min-height: 100vh;
 }
 
-#section1 {
-  height: 100vh;
-  background-color: grey;
+/* --*/
+/* Wrapper*/
+/* --*/
+
+.title{
+  position: relative;
+  bottom: 3vh;
   float: left;
 }
 
-#section2 {
-  height: 100vh;
-  background-color: lightgrey;
-  float: left;
+/* Zoom in/Zoom out animation */
+@keyframes breath {
+0%   { background-size: auto 110%; }
+50% { background-size: auto 120%; }
+100% { background-size: auto 110%; }
 }
+
+#loginBackground{
+height: 100%;
+width: 100%;
+position: absolute;
+
+/*animation: breath 30s ease-in-out infinite;*/
+/* Links to the picture */
+background-image: url("../../media/pictures/topdownView.JPG");
+
+/* Add the blur effect */
+filter: blur(3px);
+-webkit-filter: blur(3px);
+
+/* Center and scale the image nicely */
+background-repeat: no-repeat;
+background-size: cover;
+
+
+z-index: -1;
+float: left;
+
+}
+
+#depotSection{
+  background-color: rgb(255,255,255,0.39);
+
+
+
+  padding-bottom: 1vh;
+
+
+
+  margin-top: 15vh;
+  float: left;
+  height: 80vh;
+}
+
+#settingTitleIcon{
+  background-image: url("../../media/icons/kartIcon.PNG");
+  /* Center and scale the image nicely */
+  background-repeat: no-repeat;
+  background-size: 80% auto;
+  background-position: center;
+  background-color: rgb(163,150,116);
+  width: 20vh;
+  height: 20vh;
+  border-radius: 50%;
+
+  float: none;
+  margin:0px auto;
+
+  position: relative;
+  bottom: 10vh;
+
+}
+.depotText{
+  font-size: 5rem;
+
+}
+
+#leftText{
+float: left;
+
+}
+.rightOutput{
+  text-align: right;
+}
+
+#leftSection{
+  float: left;
+  margin-right: 0;
+
+  position: relative;
+  bottom: 10vh;
+
+}
+#rightSection{
+  float: right;
+
+  position: relative;
+  bottom: 10vh;
+}
+.depotOutput{
+  float: left;
+  font-size: 10vh;
+  padding-top: 5vh;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
 
 /* For mobile phones: */
 [class*="col-"] {
@@ -132,5 +231,9 @@
 
   .col-12 {
     width: 100%;
+  }
+
+  #depotSection{
+    margin-left: 8.335%;
   }
 }

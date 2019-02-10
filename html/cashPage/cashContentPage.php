@@ -1,17 +1,25 @@
 <div id="loginBackground"></div>
 <div class="section col-5 col-s-5" id="cashSection">
-  <a href="../../index.php"> <div id="settingTitleIcon"></div> </a>
+  <a href="../../index.php"> <div id="depotTitleIcon"></div> </a>
   <h1 class="title col-12 col-m-12">Kassa</h1>
 
-  <br>
-  Stora <input id="inputLargeKart" class="kartInputs" type="number" min="0" max="10" onchange="editRace();updateChart()" readonly>
-  <br>
-  Små <input id="inputSmallKart" class="kartInputs" type="number" min="0" max="6" onchange="editRace();updateChart()" readonly>
-  <br>
-  Dubbla <input id="inputDoubleKart" class="kartInputs" type="number" min="0" max="2" onchange="editRace();updateChart()" readonly>
+  <div id="raceNrWrapper" class="col-12 col-s-12">
+  <h2 id="textEditLopp">Lopp: </h2> <h2 id="outputEditLopp">1</h2>
+  </div>
+
+  <div class="col-4 col-s-4 raceKartInputWrapper">
+  <h3 class="kartInputTitle">Stora</h3> <input id="inputLargeKart" class="kartInputs" type="number" min="0" max="10" onchange="editRace();updateChart()" readonly>
+  </div>
+
+  <div class="col-4 col-s-4 raceKartInputWrapper">
+  <h3 class="kartInputTitle">Små</h3> <input id="inputSmallKart" class="kartInputs" type="number" min="0" max="6" onchange="editRace();updateChart()" readonly>
+  </div>
+
+  <div class="col-4 col-s-4 raceKartInputWrapper">
+  <h3 class="kartInputTitle">Dubbla</h3> <input id="inputDoubleKart" class="kartInputs" type="number" min="0" max="2" onchange="editRace();updateChart()" readonly>
+  </div>
 
   <div id="outputTest"></div>
-  <p id="textEditLopp">Lopp: </p> <div id="outputEditLopp">1</div>
   <br>
   <button class="changeRaceButton" id="changeRaceButtonRecent" onclick="outputEditRaceS();selectPreviusRace();updateChart()"> ◀ </button> <button id="changeRaceButtonNext" class="changeRaceButton" onclick="outputEditRaceA();selectNextRace();updateChart()"> ▶ </button>
 </div>
