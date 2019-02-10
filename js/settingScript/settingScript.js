@@ -105,7 +105,7 @@ function validateChangeEmail() {
 
 
 
-    alertify.prompt("Är du verkligen säker? Efter denna handling går datan inte att återställa. Bekräfta genom att skriva adminlösenordet", "",
+    alertify.prompt("Är du verkligen säker? Se till att ni får ett mail på den angivna adressen efter bekräftelsen. Bekräfta genom att skriva adminlösenordet", "",
       function(evt, value) {
         //2 = radera race data
         validateAdminPassword(value, 5);

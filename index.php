@@ -1,3 +1,9 @@
+<!--
+This site is made by Eskil Brännerud aka Foxmaner.
+It was created as a schoolproject for my secondary work.
+Github: https://github.com/Foxmaner
+Gmail: eskil.brann@gmail.com
+-->
 <?php
 require 'html/topCode/top.php';
 ?>
