@@ -12,7 +12,9 @@ var raceNr = document.getElementById("outputEditLopp").innerHTML;
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       //alert(this.responseText);
+      console.log(this.responseText);
       var obj = JSON.parse(this.responseText);
+
       console.log(obj.double[2]);
       createDatasets(obj);
     }
