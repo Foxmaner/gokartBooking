@@ -39,7 +39,8 @@ function createNewDefaultUser($conn){
 	// code...
 	$newPassword = password_hash("password", PASSWORD_BCRYPT);
 	$newAdminPassword = password_hash("admin", PASSWORD_BCRYPT);
-	$sql = "INSERT INTO user (userPassword, adminPassword) VALUES ('$newPassword', '$newAdminPassword')";
+	$newEmail = "eskil.brann@gmail.com";
+	$sql = "INSERT INTO user (userPassword, adminPassword, email) VALUES ('$newPassword', '$newAdminPassword', '$newEmail')";
 		if ($conn->query($sql)) {
 			echo "NyStandardAnvändareSkapad: lyckat";
 
@@ -104,6 +105,19 @@ if (isset($_POST["passwordData"])) {
 if (isset($_POST["btn_logout"])) {
 	# code...
 	logout();
+}
+
+
+function getEmail($conn){
+	$sql = "SELECT email as email FROM user WHERE userID = 1";
+		if ($conn->query($sql)) {
+			$result = $conn->query($sql);
+			$email = $result->fetch_assoc()["email"];
+			return $email;
+
+			} else {
+					echo $conn->error;
+	}
 }
 
 ?>

@@ -14,7 +14,7 @@ html{
 }
 body{
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 /* --*/
@@ -34,11 +34,11 @@ body{
 }
 
 #loginBackground{
-height: 100vh;
+height: 100%;
 width: 100%;
 position: absolute;
 
-animation: breath 30s ease-in-out infinite;
+/*animation: breath 30s ease-in-out infinite;*/
 /* Links to the picture */
 background-image: url("../../media/pictures/topdownView.JPG");
 
@@ -65,8 +65,8 @@ float: left;
 
   text-align: center;
 
-  margin-top: 30vh;
-float: left;
+  margin-top: 25vh;
+  float: left;
 }
 
 #settingTitleIcon{
@@ -96,14 +96,28 @@ float: left;
 
 .settingCategory{
 
-  width: 50%;
+
   float: left;
+
 }
 #settingCategory2{
-  border-left: 1px solid red;
+  border-left: 2px solid rgb(163,150,116);
+  padding-bottom: 1vh;
 }
 #settingCategory3{
-  width: 100%;
+  padding-top: 1vh;
+  border-top: 2px solid rgb(163,150,116);
+
+}
+#settingCategory4{
+  padding-top: 1vh;
+  border-left: 2px solid rgb(163,150,116);
+  border-top: 2px solid rgb(163,150,116);
+}
+
+.subTitle{
+  padding-top: 1vh;
+  padding-bottom: 1vh;
 }
 
 .inputs{
@@ -130,7 +144,22 @@ float: left;
     float: none;
     margin:0px auto;
     margin-top: 10px;
+    padding-left:5px;
+    padding-right: 5px;
 
+}
+#btnClearRace{
+  background-color: rgb(155, 160, 29);
+}
+#btnClearDB{
+  background-color: rgb(160, 56, 29);
+}
+
+#inputChangeEmail1{
+  background-image: url("../../media/icons/mailIcon.PNG");
+}
+#inputChangeEmail2{
+  background-image: url("../../media/icons/mailIcon.PNG");
 }
 
 
