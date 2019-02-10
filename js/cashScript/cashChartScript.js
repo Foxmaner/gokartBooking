@@ -1,8 +1,11 @@
+var dataPack1 = [];
+var dataPack2 = [];
+var dataPack3 = [];
+var raceNr = [];
 
+function getRaceData() {
 
-function loadChart() {
-
-  var raceNr = document.getElementById("outputEditLopp").innerHTML;
+var raceNr = document.getElementById("outputEditLopp").innerHTML;
 
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
@@ -27,71 +30,100 @@ function createDatasets(obj) {
 
 function renderChart(raceNrDataset, largeKartDataset, smallKartDataset, doubleKartDataset) {
 
-  var dataPack1 = largeKartDataset;
-  var dataPack2 = smallKartDataset;
-  var dataPack3 = doubleKartDataset;
-  var dates = raceNrDataset;
+  dataPack1 = largeKartDataset;
+  dataPack2 = smallKartDataset;
+  dataPack3 = doubleKartDataset;
+  raceNr = raceNrDataset;
 
   console.log(dataPack1);
+  console.log(dataPack2);
+  console.log(dataPack3);
+  console.log(raceNr);
 
 
 
-
-  var myChart = document.getElementById('myChart').getContext('2d');
-
+}
 
 
-  var raceChart = new Chart(myChart, {
 
-    type:'bar',
-    data: {
-            labels: dates,
-            datasets: [
-            {
-                label: 'Stora',
-                data: dataPack1,
-                backgroundColor: "green",
-                hoverBackgroundColor: "darkgreen",
-                hoverBorderWidth: 0
-            },
-            {
-                label: 'Små',
-                data: dataPack2,
-                backgroundColor: "yellow",
-                hoverBackgroundColor: "darkkhaki",
-                hoverBorderWidth: 0
-            },
-            {
-                label: 'Dubbla',
-                data: dataPack3,
-                backgroundColor: "red",
-                hoverBackgroundColor: "darkred",
-                hoverBorderWidth: 0
-            },
-            ]
+var options = {
+    chart: {
+        height: 350,
+        type: 'bar',
+        stacked: true,
+        toolbar: {
+            show: true
         },
-    options:{
-      animation:{
-        duration: 0
-      },
-      scales:{
-        xAxes:[{
-          stacked:true
-        }],
-        yAxes:[{
-          stacked:true,
-          ticks: {
-            min: 0,
-            max: 12,
-            stepSize: 1
-          }
-        }]
+        zoom: {
+            enabled: true
+        }
+    },
+    responsive: [{
+        breakpoint: 480,
+        options: {
+            legend: {
+                position: 'bottom',
+                offsetX: -10,
+                offsetY: 0
+            }
+        }
+    }],
+    plotOptions: {
+        bar: {
+            horizontal: false,
+        },
+    },
+    series: [{
+        name: 'Stora',
+        data: []
+    },{
+        name: 'Små',
+        data: []
+    },{
+        name: 'Dubbla',
+        data: []
+    }],
+    xaxis: {
+        categories: raceNr,
+    },
+    legend: {
+        position: 'right',
+        offsetY: 40
+    },
+    fill: {
+        opacity: 1
+    },
+}
 
-      }
+var chart = new ApexCharts(
+    document.querySelector("#myChart"),
+    options
+);
 
+function loadChart(){
+  getRaceData();
+  chart.render();
 
-    }
+}
 
-  });
+function updateChart() {
+  getRaceData();
+
+  chart.updateSeries([{
+      name: 'Stora',
+      data: dataPack1
+  },{
+      name: 'Små',
+      data: dataPack2
+  },{
+      name: 'Dubbla',
+      data: dataPack3
+  }]);
+  chart.updateOptions({
+  xaxis: {
+    categories: raceNr,
+    tickAmount: 1
+  },
+})
 
 }
