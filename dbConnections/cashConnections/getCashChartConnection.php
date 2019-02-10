@@ -119,14 +119,18 @@ if (isset($_POST["racenr"])) {
        $i=$i+1;
       }
     $stmt->close();
-
-		for ($i=end($arrayRaceNr); $i < (($_POST["racenr"]+5)-end($arrayRaceNr)); $i++) {
+		if (($_POST["racenr"]+5)>getRaceLength()) {
 			// code...
-			array_push($arrayRaceNr,$i+1);
-			array_push($arrayLargeKart,0);
-			array_push($arraySmallKart,0);
-			array_push($arrayDoubleKart,0);
+
+			for ($i=end($arrayRaceNr); $i <= getRaceLength(); $i++) {
+				// code...
+				array_push($arrayRaceNr,$i+1);
+				array_push($arrayLargeKart,0);
+				array_push($arraySmallKart,0);
+				array_push($arrayDoubleKart,0);
+			}
 		}
+
 
 		$myObj->raceNrArray = $arrayRaceNr;
     $myObj->large = $arrayLargeKart;
