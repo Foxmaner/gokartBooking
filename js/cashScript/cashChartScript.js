@@ -3,6 +3,7 @@ var dataPack2 = [];
 var dataPack3 = [];
 var raceNr = [];
 
+//This shit is slow!
 function getRaceData() {
 
 var raceNr = document.getElementById("outputEditLopp").innerHTML;
