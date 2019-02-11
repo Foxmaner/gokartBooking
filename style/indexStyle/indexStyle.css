@@ -66,7 +66,7 @@ a:active {
   width: 100%;
   position: absolute;
 
-  animation: breath 30s ease-in-out infinite;
+  /*animation: breath 30s ease-in-out infinite;*/
   /* Links to the picture */
   background-image: url("../../media/pictures/topdownView.JPG");
 
@@ -76,7 +76,7 @@ a:active {
 
   /* Center and scale the image nicely */
   background-repeat: no-repeat;
-  background-size: auto 120%;
+  background-size: cover;
 
 
   z-index: -1;
@@ -160,7 +160,7 @@ a:active {
 }
 
 .menuPageLinkWrappers{
-    font-size: 3rem;
+    font-size: 6vh;
     background-color: rgb(255,255,255,0.39);
     padding-top: 1vh;
     padding-bottom: 1vh;
@@ -168,7 +168,8 @@ a:active {
     padding-right: 1%;
     width: 100%;
     height: auto;
-    margin-top: 10vh;
+    margin-top: 9vh;
+
 }
 
 .menuPageLinkText{
