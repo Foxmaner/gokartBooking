@@ -2,13 +2,13 @@ function loadData(jsonInput) {
 
   var obj = JSON.parse(jsonInput);
 
-  document.getElementById("outputNextRace").innerHTML = obj.nextRace;
-  document.getElementById("outputRaceLeft").innerHTML = obj.racesLeft;
-  document.getElementById("outputQueueTime").innerHTML = obj.queueTime;
+  document.getElementById("outputNextRace").innerHTML = "Nästa race: " + obj.nextRace;
+  document.getElementById("outputRaceLeft").innerHTML = "Race kvar: " + obj.racesLeft;
+  document.getElementById("outputQueueTime").innerHTML = "Kötid: " + obj.queueTime;
 
-  document.getElementById("outputLarge").innerHTML = obj.large;
-  document.getElementById("outputSmall").innerHTML = obj.small;
-  document.getElementById("outputDouble").innerHTML = obj.double;
+  document.getElementById("outputLarge").innerHTML = "Stora: " + obj.large;
+  document.getElementById("outputSmall").innerHTML = "Små: " + obj.small;
+  document.getElementById("outputDouble").innerHTML = "Dubbla:" + obj.double;
 }
 
 function updateData() {

@@ -1,3 +1,9 @@
+<!--
+This site is made by Eskil Brännerud aka Foxmaner.
+It was created as a schoolproject for my secondary work.
+Github: https://github.com/Foxmaner
+Gmail: eskil.brann@gmail.com
+-->
 <header>
 	<title>Logout</title>
 	<link rel="stylesheet" type="text/css" href="../../style/logoutStyle/logoutStyle.css">

@@ -5,81 +5,150 @@
   padding: 0;
   margin: 0;
   border-collapse: collapse;
-
 }
-input:focus {
-  background-color: green;
+
+html{
+  margin:0px;
+  padding:0px;
+  width:100%;
 }
 body{
-  height: 100vh;
   width: 100%;
+  min-height: 100vh;
 }
+
+/* --*/
+/* Wrapper*/
+/* --*/
 .wrapper{
-  height: 100vh;
-  width: 100%;
-}
-
-.section {
-  width: 50%;
-  height: 50vh;
-  float: left;
-}
-
-.changeRaceButton {
-  color: white;
-  background-color: rgb(77, 148, 255);
-  font-size: 125%;
-  text-align: center;
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
-  padding-left: 0.25rem;
-  padding-right: 0.25rem;
-  margin-top: 1rem;
-  width: 50%;
-  float: left;
-}
-
-#section1 {
-  background-color: grey;
-  border-radius: 15px;
-  padding: auto;
-  align-content: center;
-  margin-top: 5vh;
-  margin-bottom: 5vh;
-  height: 30vh;
-  font-size: 2rem;
-  text-align: center;
-}
-
-#myChart {
-  background-color: grey;
-  height: 60vh;
-}
-
-#textEditLopp {
-  display: inline;
-  float: left;
-  text-align: center;
-}
-
-#outputEditLopp {
-  float: left;
-  text-align: center;
-}
-
-#changeRaceButtonRecent {
-  border-radius: 0 0 0 15px;
-}
-
-#changeRaceButtonNext {
-  border-radius: 0 0 15px 0;
-	border-left: solid black 3px;
-}
-
-.kartInputs {
   width: auto;
-  height: 1rem;
+  height: auto;
+  float: left;
 }
+
+.title{
+  position: relative;
+  bottom: 3vh;
+  float: left;
+}
+
+/* Zoom in/Zoom out animation */
+@keyframes breath {
+0%   { background-size: auto 110%; }
+50% { background-size: auto 120%; }
+100% { background-size: auto 110%; }
+}
+
+#loginBackground{
+height: 100%;
+width: 100%;
+position: absolute;
+
+/*animation: breath 30s ease-in-out infinite;*/
+/* Links to the picture */
+background-image: url("../../media/pictures/topdownView.JPG");
+
+/* Add the blur effect */
+filter: blur(3px);
+-webkit-filter: blur(3px);
+
+/* Center and scale the image nicely */
+background-repeat: no-repeat;
+background-size: cover;
+
+
+z-index: -1;
+float: left;
+
+}
+
+#raceNrWrapper{
+  float: left;
+  text-align: center;
+  position: relative;
+  bottom: 2vh;
+}
+
+#outputEditLopp{
+
+  text-align: center;
+  display: inline
+}
+#textEditLopp{
+
+  text-align: center;
+  display: inline
+
+}
+
+.kartInputs{
+
+    border-bottom: 2px solid rgb(216,201,180);
+    background-color: transparent;
+
+
+    height: 2rem;
+    font-size: 2rem;
+
+    background-image: url("../../media/icons/kartIcon.PNG");
+    background-position:0px 0.2rem;
+    background-repeat: no-repeat;
+    background-size: 1.6rem;
+    padding-left: 40px;
+    width: auto;
+    margin-top: 1vh;
+
+}
+.raceKartInputWrapper{
+  float: left;
+
+
+}
+.kartInputTitle{
+margin-top: 1vh:
+}
+.changeRaceButton{
+  background-color: rgb(163,150,116);
+  height: 3rem;
+  font-size: 2rem;
+  margin-top: 1vh;
+  width: 10%;
+}
+
+#cashSection{
+  background-color: rgb(255,255,255,0.39);
+
+  padding-bottom: 1vh;
+
+  text-align: center;
+
+  margin-top: 20vh;
+  float: left;
+}
+
+#depotTitleIcon{
+  background-image: url("../../media/icons/cashIcon.PNG");
+  /* Center and scale the image nicely */
+  background-repeat: no-repeat;
+  background-size: 80% auto;
+  background-position: center;
+  background-color: rgb(163,150,116);
+  width: 10vh;
+  height: 10vh;
+  border-radius: 50%;
+
+  float: none;
+  margin:0px auto;
+
+  position: relative;
+  bottom: 5vh;
+
+}
+#myChart{
+  background-color: rgb(255,255,255,0.39);
+  float: left;
+}
+
 
 /* For mobile phones: */
 [class*="col-"] {
@@ -136,9 +205,6 @@ body{
   .col-s-12 {
     width: 100%;
   }
-  #section1{
-    margin-left: 29.17%;
-  }
 }
 
 @media only screen and (min-width: 768px) {
@@ -192,9 +258,11 @@ body{
     width: 100%;
   }
 
- #section1{
-   margin-left: 41.7%;
- }
+  #cashSection{
+    margin-left: 29.17%;
 
-
+  }
+  #myChart{
+    margin-left: 29.17%;
+  }
 }

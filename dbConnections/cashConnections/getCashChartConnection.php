@@ -42,7 +42,7 @@ if (isset($_POST["racenr"])) {
   // code...
 
 
-  if ($_POST["racenr"] <= 6) {
+  if($_POST["racenr"] < 6) {
     // code...
     $conn = connecttoDB();
 
@@ -119,6 +119,18 @@ if (isset($_POST["racenr"])) {
        $i=$i+1;
       }
     $stmt->close();
+		if (($_POST["racenr"]+5)>getRaceLength()) {
+			// code...
+
+			for ($i=end($arrayRaceNr); $i <= getRaceLength(); $i++) {
+				// code...
+				array_push($arrayRaceNr,$i+1);
+				array_push($arrayLargeKart,0);
+				array_push($arraySmallKart,0);
+				array_push($arrayDoubleKart,0);
+			}
+		}
+
 
 		$myObj->raceNrArray = $arrayRaceNr;
     $myObj->large = $arrayLargeKart;

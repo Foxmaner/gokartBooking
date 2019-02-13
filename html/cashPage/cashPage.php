@@ -1,3 +1,9 @@
+<!--
+This site is made by Eskil Brännerud aka Foxmaner.
+It was created as a schoolproject for my secondary work.
+Github: https://github.com/Foxmaner
+Gmail: eskil.brann@gmail.com
+-->
 <?php
 require '../topCode/top.php';
 ?>
@@ -10,14 +16,14 @@ require '../topCode/top.php';
     <link rel="stylesheet" type="text/css" href="../../style/cashStyle/cashStyle.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="../../js/cashScript/cashScript.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+    
+    <script src="../../plugins/apexcharts/dist/apexcharts.min.js"></script>
 
   </head>
-  <body onload="selectNextRace();loadChart()">
+  <body onload="selectNextRace();loadChart();updateChart()">
     <noscript id="noscript">Sorry, your browser does not support JavaScript!</noscript>
-    <div class="wrapper">
+
       <?php
-      require '../headerPage/staticHeader.php';
       if (isset($_SESSION["isLoggedIn"])) {
         if ($_SESSION["isLoggedIn"]==true) {
         require "cashContentPage.php";
@@ -30,6 +36,5 @@ require '../topCode/top.php';
 
 
       ?>
-    </div>
   </body>
 </html>

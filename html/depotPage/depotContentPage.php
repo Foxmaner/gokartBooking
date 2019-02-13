@@ -1,23 +1,34 @@
-<div id="section1" class="col-4 col-s-4">
-  <h1 class="depotText">Nästa race:</h1> <h1 class="depotOutput" id="outputNextRace">Loading...</h1>
-  <br>
-  <h1 class="depotText">Race kvar:</h1> <h1 class="depotOutput" id="outputRaceLeft">Loading...</h1>
-  <br>
-  <h1 class="depotText">Kötid:</h1> <h1 class="depotOutput" id="outputQueueTime" style="float:left;">Loading...</h1> <h1 style="float:left;"></h1>
 
-</div>
-<div id="section2" class="col-8 col-s-8">
-  <div>
-    <h1 class="depotText">Stora:</h1> <h1 class="depotOutput" id="outputLarge">Loading...</h1>
-  </div>
-    <br>
-  <div>
-    <h1 class="depotText">Små:</h1> <h1 class="depotOutput" id="outputSmall">Loading...</h1>
-  </div>
-    <br>
-  <div>
-    <h1 class="depotText">Dubbla:</h1><h1 class="depotOutput" id="outputDouble">Loading..</h1>
-  </div>
+<div id="loginBackground"></div>
+<div id="depotSection" class="col-10 col-s-10">
+  <a href="../../index.php"> <div id="settingTitleIcon"></div> </a>
 
+  <section id="leftSection" class="col-6 col-s-6">
+    <div class="leftText col-12 col-s-12">
+    <h1 class="depotOutput col-12 col-s-12" id="outputNextRace">Loading...</h1>
+    </div>
+    <br>
+    <div class="leftText  col-12 col-s-12">
+    <h1 class="depotOutput col-12 col-s-12" id="outputRaceLeft">Loading...</h1>
+    </div>
+    <br>
+    <div class="leftText  col-12 col-s-12">
+    <h1 class="depotOutput col-12 col-s-12" id="outputQueueTime">Loading...</h1> <h1 style="float:left;"></h1>
+    </div>
+  </section>
+
+  <section id="rightSection" class="col-6 col-s-6">
+    <div class="rightText  col-12 col-s-12">
+    <h1 class="depotOutput col-12 col-s-12 rightOutput" id="outputLarge">Loading...</h1>
+    </div>
+    <br>
+    <div class="rightText  col-12 col-s-12">
+    <h1 class="depotOutput col-12 col-s-12 rightOutput" id="outputSmall">Loading...</h1>
+    </div>
+    <br>
+    <div class="rightText col-12 col-s-12">
+    <h1 class="depotOutput col-12 col-s-12 rightOutput" id="outputDouble">Loading..</h1>
+    </div>
+  </section>
 
 </div>
