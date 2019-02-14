@@ -1,3 +1,33 @@
+function validateWeekData() {
+  return true;
+}
+
+function getStartWeekData() {
+var startDate = 0;
+var endDate = 0;
+
+
+  alertify.prompt("Skriv startvecka. <br> Använd enbart nummer!", "",
+    function(evt, value) {
+      //2 = radera race data
+      if (true) {
+
+      };
+      validateWeekData(value, 1);
+    },
+    function() {
+      alertify.error('Misslyckat: Handligen avbröts');
+    }).setHeader('<em> Välj data </em> ').set('type', 'number');
+
+    return [startDate, endDate];
+}
+
+function getEndWeekData() {
+
+
+}
+
+
 function generateData(count, yrange) {
   var i = 0;
   var series = [];
@@ -26,26 +56,26 @@ var options = {
 
       colorScale: {
         ranges: [{
-            from: -30,
-            to: 5,
+            from: 0,
+            to: 250,
             name: 'low',
             color: '#00A100'
           },
           {
-            from: 6,
-            to: 20,
+            from: 250,
+            to: 350,
             name: 'medium',
             color: '#128FD9'
           },
           {
-            from: 21,
-            to: 45,
+            from: 350,
+            to: 450,
             name: 'high',
             color: '#FFB200'
           },
           {
-            from: 46,
-            to: 55,
+            from: 450,
+            to: 1000,
             name: 'extreme',
             color: '#FF0000'
           }
@@ -57,68 +87,132 @@ var options = {
     enabled: false
   },
   series: [{
-      name: 'Jan',
-      data: generateData(20, {
+      name: 'Vecka1',
+      data: generateData(7, {
+        min: 0,
+        max: 55
+      })
+    },
+    {
+      name: 'Vecka2',
+      data: generateData(7, {
+        min: 0,
+        max: 55
+      })
+    },
+    {
+      name: 'Vecka3',
+      data: generateData(7, {
+        min: 0,
+        max: 55
+      })
+    },
+    {
+      name: 'Vecka4',
+      data: generateData(7, {
+        min: 0,
+        max: 55
+      })
+    },
+    {
+      name: 'Vecka5',
+      data: generateData(7, {
+        min: 0,
+        max: 55
+      })
+    },
+    {
+      name: 'Vecka6',
+      data: generateData(7, {
+        min: 0,
+        max: 55
+      })
+    },
+    {
+      name: 'Vecka7',
+      data: generateData(7, {
         min: -30,
         max: 55
       })
     },
     {
-      name: 'Feb',
-      data: generateData(20, {
+      name: 'Vecka3',
+      data: generateData(7, {
         min: -30,
         max: 55
       })
     },
     {
-      name: 'Mar',
-      data: generateData(20, {
+      name: 'Vecka3',
+      data: generateData(7, {
         min: -30,
         max: 55
       })
     },
     {
-      name: 'Apr',
-      data: generateData(20, {
+      name: 'Vecka3',
+      data: generateData(7, {
         min: -30,
         max: 55
       })
     },
     {
-      name: 'May',
-      data: generateData(20, {
+      name: 'Vecka3',
+      data: generateData(7, {
         min: -30,
         max: 55
       })
     },
     {
-      name: 'Jun',
-      data: generateData(20, {
+      name: 'Vecka3',
+      data: generateData(7, {
         min: -30,
         max: 55
       })
     },
     {
-      name: 'Jul',
-      data: generateData(20, {
+      name: 'Vecka3',
+      data: generateData(7, {
         min: -30,
         max: 55
       })
     },
     {
-      name: 'Aug',
-      data: generateData(20, {
+      name: 'Vecka3',
+      data: generateData(7, {
         min: -30,
         max: 55
       })
     },
     {
-      name: 'Sep',
-      data: generateData(20, {
+      name: 'Vecka3',
+      data: generateData(7, {
         min: -30,
         max: 55
       })
-    }
+    },
+    {
+      name: 'Vecka3',
+      data: generateData(7, {
+        min: -30,
+        max: 55
+      })
+    },
+    {
+      name: 'Vecka3',
+      data: generateData(7, {
+        min: -30,
+        max: 55
+      })
+    },
+    {
+      name: 'Vecka3',
+      data: generateData(7, {
+        min: -30,
+        max: 55
+      })
+    },
+
   ],
   title: {
     text: 'HeatMap Chart with Color Range'
