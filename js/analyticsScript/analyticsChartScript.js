@@ -1,31 +1,28 @@
-function validateWeekData() {
-  return true;
-}
+function getChartData(startDate, endDate){
 
-function getStartWeekData() {
-var startDate = 0;
-var endDate = 0;
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      //alert(this.responseText);
+      console.log(this.responseText);
+      var obj = JSON.parse(this.responseText);
 
-
-  alertify.prompt("Skriv startvecka. <br> Använd enbart nummer!", "",
-    function(evt, value) {
-      //2 = radera race data
-      if (true) {
-
-      };
-      validateWeekData(value, 1);
-    },
-    function() {
-      alertify.error('Misslyckat: Handligen avbröts');
-    }).setHeader('<em> Välj data </em> ').set('type', 'number');
-
-    return [startDate, endDate];
-}
-
-function getEndWeekData() {
-
+    }
+  };
+  xhttp.open("POST", "../../dbConnections/analyticsConnections/getAnalyticsData.php", true);
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhttp.send("startDate=" + startDate + "&endDate=" + endDate);
 
 }
+
+function getDateData() {
+var startDate = document.getElementById("inputStartDate").value;
+var endDate = document.getElementById("inputEndDate").value;
+
+getChartData(startDate, endDate);
+
+}
+
 
 
 function generateData(count, yrange) {

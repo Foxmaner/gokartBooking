@@ -25,7 +25,7 @@ require '../topCode/top.php';
     <script src="../../plugins/apexcharts/dist/apexcharts.min.js"></script>
 
   </head>
-  <body onload="getStartWeekData()">
+  <body onload="">
     <noscript id="noscript">Sorry, your browser does not support JavaScript!</noscript>
 
       <?php

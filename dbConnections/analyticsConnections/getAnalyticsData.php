@@ -46,13 +46,16 @@ if (isset($_POST["startDate"]) && isset($_POST["endDate"])) {
 
 
   $stmt = $conn->prepare("SELECT * FROM race WHERE ? <= date(raceDate) and ? >= date(raceDate)");
-  $stmt->bind_param("ss", $startDate $endDate);
+  $stmt->bind_param("ss", $startDate, $endDate);
+
+	$startDate = $_POST["startDate"];
+	$endDate = $_POST["endDate"];
 
   $stmt->execute();
   $result = $stmt->get_result();
   $myJSON = $result->fetch_all(MYSQLI_ASSOC);
 
-  $myJSON = json_encode($myObj);
+  $myJSON = json_encode($myJSON);
   echo $myJSON;
 
   $stmt->close();
