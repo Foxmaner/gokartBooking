@@ -1,7 +1,21 @@
 <div id="loginBackground"></div>
 <div class="section col-5 col-s-5" id="cashSection">
   <a href="../../index.php"> <div id="depotTitleIcon"></div> </a>
+
+    <input type="number" id="tempInput"> </input>
+    <div class="styled-select green rounded">
+    <select id="weatherSelect">
+      <option value=""></option>
+      <option id="selectSun" value="sun">Sol</option>
+      <option id="selectCloud" value="cloud">Moln</option>
+      <option id="selectRain" value="rain">Regn</option>
+    </select>
+
+  </div>
+
+  <button onclick="updateWeather()" id="btn_updateWeather">Uppdatera vädret</button>
   <h1 class="title col-12 col-m-12">Kassa</h1>
+
 
   <div id="raceNrWrapper" class="col-12 col-s-12">
   <h2 id="textEditLopp">Lopp: </h2> <h2 id="outputEditLopp">1</h2>

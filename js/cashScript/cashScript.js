@@ -1,3 +1,32 @@
+function getWeather() {
+
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      console.log(this.responseText);
+      object = JSON.parse(this.responseText);
+      document.getElementById("weatherSelect").value = object[0].dayWeather;
+      document.getElementById("tempInput").value = object[0].dayTemp;
+    }
+  }
+  xhttp.open("GET", "../../dbConnections/cashConnections/getWeatherConnection.php", true);
+  xhttp.send();
+}
+function updateWeather() {
+  var inputTemp = document.getElementById("tempInput").value;
+  var inputWeather = document.getElementById("weatherSelect").value;
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      console.log(this.responseText);
+      alertify.notify('Lyckat: Vädret uppdaterades!');
+    }
+  }
+  xhttp.open("POST", "../../dbConnections/cashConnections/updateWeatherConnection.php", true);
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhttp.send("inputTemp=" + inputTemp + "&inputWeather=" + inputWeather);
+}
+
 function outputEditRaceA() {
   var tempRaceNr = document.getElementById("outputEditLopp").innerHTML;
 
