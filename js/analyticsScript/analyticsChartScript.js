@@ -3,10 +3,10 @@ function getChartData(startDate, endDate){
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-      //alert(this.responseText);
-      console.log(this.responseText);
-      var obj = JSON.parse(this.responseText);
+      alert(this.responseText);
 
+      generateData(this.responseText);
+      //var obj = JSON.parse(this.responseText);
     }
   };
   xhttp.open("POST", "../../dbConnections/analyticsConnections/getAnalyticsData.php", true);
@@ -24,198 +24,37 @@ getChartData(startDate, endDate);
 }
 
 
+var series = [];
 
-function generateData(count, yrange) {
-  var i = 0;
-  var series = [];
-  while (i < count) {
-    var x = (i + 1).toString();
-    var y = Math.floor(Math.random() * (yrange.max - yrange.min + 1)) + yrange.min;
-
-    series.push({
-      x: x,
-      y: y
-    });
-    i++;
-  }
-  return series;
-}
 
 
 var options = {
   chart: {
-    height: 350,
-    type: 'heatmap',
-  },
-  plotOptions: {
-    heatmap: {
-      shadeIntensity: 0.5,
-
-      colorScale: {
-        ranges: [{
-            from: 0,
-            to: 250,
-            name: 'low',
-            color: '#00A100'
-          },
-          {
-            from: 250,
-            to: 350,
-            name: 'medium',
-            color: '#128FD9'
-          },
-          {
-            from: 350,
-            to: 450,
-            name: 'high',
-            color: '#FFB200'
-          },
-          {
-            from: 450,
-            to: 1000,
-            name: 'extreme',
-            color: '#FF0000'
-          }
-        ]
+    height: 380,
+    width: "100%",
+    type: "area",
+    animations: {
+      initialAnimation: {
+        enabled: false
       }
     }
   },
-  dataLabels: {
-    enabled: false
-  },
-  series: [{
-      name: 'Vecka1',
-      data: generateData(7, {
-        min: 0,
-        max: 55
-      })
+  colors: ['#0015ff', '#e9ff00'],
+  series: [
+    {
+      name: "Antalet karts",
+      data: series
     },
     {
-      name: 'Vecka2',
-      data: generateData(7, {
-        min: 0,
-        max: 55
-      })
-    },
-    {
-      name: 'Vecka3',
-      data: generateData(7, {
-        min: 0,
-        max: 55
-      })
-    },
-    {
-      name: 'Vecka4',
-      data: generateData(7, {
-        min: 0,
-        max: 55
-      })
-    },
-    {
-      name: 'Vecka5',
-      data: generateData(7, {
-        min: 0,
-        max: 55
-      })
-    },
-    {
-      name: 'Vecka6',
-      data: generateData(7, {
-        min: 0,
-        max: 55
-      })
-    },
-    {
-      name: 'Vecka7',
-      data: generateData(7, {
-        min: -30,
-        max: 55
-      })
-    },
-    {
-      name: 'Vecka3',
-      data: generateData(7, {
-        min: -30,
-        max: 55
-      })
-    },
-    {
-      name: 'Vecka3',
-      data: generateData(7, {
-        min: -30,
-        max: 55
-      })
-    },
-    {
-      name: 'Vecka3',
-      data: generateData(7, {
-        min: -30,
-        max: 55
-      })
-    },
-    {
-      name: 'Vecka3',
-      data: generateData(7, {
-        min: -30,
-        max: 55
-      })
-    },
-    {
-      name: 'Vecka3',
-      data: generateData(7, {
-        min: -30,
-        max: 55
-      })
-    },
-    {
-      name: 'Vecka3',
-      data: generateData(7, {
-        min: -30,
-        max: 55
-      })
-    },
-    {
-      name: 'Vecka3',
-      data: generateData(7, {
-        min: -30,
-        max: 55
-      })
-    },
-    {
-      name: 'Vecka3',
-      data: generateData(7, {
-        min: -30,
-        max: 55
-      })
-    },
-    {
-      name: 'Vecka3',
-      data: generateData(7, {
-        min: -30,
-        max: 55
-      })
-    },
-    {
-      name: 'Vecka3',
-      data: generateData(7, {
-        min: -30,
-        max: 55
-      })
-    },
-    {
-      name: 'Vecka3',
-      data: generateData(7, {
-        min: -30,
-        max: 55
-      })
-    },
-
+      name: "Temperatur",
+      data: [1]
+    }
   ],
-  title: {
-    text: 'HeatMap Chart with Color Range'
-  },
+  xaxis: {
+    type: 'datetime'
+  }
+};
 
-}
 
 var chart = new ApexCharts(
   document.querySelector("#myChart"),
@@ -223,3 +62,19 @@ var chart = new ApexCharts(
 );
 
 chart.render();
+
+function generateData(inputObj) {
+  object = JSON.parse(inputObj);
+  var i = 0;
+  for (var i = 0; i < Object.keys(object).length; i++) {
+    console.log(i);
+    series.push({
+      x: object[i].raceDate,
+      y: object[i].dayTotal
+    })
+  }
+  console.log(series);
+  chart.updateSeries([{
+  data: series
+  }])
+}

@@ -5,7 +5,7 @@
   <input type="date" id="inputStartDate">
   <input type="date" id="inputEndDate">
   <button onclick="getDateData()">GetDate</button>
-  <div id="myChart" class="col-5 col-m-5"></div>
+  <div id="myChart" class="col-12 col-m-12"></div>
   <?php
   echo "<script>";
   require "../../js/analyticsScript/analyticsChartScript.js";
