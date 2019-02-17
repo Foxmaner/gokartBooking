@@ -100,6 +100,13 @@ z-index: -1;
 
 }
 
+.dataButton{
+  background-color: rgb(96,116,29);
+  height: 3rem;
+  font-size: 2rem;
+  margin-top: 3vh;
+}
+
 
 
 /* For mobile phones: */
