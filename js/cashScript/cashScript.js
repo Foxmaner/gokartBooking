@@ -115,6 +115,7 @@ function editRace() {
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       document.getElementById("outputTest").innerHTML = this.responseText;
+      updateChart();
     }
   };
   xhttp.open("GET", "../../dbConnections/cashConnections/editRaceConnection.php?large=" + large + "&small=" + small + "&double=" + double + "&racenr=" + raceNr, true);
@@ -202,7 +203,7 @@ function keyUp(e) {
 
     timeout = setTimeout(function () {
     selectPreviusRace();
-    updateChart();
+
     }, 500);
 
   } else if (e.keyCode === 39) { //39 is the keyCode # for the right arrow key
@@ -210,7 +211,7 @@ function keyUp(e) {
 
     timeout = setTimeout(function () {
     selectNextRace();
-    updateChart();
+
     }, 500);
 
   }else if (e.keyCode === 38) { //38 upp
@@ -226,7 +227,7 @@ function keyUp(e) {
 
     timeout = setTimeout(function () {
     editRace();
-    updateChart();
+
     }, 500);
 
   }else if (e.keyCode ===87) {
@@ -234,7 +235,7 @@ function keyUp(e) {
 
     timeout = setTimeout(function () {
     editRace();
-    updateChart();
+
     }, 500);
 
   }else if (e.keyCode === 65) {
@@ -242,7 +243,7 @@ function keyUp(e) {
 
     timeout = setTimeout(function () {
     editRace();
-    updateChart();
+
     }, 500);
 
   }else if (e.keyCode === 83) {
@@ -250,7 +251,7 @@ function keyUp(e) {
 
     timeout = setTimeout(function () {
     editRace();
-    updateChart();
+
     }, 500);
 
   }else if (e.keyCode === 90) {
@@ -258,7 +259,7 @@ function keyUp(e) {
 
     timeout = setTimeout(function () {
     editRace();
-    updateChart();
+
     }, 500);
 
   }else if (e.keyCode === 88) {
@@ -266,7 +267,7 @@ function keyUp(e) {
 
     timeout = setTimeout(function () {
     editRace();
-    updateChart();
+
     }, 500);
 
   }
