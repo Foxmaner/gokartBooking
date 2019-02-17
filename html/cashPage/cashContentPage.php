@@ -47,5 +47,6 @@
 <?php
 echo "<script>";
 require "../../js/cashScript/cashChartScript.js";
+require "../../js/cashScript/cashScript.js";
 echo "</script>";
 ?>

@@ -185,18 +185,34 @@ function editNumberInputValue(key) {
   }
 }
 
+var timeout = null;
 
 window.addEventListener('keyup', keyUp, false);
 
+
+
 function keyUp(e) {
+
+  clearTimeout(timeout);
+
+
   if (e.keyCode === 37) { //39 is the keyCode # for the left arrow key
     outputEditRaceS();
+
+
+    timeout = setTimeout(function () {
     selectPreviusRace();
     updateChart();
+    }, 500);
+
   } else if (e.keyCode === 39) { //39 is the keyCode # for the right arrow key
     outputEditRaceA();
+
+    timeout = setTimeout(function () {
     selectNextRace();
     updateChart();
+    }, 500);
+
   }else if (e.keyCode === 38) { //38 upp
     selectTextInput(1);
   }else if (e.keyCode === 40) { //40 ner
@@ -207,27 +223,51 @@ function keyUp(e) {
     editNumberInput(0);
   }else if (e.keyCode === 81) {
     editNumberInputValue(81);
+
+    timeout = setTimeout(function () {
     editRace();
     updateChart();
+    }, 500);
+
   }else if (e.keyCode ===87) {
     editNumberInputValue(87);
+
+    timeout = setTimeout(function () {
     editRace();
     updateChart();
+    }, 500);
+
   }else if (e.keyCode === 65) {
     editNumberInputValue(65);
+
+    timeout = setTimeout(function () {
     editRace();
     updateChart();
+    }, 500);
+
   }else if (e.keyCode === 83) {
     editNumberInputValue(83);
+
+    timeout = setTimeout(function () {
     editRace();
     updateChart();
+    }, 500);
+
   }else if (e.keyCode === 90) {
     editNumberInputValue(90);
+
+    timeout = setTimeout(function () {
     editRace();
     updateChart();
+    }, 500);
+
   }else if (e.keyCode === 88) {
     editNumberInputValue(88);
+
+    timeout = setTimeout(function () {
     editRace();
     updateChart();
+    }, 500);
+
   }
 }
