@@ -198,7 +198,7 @@ function btnArrowLeftPressed(){
   timeout = setTimeout(function () {
   selectPreviusRace();
 
-  }, 500);
+  }, 200);
 }
 function btnArrowRightPressed(){
   clearTimeout(timeout);
@@ -208,7 +208,7 @@ function btnArrowRightPressed(){
   timeout = setTimeout(function () {
   selectNextRace();
 
-  }, 500);
+  }, 200);
 }
 
 
@@ -234,7 +234,7 @@ function keyUp(e) {
     timeout = setTimeout(function () {
     selectPreviusRace();
 
-    }, 500);
+    }, 200);
 
   } else if (e.keyCode === 39) { //39 is the keyCode # for the right arrow key
     outputEditRaceA();
@@ -242,7 +242,7 @@ function keyUp(e) {
     timeout = setTimeout(function () {
     selectNextRace();
 
-    }, 500);
+    }, 200);
 
   }else if (e.keyCode === 38) { //38 upp
     selectTextInput(1);
@@ -258,7 +258,7 @@ function keyUp(e) {
     timeout = setTimeout(function () {
     editRace();
 
-    }, 500);
+    }, 200);
 
   }else if (e.keyCode ===87) {
     editNumberInputValue(87);
@@ -266,7 +266,7 @@ function keyUp(e) {
     timeout = setTimeout(function () {
     editRace();
 
-    }, 500);
+    }, 200);
 
   }else if (e.keyCode === 65) {
     editNumberInputValue(65);
@@ -274,7 +274,7 @@ function keyUp(e) {
     timeout = setTimeout(function () {
     editRace();
 
-    }, 500);
+    }, 200);
 
   }else if (e.keyCode === 83) {
     editNumberInputValue(83);
@@ -282,7 +282,7 @@ function keyUp(e) {
     timeout = setTimeout(function () {
     editRace();
 
-    }, 500);
+    }, 200);
 
   }else if (e.keyCode === 90) {
     editNumberInputValue(90);
@@ -290,7 +290,7 @@ function keyUp(e) {
     timeout = setTimeout(function () {
     editRace();
 
-    }, 500);
+    }, 200);
 
   }else if (e.keyCode === 88) {
     editNumberInputValue(88);
@@ -298,7 +298,7 @@ function keyUp(e) {
     timeout = setTimeout(function () {
     editRace();
 
-    }, 500);
+    }, 200);
 
   }
 }
