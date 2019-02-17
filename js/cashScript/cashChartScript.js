@@ -63,6 +63,10 @@ var options = {
     xaxis: {
         categories: [],
     },
+    yaxis: {
+      min: 0,
+      max: 12,
+    },
     annotations: {
     yaxis: [
       {
@@ -103,6 +107,7 @@ function updateChart() {
 
 
 function createDatasets(obj) {
+  console.log("createDatasets() object V ");
   console.log(obj);
 
   dataPack1 = [];

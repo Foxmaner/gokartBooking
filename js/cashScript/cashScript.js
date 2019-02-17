@@ -3,8 +3,9 @@ function getWeather() {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-      console.log(this.responseText);
+      console.log("Weather JSON fetsched" + this.responseText);
       object = JSON.parse(this.responseText);
+      console.log("Weather JSON converted to object" + object);
       document.getElementById("weatherSelect").value = object[0].dayWeather;
       document.getElementById("tempInput").value = object[0].dayTemp;
     }
@@ -12,13 +13,14 @@ function getWeather() {
   xhttp.open("GET", "../../dbConnections/cashConnections/getWeatherConnection.php", true);
   xhttp.send();
 }
+
 function updateWeather() {
   var inputTemp = document.getElementById("tempInput").value;
   var inputWeather = document.getElementById("weatherSelect").value;
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-      console.log(this.responseText);
+      console.log("updateWeather response:" + this.responseText);
       alertify.notify('Lyckat: Vädret uppdaterades!');
     }
   }
@@ -187,6 +189,34 @@ function editNumberInputValue(key) {
 }
 
 var timeout = null;
+
+function btnArrowLeftPressed(){
+  clearTimeout(timeout);
+
+  outputEditRaceS();
+
+  timeout = setTimeout(function () {
+  selectPreviusRace();
+
+  }, 500);
+}
+function btnArrowRightPressed(){
+  clearTimeout(timeout);
+
+  outputEditRaceA();
+
+  timeout = setTimeout(function () {
+  selectNextRace();
+
+  }, 500);
+}
+
+
+
+
+
+
+
 
 window.addEventListener('keyup', keyUp, false);
 

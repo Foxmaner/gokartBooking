@@ -35,7 +35,7 @@
 
   <div id="outputTest"></div>
   <br>
-  <button class="changeRaceButton" id="changeRaceButtonRecent" onclick="outputEditRaceS();selectPreviusRace();updateChart()"> ◀ </button> <button id="changeRaceButtonNext" class="changeRaceButton" onclick="outputEditRaceA();selectNextRace();updateChart()"> ▶ </button>
+  <button class="changeRaceButton" id="changeRaceButtonRecent" onclick="btnArrowLeftPressed()"> ◀ </button> <button id="changeRaceButtonNext" class="changeRaceButton" onclick="btnArrowRightPressed()"> ▶ </button>
 </div>
 
 
