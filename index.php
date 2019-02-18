@@ -18,6 +18,7 @@ require 'html/topCode/top.php';
 
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Black+Ops+One" rel="stylesheet">
 
     <script src="plugins/alertifyjs/alertify.min.js"></script>
     <link rel="stylesheet" href="plugins/alertifyjs/css/alertify.css" />

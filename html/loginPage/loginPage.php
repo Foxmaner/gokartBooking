@@ -2,7 +2,7 @@
 <div id="wrapperLogin" class="wrapper col-s-12 col-12">
   <div id="wrapperTransparentLoginWindow" class="wrapper col-s-12 col-3">
     <div id="loginTitleIcon"></div>
-    <h1 class="title col-s-12 col-12">Glabo Gokart Bokningssytem</h1>
+    <h1 class="title col-s-12 col-12">Glabo Gokart & Paintball</h1>
 
     <form id="loginForm" class="col-s-12 col-12" method="post" action="">
       <input id="inputPassword" class="col-s-10 col-7" type="password" placeholder="Lösenord" name="passwordData">
