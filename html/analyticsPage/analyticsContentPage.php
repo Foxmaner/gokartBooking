@@ -13,8 +13,10 @@
   <button id="dataButtonAll" class="dataButton" onclick="selectData(1)">All data</button>
   <br>
   <button id="dataButtonSelected" class="dataButton" onclick="selectData(2)">Välj år</button>
-  <div id="myChart" class="col-12 col-m-12"></div>
+  <div id="wrapper">
+    <div id="myChart" class="col-12 col-m-12"></div>
     <div id="tempChart" class="col-12 col-m-12"></div>
+  </div>
   <div id="weatherForecastChart" class="col-6 col-m-6"></div>
   <?php
   echo "<script>";

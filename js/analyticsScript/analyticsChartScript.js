@@ -82,9 +82,13 @@ var weatherTempSeries = [];
 var weatherForecastSeries = [];
 
 
+
+
 var options = {
   chart: {
-    height: 380,
+    height: 350,
+    id:'kartChart',
+    group: 'social',
     width: "100%",
     type: "area",
     animations: {
@@ -131,6 +135,45 @@ var options = {
 
 };
 
+var tempChartoptions = {
+  chart: {
+    height: 200,
+    id:'tempChart',
+    group: 'social',
+    width: "100%",
+    type: "area",
+    animations: {
+      initialAnimation: {
+        enabled: false
+      }
+    }
+  },
+  colors: ['#0015ff', '#008FFB','#00E396','#FEB019'],
+  stroke: {
+  curve: 'straight',
+  dashArray: [0, 5, 5, 5]
+  },
+  series: [
+    {
+      name: "Tempratur",
+      data: weatherTempSeries
+    }
+  ],
+  xaxis: {
+    type: 'datetime'
+  },
+  yaxis: {
+    min: 0,
+    max: 50,
+    tickAmount: 10,
+  },
+  title: {
+    text: "Tempratur",
+    align: 'left',
+  },
+
+};
+
 var forecastChartoptions = {
   chart: {
     width: "100%",
@@ -155,12 +198,17 @@ var forecastChartoptions = {
 var chart = new ApexCharts(
   document.querySelector("#myChart"),options
 );
+var tempChart = new ApexCharts(
+  document.querySelector("#tempChart"),tempChartoptions
+);
 var forecastChart = new ApexCharts(
   document.querySelector("#weatherForecastChart"),forecastChartoptions
 );
 
+
 function loadChart(startDate, endDate) {
   chart.render();
+  tempChart.render();
   forecastChart.render();
   getChartData(startDate, endDate)
 }
@@ -241,5 +289,13 @@ function generateData(inputObj) {
       text: "Rekord"
     }
   }),
+  tempChart.updateSeries([{
+  data: weatherTempSeries
+  }
+  ]),
   forecastChart.updateSeries(weatherForecastSeries);
+  console.log("-");
+  console.log(totalSeries);
+  console.log(weatherTempSeries);
+  console.log("-");
 }
