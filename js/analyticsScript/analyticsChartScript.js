@@ -78,6 +78,8 @@ var totalSeries = [];
 var largeKartSeries = [];
 var smallKartSeries = [];
 var doubleKartSeries = [];
+var weatherTempSeries = [];
+var weatherForecastSeries = [];
 
 
 var options = {
@@ -122,6 +124,30 @@ var options = {
     max: 700,
     tickAmount: 14,
   },
+  title: {
+    text: "Antal karts",
+    align: 'left',
+  }
+
+};
+
+var forecastChartoptions = {
+  chart: {
+    width: "100%",
+    type: "pie",
+    animations: {
+      initialAnimation: {
+        enabled: false
+      }
+    }
+  },
+  labels: ['Soligt', 'Molnigt', 'Regnigt'],
+  colors: ['#ebf442', '#b4bab5','#3025f9'],
+  series: [0,0,0],
+  title: {
+    text: "Vädret",
+    align: 'left',
+  }
 
 };
 
@@ -129,9 +155,13 @@ var options = {
 var chart = new ApexCharts(
   document.querySelector("#myChart"),options
 );
+var forecastChart = new ApexCharts(
+  document.querySelector("#weatherForecastChart"),forecastChartoptions
+);
 
 function loadChart(startDate, endDate) {
   chart.render();
+  forecastChart.render();
   getChartData(startDate, endDate)
 }
 
@@ -143,6 +173,9 @@ function generateData(inputObj) {
   console.log("object V");
   console.log(object);
 
+  var countCloud = 0;
+  var countSun = 0;
+  var countRain = 0;
 
   for (var i = 0; i < Object.keys(object).length; i++) {
     console.log(i);
@@ -162,11 +195,28 @@ function generateData(inputObj) {
       x: object[i].raceDate,
       y: object[i].doubleKart
     });
+    weatherTempSeries.push({
+      x: object[i].raceDate,
+      y: object[i].dayTemp
+    });
+
+    if (object[i].dayWeather=="sun") {
+      countSun++;
+    }else if (object[i].dayWeather=="cloud") {
+      countCloud++;
+    }else if (object[i].dayWeather=="rain") {
+      countRain++;
+    }
+
     if (object[i].dayTotal>maxAllTime) {
       maxAllTime=object[i].dayTotal;
     }
   }
+  weatherForecastSeries.push(countSun,countCloud,countRain);
+  console.log("serie");
+  console.log(weatherForecastSeries);
 
+  console.log(countCloud);
   console.log(totalSeries);
   console.log(totalSeries, largeKartSeries, smallKartSeries, doubleKartSeries)
   chart.updateSeries([{
@@ -190,5 +240,6 @@ function generateData(inputObj) {
       },
       text: "Rekord"
     }
-  })
+  }),
+  forecastChart.updateSeries(weatherForecastSeries);
 }

@@ -45,8 +45,17 @@ if (isset($_POST["startDate"]) && isset($_POST["endDate"])) {
   $conn = connecttoDB();
 
 
-  $stmt = $conn->prepare("SELECT
-   DATE(raceDate) as raceDate, SUM(largeKart) as 'largeKart', SUM(smallKart) as 'smallKart', SUM(doubleKart) as 'doubleKart', (SUM(largeKart) + SUM(smallKart) + SUM(doubleKart)) as 'dayTotal' FROM race WHERE ? <= date(raceDate) and ? >= date(raceDate) GROUP BY DAY(raceDate)");
+  $stmt = $conn->prepare("SELECT DATE(raceDate) as raceDate,
+	 SUM(largeKart) as 'largeKart',
+	  SUM(smallKart) as 'smallKart',
+		 SUM(doubleKart) as 'doubleKart',
+		  (SUM(largeKart) + SUM(smallKart) + SUM(doubleKart)) as 'dayTotal',
+			 DATE(dateStamp) as 'dateStamp',
+			  dayTemp as 'dayTemp',
+				 dayWeather as 'dayWeather' FROM race,
+				  editdata WHERE ? <= date(raceDate) and ? >= date(raceDate)
+					 GROUP BY DATE(raceDate),DATE(dateStamp)");
+					 
   $stmt->bind_param("ss", $startDate, $endDate);
 
 	$startDate = $_POST["startDate"];
