@@ -284,9 +284,13 @@ function generateData(inputObj) {
     }else if (object[i].dayWeather=="rain") {
       countRain++;
     }
+    console.log("maxallTime");
+    console.log(object[i].dayTotal + ">" + maxAllTime);
 
+    //WHY THE FUCK DOES THIS WORK? i+1
     if (object[i].dayTotal>maxAllTime) {
-      maxAllTime=object[i].dayTotal;
+      console.log("lool");
+      maxAllTime=object[i+1].dayTotal;
     }
     var totalLargeKart = +totalLargeKart + +object[i].largeKart;
     var totalSmallKart = +totalSmallKart + +object[i].smallKart;
