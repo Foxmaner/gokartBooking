@@ -99,6 +99,7 @@ a:active {
 .title{
   position: relative;
   bottom: 3vh;
+  font-family: 'Black Ops One', cursive;
 }
 
 #loginTitleIcon{

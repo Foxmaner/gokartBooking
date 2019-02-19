@@ -1,3 +1,36 @@
+function getWeather() {
+
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      console.log("Weather JSON fetsched" + this.responseText);
+      object = JSON.parse(this.responseText);
+      console.log("Weather JSON converted to object" + object);
+      document.getElementById("weatherSelect").value = object[0].dayWeather;
+      document.getElementById("tempInput").value = object[0].dayTemp;
+      document.getElementById("weatherRemarkInput").value = object[0].dayRemark;
+    }
+  }
+  xhttp.open("GET", "../../dbConnections/cashConnections/getWeatherConnection.php", true);
+  xhttp.send();
+}
+
+function updateWeather() {
+  var inputTemp = document.getElementById("tempInput").value;
+  var inputWeather = document.getElementById("weatherSelect").value;
+  var inputRemark = document.getElementById("weatherRemarkInput").value;
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      console.log("updateWeather response:" + this.responseText);
+      alertify.notify('Lyckat: Vädret uppdaterades!');
+    }
+  }
+  xhttp.open("POST", "../../dbConnections/cashConnections/updateWeatherConnection.php", true);
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhttp.send("inputTemp=" + inputTemp + "&inputWeather=" + inputWeather + "&inputRemark=" + inputRemark);
+}
+
 function outputEditRaceA() {
   var tempRaceNr = document.getElementById("outputEditLopp").innerHTML;
 
@@ -86,6 +119,7 @@ function editRace() {
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       document.getElementById("outputTest").innerHTML = this.responseText;
+      updateChart();
     }
   };
   xhttp.open("GET", "../../dbConnections/cashConnections/editRaceConnection.php?large=" + large + "&small=" + small + "&double=" + double + "&racenr=" + raceNr, true);
@@ -156,18 +190,62 @@ function editNumberInputValue(key) {
   }
 }
 
+var timeout = null;
+
+function btnArrowLeftPressed(){
+  clearTimeout(timeout);
+
+  outputEditRaceS();
+
+  timeout = setTimeout(function () {
+  selectPreviusRace();
+
+  }, 200);
+}
+function btnArrowRightPressed(){
+  clearTimeout(timeout);
+
+  outputEditRaceA();
+
+  timeout = setTimeout(function () {
+  selectNextRace();
+
+  }, 200);
+}
+
+
+
+
+
+
+
 
 window.addEventListener('keyup', keyUp, false);
 
+
+
 function keyUp(e) {
+
+  clearTimeout(timeout);
+
+
   if (e.keyCode === 37) { //39 is the keyCode # for the left arrow key
     outputEditRaceS();
+
+
+    timeout = setTimeout(function () {
     selectPreviusRace();
-    updateChart();
+
+    }, 200);
+
   } else if (e.keyCode === 39) { //39 is the keyCode # for the right arrow key
     outputEditRaceA();
+
+    timeout = setTimeout(function () {
     selectNextRace();
-    updateChart();
+
+    }, 200);
+
   }else if (e.keyCode === 38) { //38 upp
     selectTextInput(1);
   }else if (e.keyCode === 40) { //40 ner
@@ -178,27 +256,51 @@ function keyUp(e) {
     editNumberInput(0);
   }else if (e.keyCode === 81) {
     editNumberInputValue(81);
+
+    timeout = setTimeout(function () {
     editRace();
-    updateChart();
+
+    }, 200);
+
   }else if (e.keyCode ===87) {
     editNumberInputValue(87);
+
+    timeout = setTimeout(function () {
     editRace();
-    updateChart();
+
+    }, 200);
+
   }else if (e.keyCode === 65) {
     editNumberInputValue(65);
+
+    timeout = setTimeout(function () {
     editRace();
-    updateChart();
+
+    }, 200);
+
   }else if (e.keyCode === 83) {
     editNumberInputValue(83);
+
+    timeout = setTimeout(function () {
     editRace();
-    updateChart();
+
+    }, 200);
+
   }else if (e.keyCode === 90) {
     editNumberInputValue(90);
+
+    timeout = setTimeout(function () {
     editRace();
-    updateChart();
+
+    }, 200);
+
   }else if (e.keyCode === 88) {
     editNumberInputValue(88);
+
+    timeout = setTimeout(function () {
     editRace();
-    updateChart();
+
+    }, 200);
+
   }
 }

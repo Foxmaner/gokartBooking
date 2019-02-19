@@ -35,115 +35,31 @@ function getRaceLength(){
         echo "error" . $conn->error;
   }
   return $nRace;
+	mysqli_close($conn);
 }
 
 
-if (isset($_POST["racenr"])) {
+if (isset($_GET["racenr"])) {
   // code...
 
 
-  if($_POST["racenr"] < 6) {
+  if($_GET["racenr"] < 11) {
     // code...
     $conn = connecttoDB();
 
-    $myObj = new stdClass();
-    $myObj->raceNr = $_POST["racenr"];
-		$arrayRaceNr = array();
-		$arrayLargeKart = array();
-    $arraySmallKart = array();
-    $arrayDoubleKart = array();
+		$sql = "SELECT * FROM race WHERE 1 <= raceNr and raceNr <= 11 and CURDATE() = date(raceDate)";
+		if ($conn->query($sql)) {
+			$result = $conn->query($sql);
+			$myJSON = $result->fetch_all(MYSQLI_ASSOC);
 
-    $stmt = $conn->prepare("SELECT * FROM race WHERE 1 <= raceNr and raceNr <= ? and CURDATE() = date(raceDate)");
-    $stmt->bind_param("i", $raceNrI);
-    $raceNrI = getRaceLength();
-		if ($raceNrI > 11) {
-			// code...
-			$raceNrI=11;
+			$myJSON = json_encode($myJSON);
+			echo $myJSON;
+
+			} else {
+					echo "error" . $conn->error;
 		}
-    $stmt->execute();
-    $result = $stmt->get_result();
-    $i = 0;
-     while ($row = $result->fetch_assoc()) {
-			 array_push($arrayRaceNr,$i+1);
-       array_push($arrayLargeKart,$row["largeKart"]);
-       array_push($arraySmallKart,$row["smallKart"]);
-       array_push($arrayDoubleKart,$row["doubleKart"]);
-
-
-
-       $i=$i+1;
-      }
-    $stmt->close();
-
-		$myObj->raceNrArray = $arrayRaceNr;
-    $myObj->large = $arrayLargeKart;
-    $myObj->small = $arraySmallKart;
-    $myObj->double = $arrayDoubleKart;
-
-
-
-
-
-    $myJSON = json_encode($myObj);
-    echo $myJSON;
-
-
-  }else{
-
-
-
-		$conn = connecttoDB();
-
-    $myObj = new stdClass();
-    $myObj->raceNr = $_POST["racenr"];
-		$arrayRaceNr = array();
-    $arrayLargeKart = array();
-    $arraySmallKart = array();
-    $arrayDoubleKart = array();
-
-    $stmt = $conn->prepare("SELECT * FROM race WHERE ? <= raceNr and raceNr <= ? and CURDATE() = date(raceDate)");
-    $stmt->bind_param("ii", $raceNrF, $raceNrL);
-    $raceNrF = $_POST["racenr"]-5;
-		$raceNrL = $_POST["racenr"]+5;
-    $stmt->execute();
-    $result = $stmt->get_result();
-    $i = $_POST["racenr"]-5;
-     while ($row = $result->fetch_assoc()) {
-			 array_push($arrayRaceNr,$i+1);
-       array_push($arrayLargeKart,$row["largeKart"]);
-       array_push($arraySmallKart,$row["smallKart"]);
-       array_push($arrayDoubleKart,$row["doubleKart"]);
-
-
-
-       $i=$i+1;
-      }
-    $stmt->close();
-		if (($_POST["racenr"]+5)>getRaceLength()) {
-			// code...
-
-			for ($i=end($arrayRaceNr); $i <= getRaceLength(); $i++) {
-				// code...
-				array_push($arrayRaceNr,$i+1);
-				array_push($arrayLargeKart,0);
-				array_push($arraySmallKart,0);
-				array_push($arrayDoubleKart,0);
-			}
-		}
-
-
-		$myObj->raceNrArray = $arrayRaceNr;
-    $myObj->large = $arrayLargeKart;
-    $myObj->small = $arraySmallKart;
-    $myObj->double = $arrayDoubleKart;
-
-
-
-
-
-    $myJSON = json_encode($myObj);
-    echo $myJSON;
 
 
   }
+	mysqli_close($conn);
 }

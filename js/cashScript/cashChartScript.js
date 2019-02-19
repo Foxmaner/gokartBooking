@@ -1,7 +1,3 @@
-var dataPack1 = [];
-var dataPack2 = [];
-var dataPack3 = [];
-var raceNr = [];
 
 //This shit is slow!
 function getRaceData() {
@@ -12,40 +8,18 @@ var raceNr = document.getElementById("outputEditLopp").innerHTML;
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       //alert(this.responseText);
-      console.log(this.responseText);
       var obj = JSON.parse(this.responseText);
-
-      console.log(obj.double[2]);
       createDatasets(obj);
     }
   };
-  xhttp.open("POST", "../../dbConnections/cashConnections/getCashChartConnection.php", true);
-  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  xhttp.send("racenr=" + raceNr);
+  xhttp.open("GET", "../../dbConnections/cashConnections/getCashChartConnection.php?racenr=" + raceNr, true);
+
+  xhttp.send();
 };
 
-function createDatasets(obj) {
-
-  renderChart(obj.raceNrArray, obj.large, obj.small, obj.double)
-
-}
-
-
-function renderChart(raceNrDataset, largeKartDataset, smallKartDataset, doubleKartDataset) {
-
-  dataPack1 = largeKartDataset;
-  dataPack2 = smallKartDataset;
-  dataPack3 = doubleKartDataset;
-  raceNr = raceNrDataset;
-
-  console.log(dataPack1);
-  console.log(dataPack2);
-  console.log(dataPack3);
-  console.log(raceNr);
 
 
 
-}
 
 
 
@@ -87,8 +61,27 @@ var options = {
         data: []
     }],
     xaxis: {
-        categories: raceNr,
+        categories: [],
     },
+    yaxis: {
+      min: 0,
+      max: 12,
+    },
+    annotations: {
+    yaxis: [
+      {
+        y: 10,
+        borderColor: "red",
+        label: {
+          borderColor: "black",
+          style: {
+            color: "#fff",
+            background: "red"
+          },
+          text: "Maxgräns"
+        }
+      }
+    ]},
     legend: {
         position: 'right',
         offsetY: 40
@@ -104,29 +97,47 @@ var chart = new ApexCharts(
 );
 
 function loadChart(){
-  getRaceData();
   chart.render();
-
+  updateChart();
 }
 
 function updateChart() {
   getRaceData();
+}
 
-  chart.updateSeries([{
-      name: 'Stora',
-      data: dataPack1
-  },{
-      name: 'Små',
-      data: dataPack2
-  },{
-      name: 'Dubbla',
-      data: dataPack3
-  }]);
-  chart.updateOptions({
-  xaxis: {
-    categories: raceNr,
-    tickAmount: 1
-  },
-})
 
+function createDatasets(obj) {
+  console.log("createDatasets() object V ");
+  console.log(obj);
+
+  dataPack1 = [];
+  dataPack2 = [];
+  dataPack3 = [];
+  raceNr = [];
+
+ for (var i = 0; i < obj.length; i++) {
+
+   dataPack1[i] = obj[i].largeKart;
+   dataPack2[i] = obj[i].smallKart;
+   dataPack3[i] = obj[i].doubleKart;
+   raceNr[i] = obj[i].raceNr;
+ }
+
+
+ chart.updateOptions({
+ xaxis: {
+   categories: raceNr,
+   tickAmount: 1
+ },
+ })
+ chart.updateSeries([{
+     name: 'Stora',
+     data: dataPack1
+ },{
+     name: 'Små',
+     data: dataPack2
+ },{
+     name: 'Dubbla',
+     data: dataPack3
+ }]);
 }

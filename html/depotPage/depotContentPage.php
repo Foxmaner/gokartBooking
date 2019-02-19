@@ -27,7 +27,7 @@
     </div>
     <br>
     <div class="rightText col-12 col-s-12">
-    <h1 class="depotOutput col-12 col-s-12 rightOutput" id="outputDouble">Loading..</h1>
+    <h1 class="depotOutput col-12 col-s-12 rightOutput" id="outputDouble">Loading...</h1>
     </div>
   </section>
 
