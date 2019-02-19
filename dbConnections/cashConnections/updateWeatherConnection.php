@@ -28,12 +28,13 @@ if (isset($_POST["inputTemp"]) && isset($_POST["inputWeather"])) {
 $conn = connecttoDB();
 
 
-$stmt = $conn->prepare("UPDATE editdata SET dayTemp = ?, dayWeather = ? WHERE CURDATE() = date(dateStamp)");
-$stmt->bind_param("is", $inputTemp, $inputWeather);	//Bind ? till variabler. Bestäm format.
+$stmt = $conn->prepare("UPDATE editdata SET dayTemp = ?, dayWeather = ?, dayRemark = ? WHERE CURDATE() = date(dateStamp)");
+$stmt->bind_param("iss", $inputTemp, $inputWeather, $inputRemark);	//Bind ? till variabler. Bestäm format.
 
 
 $inputTemp = $_POST["inputTemp"];
 $inputWeather = $_POST["inputWeather"];
+$inputRemark = $_POST["inputRemark"];
 
 $stmt->execute();		//Exekvera queryn
 

@@ -84,6 +84,10 @@ body{
   position: absolute;
   top: 5vh;
 }
+#weatherRemarkInput{
+  position: absolute;
+  top: 10vh;
+}
 
 
 

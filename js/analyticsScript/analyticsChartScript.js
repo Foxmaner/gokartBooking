@@ -80,6 +80,7 @@ var smallKartSeries = [];
 var doubleKartSeries = [];
 var weatherTempSeries = [];
 var weatherForecastSeries = [];
+var kartPieSeries = [];
 
 
 
@@ -193,6 +194,25 @@ var forecastChartoptions = {
   }
 
 };
+var kartPieOptions = {
+  chart: {
+    width: "100%",
+    type: "pie",
+    animations: {
+      initialAnimation: {
+        enabled: false
+      }
+    }
+  },
+  labels: ['Stora', 'Små', 'Dubbla'],
+  colors: ['#ebf442', '#b4bab5','#3025f9'],
+  series: [0,0,0],
+  title: {
+    text: "Gokart uppdelning",
+    align: 'left',
+  }
+
+};
 
 
 var chart = new ApexCharts(
@@ -204,12 +224,17 @@ var tempChart = new ApexCharts(
 var forecastChart = new ApexCharts(
   document.querySelector("#weatherForecastChart"),forecastChartoptions
 );
+var kartPieChart = new ApexCharts(
+  document.querySelector("#kartPieChart"),kartPieOptions
+);
 
 
 function loadChart(startDate, endDate) {
   chart.render();
   tempChart.render();
   forecastChart.render();
+  document.getElementById("getWeatherWindow").style.display = "block";
+  kartPieChart.render();
   getChartData(startDate, endDate)
 }
 
@@ -224,6 +249,10 @@ function generateData(inputObj) {
   var countCloud = 0;
   var countSun = 0;
   var countRain = 0;
+
+  var totalLargeKart = 0;
+  var totalSmallKart = 0;
+  var totalDoubleKart = 0;
 
   for (var i = 0; i < Object.keys(object).length; i++) {
     console.log(i);
@@ -259,10 +288,18 @@ function generateData(inputObj) {
     if (object[i].dayTotal>maxAllTime) {
       maxAllTime=object[i].dayTotal;
     }
+    var totalLargeKart = +totalLargeKart + +object[i].largeKart;
+    var totalSmallKart = +totalSmallKart + +object[i].smallKart;
+    var totalDoubleKart = +totalDoubleKart + +object[i].doubleKart;
+
   }
   weatherForecastSeries.push(countSun,countCloud,countRain);
+  kartPieSeries.push(totalLargeKart,totalSmallKart,totalDoubleKart);
   console.log("serie");
   console.log(weatherForecastSeries);
+
+  console.log("serie");
+  console.log(kartPieSeries);
 
   console.log(countCloud);
   console.log(totalSeries);
@@ -298,4 +335,30 @@ function generateData(inputObj) {
   console.log(totalSeries);
   console.log(weatherTempSeries);
   console.log("-");
+  kartPieChart.updateSeries(kartPieSeries);
+}
+
+
+
+function getWeather(){
+  var datum = document.getElementById("inputWeatherDate").value;
+
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      //alert(this.responseText);
+      console.log(this.responseText);
+      obj = JSON.parse(this.responseText);
+
+      document.getElementById("outputWeatherDate").innerHTML = obj[0].dateStamp;
+      document.getElementById("outputWeatherTemp").innerHTML = obj[0].dayTemp;
+      document.getElementById("outputWeatherWeather").innerHTML = obj[0].dayWeather;
+      document.getElementById("outputWeatherRemark").innerHTML = obj[0].dayRemark;
+
+    }
+  };
+  xhttp.open("POST", "../../dbConnections/analyticsConnections/getDayWeatherData.php", true);
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhttp.send("weatherDate=" + datum);
+
 }

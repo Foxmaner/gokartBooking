@@ -8,6 +8,7 @@ function getWeather() {
       console.log("Weather JSON converted to object" + object);
       document.getElementById("weatherSelect").value = object[0].dayWeather;
       document.getElementById("tempInput").value = object[0].dayTemp;
+      document.getElementById("weatherRemarkInput").value = object[0].dayRemark;
     }
   }
   xhttp.open("GET", "../../dbConnections/cashConnections/getWeatherConnection.php", true);
@@ -17,6 +18,7 @@ function getWeather() {
 function updateWeather() {
   var inputTemp = document.getElementById("tempInput").value;
   var inputWeather = document.getElementById("weatherSelect").value;
+  var inputRemark = document.getElementById("weatherRemarkInput").value;
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
@@ -26,7 +28,7 @@ function updateWeather() {
   }
   xhttp.open("POST", "../../dbConnections/cashConnections/updateWeatherConnection.php", true);
   xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  xhttp.send("inputTemp=" + inputTemp + "&inputWeather=" + inputWeather);
+  xhttp.send("inputTemp=" + inputTemp + "&inputWeather=" + inputWeather + "&inputRemark=" + inputRemark);
 }
 
 function outputEditRaceA() {

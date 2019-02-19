@@ -3,6 +3,7 @@
   <a href="../../index.php"> <div id="depotTitleIcon"></div> </a>
 
     <input type="number" id="tempInput"> </input>
+    <input type="text" id="weatherRemarkInput"> </input>
     <div class="styled-select green rounded">
     <select id="weatherSelect">
       <option value=""></option>

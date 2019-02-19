@@ -75,7 +75,7 @@ z-index: -1;
   text-align: center;
 
 
-  
+
   margin: auto;
   margin-top: 20vh;
 }
@@ -98,6 +98,19 @@ z-index: -1;
   bottom: 5vh;
 
 
+}
+#weatherForecastChart{
+float: left;
+
+}
+#getWeatherWindow{
+  float: left;
+  
+  display: none;
+  height: 20vh;
+}
+#kartPieChart{
+  float: left;
 }
 
 .dataButton{

@@ -24,20 +24,39 @@ function connecttoDB(){
 }
 
 
-// code...
-$conn = connecttoDB();
-$sql = "SELECT dayTemp,dayWeather,dayRemark FROM editdata WHERE CURDATE() = date(dateStamp)";
-if ($conn->query($sql)) {
-  $result = $conn->query($sql);
+
+
+
+if (isset($_POST["weatherDate"])) {
+  // code...
+
+  $conn = connecttoDB();
+
+
+  $stmt = $conn->prepare("SELECT DATE(dateStamp) as 'dateStamp',
+  dayTemp as 'dayTemp',
+  dayWeather as 'dayWeather',
+	dayRemark as 'dayRemark'
+  FROM editdata
+  WHERE ? = date(dateStamp)");
+
+  $stmt->bind_param("s", $dayDate);
+
+	$dayDate = $_POST["weatherDate"];
+
+
+  $stmt->execute();
+  $result = $stmt->get_result();
   $myJSON = $result->fetch_all(MYSQLI_ASSOC);
+
   $myJSON = json_encode($myJSON);
   echo $myJSON;
 
-  } else {
-      echo "error" . $conn->error;
+  $stmt->close();
+  $conn->close();
+
+
+
+
+
 }
-$conn->close();
-
-
-
-?>

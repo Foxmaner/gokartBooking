@@ -17,7 +17,22 @@
     <div id="myChart" class="col-12 col-m-12"></div>
     <div id="tempChart" class="col-12 col-m-12"></div>
   </div>
-  <div id="weatherForecastChart" class="col-6 col-m-6"></div>
+  <div id="weatherForecastChart" class="col-4 col-m-4"></div>
+  <div id="getWeatherWindow" class="col-4 col-m-4">
+    <h2>Väder</h2>
+    Välj dag <input id="inputWeatherDate" type="date"></input>
+    <button onclick="getWeather()">Hämta väder</button>
+    <br>
+    Dag: <div id="outputWeatherDate"></div>
+    <br>
+    Tempratur: <div id="outputWeatherTemp"></div>
+    <br>
+    Väder: <div id="outputWeatherWeather"></div>
+    <br>
+    Anmärkning: <div id="outputWeatherRemark"></div>
+  </div>
+  <div id="kartPieChart" class="col-4 col-m-4"></div>
+  <div style="clear:both"></div>
   <?php
   echo "<script>";
   require "../../js/analyticsScript/analyticsChartScript.js";
