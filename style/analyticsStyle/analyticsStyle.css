@@ -65,10 +65,13 @@ z-index: -1;
 }
 
 
-
+.sectionWindow{
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+}
 
 #analyticsSection{
-  background-color: rgb(255,255,255,0.39);
+  background-color: rgb(255,255,255,0.5);
 
   padding-bottom: 1vh;
 
@@ -105,9 +108,8 @@ float: left;
 }
 #getWeatherWindow{
   float: left;
-  
   display: none;
-  height: 20vh;
+  min-height: 30vh;
 }
 #kartPieChart{
   float: left;
@@ -119,8 +121,22 @@ float: left;
   font-size: 2rem;
   margin-top: 3vh;
 }
-
-
+.weatherText{
+  display: inline;
+}
+.weatherOutput{
+  display: inline;
+}
+#getWeatherButton{
+  background-color: rgb(96,116,29);
+  height: auto;
+  font-size: 2rem;
+  width: 80%;
+}
+#inputWeatherDate{
+  width: 80%;
+  text-align: center;
+}
 
 /* For mobile phones: */
 [class*="col-"] {
@@ -228,6 +244,14 @@ float: left;
 
   .col-12 {
     width: 100%;
+  }
+
+  .sectionWindow{
+    border:0;
+  }
+  #getWeatherWindow{
+    border-left: 2px solid grey;
+    border-right: 2px solid grey;
   }
 
 }

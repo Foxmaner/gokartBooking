@@ -7,9 +7,9 @@
     <div class="styled-select green rounded">
     <select id="weatherSelect">
       <option value=""></option>
-      <option id="selectSun" value="sun">Sol</option>
-      <option id="selectCloud" value="cloud">Moln</option>
-      <option id="selectRain" value="rain">Regn</option>
+      <option id="selectSun" value="Soligt">Sol</option>
+      <option id="selectCloud" value="Molnigt">Moln</option>
+      <option id="selectRain" value="Regn">Regn</option>
     </select>
 
   </div>

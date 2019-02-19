@@ -13,25 +13,29 @@
   <button id="dataButtonAll" class="dataButton" onclick="selectData(1)">All data</button>
   <br>
   <button id="dataButtonSelected" class="dataButton" onclick="selectData(2)">Välj år</button>
-  <div id="wrapper">
+  <div id="wrapper" class="sectionWindow">
     <div id="myChart" class="col-12 col-m-12"></div>
     <div id="tempChart" class="col-12 col-m-12"></div>
   </div>
-  <div id="weatherForecastChart" class="col-4 col-m-4"></div>
-  <div id="getWeatherWindow" class="col-4 col-m-4">
+  <div id="weatherForecastChart" class="col-4 col-m-4 sectionWindow"></div>
+  <div id="getWeatherWindow" class="col-4 col-m-4 sectionWindow">
     <h2>Väder</h2>
-    Välj dag <input id="inputWeatherDate" type="date"></input>
-    <button onclick="getWeather()">Hämta väder</button>
+    <p class="weatherText">Dag: </p> <div class="weatherOutput" id="outputWeatherDate"></div>
     <br>
-    Dag: <div id="outputWeatherDate"></div>
+    <p class="weatherText">Temperatur: </p> <div class="weatherOutput" id="outputWeatherTemp"></div>
     <br>
-    Tempratur: <div id="outputWeatherTemp"></div>
+    <p class="weatherText">Väder: </p> <div class="weatherOutput" id="outputWeatherWeather"></div>
     <br>
-    Väder: <div id="outputWeatherWeather"></div>
+    <p class="weatherText">Anmärkningar</p> <br><textarea readonly class="weatherOutput" id="outputWeatherRemark"></textarea>
     <br>
-    Anmärkning: <div id="outputWeatherRemark"></div>
+    <h2 class="weatherText">Välj dag</h2>
+    <br>
+    <input id="inputWeatherDate" type="date"></input>
+    <br>
+    <button id="getWeatherButton" onclick="getWeather()">Hämta väder</button>
+
   </div>
-  <div id="kartPieChart" class="col-4 col-m-4"></div>
+  <div id="kartPieChart" class="col-4 col-m-4 sectionWindow"></div>
   <div style="clear:both"></div>
   <?php
   echo "<script>";
