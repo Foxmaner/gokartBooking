@@ -36,7 +36,7 @@ body{
 #loginBackground{
 height: 100%;
 width: 100%;
-position: absolute;
+position: fixed;
 
 /*animation: breath 30s ease-in-out infinite;*/
 /* Links to the picture */
@@ -65,7 +65,7 @@ float: left;
 
   text-align: center;
 
-  margin-top: 25vh;
+  margin-top: 10vh;
   float: left;
 }
 
@@ -100,18 +100,25 @@ float: left;
   float: left;
 
 }
-#settingCategory2{
-  border-left: 2px solid rgb(163,150,116);
+#outputCurrentEmail{
   padding-bottom: 1vh;
+}
+#settingCategory1{
+  padding-bottom: 1vh;
+  border-top: 2px solid rgb(163,150,116);
+}
+#settingCategory2{
+  padding-bottom: 1vh;
+  border-top: 2px solid rgb(163,150,116);
 }
 #settingCategory3{
   padding-top: 1vh;
   border-top: 2px solid rgb(163,150,116);
+  padding-bottom: 1vh;
 
 }
 #settingCategory4{
   padding-top: 1vh;
-  border-left: 2px solid rgb(163,150,116);
   border-top: 2px solid rgb(163,150,116);
 }
 
@@ -125,7 +132,7 @@ float: left;
   background-color: transparent;
 
 
-  height: 2rem;
+  height: auto;
   font-size: 2rem;
 
   background-image: url("../../media/icons/lockIcon.PNG");
@@ -139,7 +146,8 @@ float: left;
 }
 .buttons{
     background-color: rgb(96,116,29);
-    height: 3rem;
+    height: auto;
+    padding: 0.5rem;
     font-size: 2rem;
     float: none;
     margin:0px auto;
@@ -273,6 +281,15 @@ float: left;
 
   #settingSection{
     margin-left: 29.17%;
+    margin-top: 20vh;
 
+  }
+  #settingCategory1{
+    border-right: 2px solid rgb(163,150,116);
+  }
+  #settingCategory3{
+    border-right: 2px solid rgb(163,150,116);
+    border-top: 2px solid rgb(163,150,116);
+    padding-bottom: 0;
   }
 }
