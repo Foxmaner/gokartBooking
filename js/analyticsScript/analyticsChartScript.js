@@ -353,11 +353,17 @@ function getWeather(){
       console.log(this.responseText);
       obj = JSON.parse(this.responseText);
 
+      if(Object.entries(obj).length > 0){
       document.getElementById("outputWeatherDate").innerHTML = obj[0].dateStamp;
       document.getElementById("outputWeatherTemp").innerHTML = obj[0].dayTemp + "°C";
       document.getElementById("outputWeatherWeather").innerHTML = obj[0].dayWeather;
       document.getElementById("outputWeatherRemark").innerHTML = obj[0].dayRemark;
-
+    }else {
+      document.getElementById("outputWeatherDate").innerHTML = "N/A";
+      document.getElementById("outputWeatherTemp").innerHTML = "N/A" + "°C";
+      document.getElementById("outputWeatherWeather").innerHTML = "N/A";
+      document.getElementById("outputWeatherRemark").innerHTML = "Inget väder registrerat";
+    }
     }
   };
   xhttp.open("POST", "../../dbConnections/analyticsConnections/getDayWeatherData.php", true);
