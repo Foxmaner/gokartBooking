@@ -84,7 +84,7 @@ z-index: -1;
 }
 
 #analyticsTitleIcon{
-  background-image: url("../../media/icons/analyticsIcon.PNG");
+  background-image: url("../../media/icons/analyticsIcon.png");
   /* Center and scale the image nicely */
   background-repeat: no-repeat;
   background-size: 80% auto;

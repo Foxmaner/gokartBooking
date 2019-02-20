@@ -71,7 +71,7 @@ body {
 }
 
 #settingTitleIcon {
-  background-image: url("../../media/icons/kartIcon.PNG");
+  background-image: url("../../media/icons/kartIcon.png");
   /* Center and scale the image nicely */
   background-repeat: no-repeat;
   background-size: 80% auto;

@@ -152,7 +152,7 @@ float: left;
     height: 2rem;
     font-size: 2rem;
 
-    background-image: url("../../media/icons/kartIcon.PNG");
+    background-image: url("../../media/icons/kartIcon.png");
     background-position:0px 0.2rem;
     background-repeat: no-repeat;
     background-size: 1.6rem;
@@ -189,7 +189,7 @@ margin-top: 1vh:
 }
 
 #depotTitleIcon{
-  background-image: url("../../media/icons/cashIcon.PNG");
+  background-image: url("../../media/icons/cashIcon.png");
   /* Center and scale the image nicely */
   background-repeat: no-repeat;
   background-size: 80% auto;
