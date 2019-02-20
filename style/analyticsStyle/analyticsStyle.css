@@ -80,13 +80,8 @@ body {
   max-height: 80vh;
 }
 
-<<<<<<< HEAD
 #analyticsTitleIcon{
   background-image: url("../../media/icons/analyticsIcon.png");
-=======
-#analyticsTitleIcon {
-  background-image: url("../../media/icons/analyticsIcon.PNG");
->>>>>>> cb0efe418ae5b50a129c5b4566c6856be5bfa8ee
   /* Center and scale the image nicely */
   background-repeat: no-repeat;
   background-size: 80% auto;
