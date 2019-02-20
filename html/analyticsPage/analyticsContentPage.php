@@ -36,7 +36,7 @@
 
   </div>
   <div id="kartPieChart" class="col-4 col-m-4 sectionWindow"></div>
-  <div style="clear:both"></div>
+  <div id="endFiller"></div>
   <?php
   echo "<script>";
   require "../../js/analyticsScript/analyticsChartScript.js";
