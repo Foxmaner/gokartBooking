@@ -80,7 +80,7 @@ body {
 /* Icon*/
 /* --*/
 #settingTitleIcon {
-  background-image: url("../../media/icons/settingIcon.PNG");
+  background-image: url("../../media/icons/settingIcon.png");
   /* Center and scale the image nicely */
   background-repeat: no-repeat;
   background-size: 80% auto;
@@ -140,7 +140,7 @@ body {
   background-color: transparent;
   height: auto;
   font-size: 2rem;
-  background-image: url("../../media/icons/lockIcon.PNG");
+  background-image: url("../../media/icons/lockIcon.png");
   background-position: 0px 0.2rem;
   background-repeat: no-repeat;
   background-size: 1.6rem;
@@ -170,11 +170,11 @@ body {
 }
 
 #inputChangeEmail1 {
-  background-image: url("../../media/icons/mailIcon.PNG");
+  background-image: url("../../media/icons/mailIcon.png");
 }
 
 #inputChangeEmail2 {
-  background-image: url("../../media/icons/mailIcon.PNG");
+  background-image: url("../../media/icons/mailIcon.png");
 }
 
 /* For mobile phones: */

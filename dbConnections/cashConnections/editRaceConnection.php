@@ -4,24 +4,8 @@ error_reporting(-1); // Report all type of errors
 ini_set('display_errors', 1); // Display all errors
 ini_set('output_buffering', 0); // Do not buffer outputs, write directly
 
+require '../../html/topCode/top.php';
 
-function connecttoDB(){
-	$servername = "localhost";
-	$username = "root";
-	$password = "";
-	$minDB = "glabo_bokningar";
-	$conn = new mysqli($servername, $username, $password, $minDB);
-
-
-	if ($conn->connect_error) {
-		# code...
-		die("Connection failed" . $conn->connect_error);
-		return null;
-	}else{
-		return $conn;
-	}
-
-}
 
 $conn = connecttoDB();
 $inputLarge = 0;
@@ -43,6 +27,7 @@ $serverDate = date("Y-m-d");
 $stmt->execute();		//Exekvera queryn
 
 $stmt->close();
+$conn->close();
 //echo $inputLarge;
 //echo $inputSmall;
 //echo $inputDouble;

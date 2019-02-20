@@ -2,19 +2,21 @@
 <div class="section col-5 col-s-5" id="cashSection">
   <a href="../../index.php"> <div id="depotTitleIcon"></div> </a>
 
-    <input type="number" id="tempInput"> </input>
+  <div id="weatherInputWindow" class="col-2 col-m-5">
+    <h3>Väder</h3>
+    <p id="weatherWindowText">Temperatur: </p><input type="number" id="tempInput"> </input>
+    <br>
     <input type="text" id="weatherRemarkInput"> </input>
     <div class="styled-select green rounded">
-    <select id="weatherSelect">
-      <option value=""></option>
-      <option id="selectSun" value="Soligt">Sol</option>
-      <option id="selectCloud" value="Molnigt">Moln</option>
-      <option id="selectRain" value="Regn">Regn</option>
-    </select>
-
+      <select id="weatherSelect">
+        <option value=""></option>
+        <option id="selectSun" value="Soligt">Sol</option>
+        <option id="selectCloud" value="Molnigt">Moln</option>
+        <option id="selectRain" value="Regn">Regn</option>
+      </select>
+    </div>
+    <button onclick="updateWeather()" id="btn_updateWeather">Uppdatera vädret</button>
   </div>
-
-  <button onclick="updateWeather()" id="btn_updateWeather">Uppdatera vädret</button>
   <h1 class="title col-12 col-m-12">Kassa</h1>
 
 

@@ -5,23 +5,7 @@ ini_set('display_errors', 1); // Display all errors
 ini_set('output_buffering', 0); // Do not buffer outputs, write directly
 
 
-function connecttoDB(){
-	$servername = "localhost";
-	$username = "root";
-	$password = "";
-	$minDB = "glabo_bokningar";
-	$conn = new mysqli($servername, $username, $password, $minDB);
-
-
-	if ($conn->connect_error) {
-		# code...
-		die("Connection failed" . $conn->connect_error);
-		return null;
-	}else{
-		return $conn;
-	}
-
-}
+require '../../html/topCode/top.php';
 
 function getActiveRace(){
   $conn = connecttoDB();
@@ -34,6 +18,7 @@ function getActiveRace(){
           return $row['activeRace'];
     }
   $stmt->close();
+  $conn->close();
 
 }
 
@@ -69,6 +54,7 @@ function activeRaceNext(){
   $stmt->execute();		//Exekvera queryn
 
   $stmt->close();
+  $conn->close();
 }
 
 function activeRacePrevius(){
@@ -87,6 +73,7 @@ function activeRacePrevius(){
   $stmt->execute();		//Exekvera queryn
 
   $stmt->close();
+  $conn->close();
 }
 
 if ($_GET["input"] == "a") {
