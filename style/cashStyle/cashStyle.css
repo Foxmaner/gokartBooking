@@ -30,6 +30,7 @@ body{
   position: relative;
   bottom: 3vh;
   float: left;
+  z-index: 1
 }
 
 /* --*/
@@ -43,6 +44,7 @@ body{
   float: none;
   border-bottom: 1px solid black;
   border-left:  1px solid black;
+  z-index: 200;
 }
 #weatherWindowText{
   display: inline;
@@ -51,7 +53,55 @@ body{
 #tempInput{
   display: inline;
   height: auto;
-  width: 20%;
+  width: 30%;
+
+  background-image: url("../../media/icons/tempIcon.png");
+  background-position:0px;
+  background-repeat: no-repeat;
+  background-size: 2rem;
+}
+
+#weatherSelect{
+  display: inline;
+  height: auto;
+  width: 30%;
+
+  background-image: url("../../media/icons/weather.png");
+  background-position:0px;
+  background-repeat: no-repeat;
+  background-size: 2rem;
+
+  border-bottom: 2px solid rgb(216,201,180);
+  background-color: transparent;
+
+
+  height: 2rem;
+  font-size: 2rem;
+
+
+  background-position:0px;
+  background-repeat: no-repeat;
+  background-size: 2rem;
+  padding-left: 40px;
+  width: auto;
+  margin-top: 1vh;
+}
+
+.weatherTextInputs{
+  border-bottom: 2px solid rgb(216,201,180);
+  background-color: transparent;
+
+
+  height: 2rem;
+  font-size: 2rem;
+
+
+  background-position:0px 0.2rem;
+  background-repeat: no-repeat;
+  background-size: 1.6rem;
+  padding-left: 40px;
+  width: auto;
+  margin-top: 1vh;
 }
 
 
