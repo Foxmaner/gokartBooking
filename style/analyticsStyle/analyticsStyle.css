@@ -77,7 +77,7 @@ body {
   text-align: center;
   margin: auto;
   margin-top: 15vh;
-  max-height: 80vh;
+  min-height: 80vh;
 }
 
 #analyticsTitleIcon{
@@ -135,6 +135,11 @@ body {
 #inputWeatherDate {
   width: 80%;
   text-align: center;
+}
+#endFiller{
+  float: none;
+  clear: both;
+  height: 1px;
 }
 
 /* For mobile phones: */
