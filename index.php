@@ -1,4 +1,8 @@
 <!--
+Version 0.9.6.4
+-->
+
+<!--
 This site is made by Eskil Brännerud aka Foxmaner.
 It was created as a schoolproject for my secondary work.
 Github: https://github.com/Foxmaner

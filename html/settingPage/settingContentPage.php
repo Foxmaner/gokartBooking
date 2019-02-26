@@ -12,7 +12,7 @@
 
 
 
-  <div class="settingCategory col-s-6 col-6">
+  <div class="settingCategory col-s-6 col-6" id="settingCategory1">
     <h2 class="subTitle">Ändra login</h2>
     <input id="inputChangeUserPassword1" class="inputs col-s-10 col-10" type="password" placeholder="Nytt lösenord"></input>
     <br>

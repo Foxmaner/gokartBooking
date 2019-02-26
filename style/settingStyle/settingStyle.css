@@ -1,3 +1,6 @@
+/* --*/
+/* General*/
+/* --*/
 * {
   box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
@@ -7,12 +10,13 @@
   border-collapse: collapse;
 }
 
-html{
-  margin:0px;
-  padding:0px;
-  width:100%;
+html {
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
 }
-body{
+
+body {
   width: 100%;
   min-height: 100vh;
 }
@@ -20,7 +24,7 @@ body{
 /* --*/
 /* Wrapper*/
 /* --*/
-.wrapper{
+.wrapper {
   width: auto;
   height: auto;
   float: left;
@@ -28,140 +32,150 @@ body{
 
 /* Zoom in/Zoom out animation */
 @keyframes breath {
-0%   { background-size: auto 110%; }
-50% { background-size: auto 120%; }
-100% { background-size: auto 110%; }
+  0% {
+    background-size: auto 110%;
+  }
+
+  50% {
+    background-size: auto 120%;
+  }
+
+  100% {
+    background-size: auto 110%;
+  }
 }
 
-#loginBackground{
-height: 100%;
-width: 100%;
-position: absolute;
-
-/*animation: breath 30s ease-in-out infinite;*/
-/* Links to the picture */
-background-image: url("../../media/pictures/topdownView.JPG");
-
-/* Add the blur effect */
-filter: blur(3px);
--webkit-filter: blur(3px);
-
-/* Center and scale the image nicely */
-background-repeat: no-repeat;
-background-size: cover;
-
-
-z-index: -1;
-float: left;
-
+/* --*/
+/* Background*/
+/* --*/
+#loginBackground {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  z-index: -1;
+  float: left;
+  /*animation: breath 30s ease-in-out infinite;*/
+  /* Links to the picture */
+  background-image: url("../../media/pictures/topdownView.JPG");
+  /* Add the blur effect */
+  filter: blur(3px);
+  -webkit-filter: blur(3px);
+  /* Center and scale the image nicely */
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-#settingSection{
-  background-color: rgb(255,255,255,0.39);
-
-
-
+/* --*/
+/* Transparent wrapper*/
+/* --*/
+#settingSection {
+  background-color: rgb(255, 255, 255, 0.39);
   padding-bottom: 1vh;
-
   text-align: center;
-
-  margin-top: 25vh;
+  margin-top: 10vh;
   float: left;
 }
 
-#settingTitleIcon{
-  background-image: url("../../media/icons/settingIcon.PNG");
+/* --*/
+/* Icon*/
+/* --*/
+#settingTitleIcon {
+  background-image: url("../../media/icons/settingIcon.png");
   /* Center and scale the image nicely */
   background-repeat: no-repeat;
   background-size: 80% auto;
   background-position: center;
-  background-color: rgb(163,150,116);
+  background-color: rgb(163, 150, 116);
   width: 10vh;
   height: 10vh;
   border-radius: 50%;
-
   float: none;
-  margin:0px auto;
-
+  margin: 0px auto;
   position: relative;
   bottom: 5vh;
-
 }
 
-.title{
+.title {
   position: relative;
   bottom: 3vh;
   float: left;
 }
 
-.settingCategory{
-
-
+.settingCategory {
   float: left;
-
-}
-#settingCategory2{
-  border-left: 2px solid rgb(163,150,116);
-  padding-bottom: 1vh;
-}
-#settingCategory3{
-  padding-top: 1vh;
-  border-top: 2px solid rgb(163,150,116);
-
-}
-#settingCategory4{
-  padding-top: 1vh;
-  border-left: 2px solid rgb(163,150,116);
-  border-top: 2px solid rgb(163,150,116);
 }
 
-.subTitle{
-  padding-top: 1vh;
+#outputCurrentEmail {
   padding-bottom: 1vh;
 }
 
-.inputs{
-  border-bottom: 2px solid rgb(216,201,180);
+#settingCategory1 {
+  padding-bottom: 1vh;
+  border-top: 2px solid rgb(163, 150, 116);
+}
+
+#settingCategory2 {
+  padding-bottom: 1vh;
+  border-top: 2px solid rgb(163, 150, 116);
+}
+
+#settingCategory3 {
+  padding-top: 1vh;
+  border-top: 2px solid rgb(163, 150, 116);
+  padding-bottom: 1vh;
+}
+
+#settingCategory4 {
+  padding-top: 1vh;
+  border-top: 2px solid rgb(163, 150, 116);
+}
+
+.subTitle {
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+}
+
+.inputs {
+  border-bottom: 2px solid rgb(216, 201, 180);
   background-color: transparent;
-
-
-  height: 2rem;
+  height: auto;
   font-size: 2rem;
-
-  background-image: url("../../media/icons/lockIcon.PNG");
-  background-position:0px 0.2rem;
+  background-image: url("../../media/icons/lockIcon.png");
+  background-position: 0px 0.2rem;
   background-repeat: no-repeat;
   background-size: 1.6rem;
   padding-left: 40px;
   float: none;
-  margin:0px auto;
-
+  margin: 0px auto;
 }
-.buttons{
-    background-color: rgb(96,116,29);
-    height: 3rem;
-    font-size: 2rem;
-    float: none;
-    margin:0px auto;
-    margin-top: 10px;
-    padding-left:5px;
-    padding-right: 5px;
 
+.buttons {
+  background-color: rgb(96, 116, 29);
+  height: auto;
+  padding: 0.5rem;
+  font-size: 2rem;
+  float: none;
+  margin: 0px auto;
+  margin-top: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
 }
-#btnClearRace{
+
+#btnClearRace {
   background-color: rgb(155, 160, 29);
 }
-#btnClearDB{
+
+#btnClearDB {
   background-color: rgb(160, 56, 29);
 }
 
-#inputChangeEmail1{
-  background-image: url("../../media/icons/mailIcon.PNG");
-}
-#inputChangeEmail2{
-  background-image: url("../../media/icons/mailIcon.PNG");
+#inputChangeEmail1 {
+  background-image: url("../../media/icons/mailIcon.png");
 }
 
+#inputChangeEmail2 {
+  background-image: url("../../media/icons/mailIcon.png");
+}
 
 /* For mobile phones: */
 [class*="col-"] {
@@ -271,8 +285,18 @@ float: left;
     width: 100%;
   }
 
-  #settingSection{
+  #settingSection {
     margin-left: 29.17%;
+    margin-top: 20vh;
+  }
 
+  #settingCategory1 {
+    border-right: 2px solid rgb(163, 150, 116);
+  }
+
+  #settingCategory3 {
+    border-right: 2px solid rgb(163, 150, 116);
+    border-top: 2px solid rgb(163, 150, 116);
+    padding-bottom: 0;
   }
 }

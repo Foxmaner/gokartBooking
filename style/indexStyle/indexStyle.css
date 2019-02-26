@@ -103,7 +103,7 @@ a:active {
 }
 
 #loginTitleIcon{
-  background-image: url("../../media/icons/flagIcon.PNG");
+  background-image: url("../../media/icons/flagIcon.png");
   /* Center and scale the image nicely */
   background-repeat: no-repeat;
   background-size: cover;
@@ -135,7 +135,7 @@ a:active {
   height: 2rem;
   font-size: 2rem;
 
-  background-image: url("../../media/icons/lockIcon.PNG");
+  background-image: url("../../media/icons/lockIcon.png");
   background-position:0px 0.2rem;
   background-repeat: no-repeat;
   background-size: 1.6rem;

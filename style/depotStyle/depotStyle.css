@@ -1,3 +1,6 @@
+/* --*/
+/* General*/
+/* --*/
 * {
   box-sizing: border-box;
   font-family: 'Righteous', cursive;
@@ -7,12 +10,13 @@
   border-collapse: collapse;
 }
 
-html{
-  margin:0px;
-  padding:0px;
-  width:100%;
+html {
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
 }
-body{
+
+body {
   width: 100%;
   min-height: 100vh;
 }
@@ -20,8 +24,7 @@ body{
 /* --*/
 /* Wrapper*/
 /* --*/
-
-.title{
+.title {
   position: relative;
   bottom: 3vh;
   float: left;
@@ -29,101 +32,106 @@ body{
 
 /* Zoom in/Zoom out animation */
 @keyframes breath {
-0%   { background-size: auto 110%; }
-50% { background-size: auto 120%; }
-100% { background-size: auto 110%; }
+  0% {
+    background-size: auto 110%;
+  }
+
+  50% {
+    background-size: auto 120%;
+  }
+
+  100% {
+    background-size: auto 110%;
+  }
 }
 
-#loginBackground{
-height: 100%;
-width: 100%;
-position: absolute;
-
-/*animation: breath 30s ease-in-out infinite;*/
-/* Links to the picture */
-background-image: url("../../media/pictures/topdownView.JPG");
-
-/* Add the blur effect */
-filter: blur(3px);
--webkit-filter: blur(3px);
-
-/* Center and scale the image nicely */
-background-repeat: no-repeat;
-background-size: cover;
-
-
-z-index: -1;
-float: left;
-
+#loginBackground {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  /*animation: breath 30s ease-in-out infinite;*/
+  /* Links to the picture */
+  background-image: url("../../media/pictures/topdownView.JPG");
+  /* Add the blur effect */
+  filter: blur(3px);
+  -webkit-filter: blur(3px);
+  /* Center and scale the image nicely */
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: -1;
+  float: left;
 }
 
-#depotSection{
-  background-color: rgb(255,255,255,0.39);
-
-
-
+#depotSection {
+  background-color: rgb(255, 255, 255, 0.39);
   padding-bottom: 1vh;
-
-
-
   margin-top: 15vh;
   float: left;
-  height: 80vh;
+  min-height: 80vh;
 }
 
-#settingTitleIcon{
-  background-image: url("../../media/icons/kartIcon.PNG");
+#settingTitleIcon {
+  background-image: url("../../media/icons/kartIcon.png");
   /* Center and scale the image nicely */
   background-repeat: no-repeat;
   background-size: 80% auto;
   background-position: center;
-  background-color: rgb(163,150,116);
+  background-color: rgb(163, 150, 116);
   width: 20vh;
   height: 20vh;
   border-radius: 50%;
-
   float: none;
-  margin:0px auto;
-
+  margin: 0px auto;
   position: relative;
   bottom: 10vh;
-
 }
-.depotText{
+
+.depotText {
   font-size: 5rem;
-
 }
 
-#leftText{
-float: left;
-
-}
-.rightOutput{
-  text-align: right;
+#buttonSection {
+  width: 100%;
+  position: relative;
+  bottom: 10vh;
 }
 
-#leftSection{
+.changeActiveRaceButton {
+  float: left;
+  width: 50%;
+  background-color: rgb(163, 150, 116);
+  height: 5rem;
+  font-size: 3rem;
+  border: 1px solid black;
+  text-align: center;
+  display: inline-block;
+}
+
+#leftText {
+  float: left;
+}
+
+#leftSection {
   float: left;
   margin-right: 0;
-
-  position: relative;
-  bottom: 10vh;
-
-}
-#rightSection{
-  float: right;
-
   position: relative;
   bottom: 10vh;
 }
-.depotOutput{
+
+#rightSection {
+  float: left;
+  position: relative;
+  bottom: 10vh;
+}
+
+.depotOutput {
   float: left;
   font-size: 10vh;
   padding-top: 5vh;
   padding-left: 5%;
   padding-right: 5%;
+  border-bottom: 2px solid rgb(163, 150, 116);
 }
-
 
 /* For mobile phones: */
 [class*="col-"] {
@@ -180,6 +188,14 @@ float: left;
   .col-s-12 {
     width: 100%;
   }
+
+  .depotOutput {
+    border: 0;
+  }
+
+  #buttonSection {
+    display: none;
+  }
 }
 
 @media only screen and (min-width: 768px) {
@@ -233,7 +249,19 @@ float: left;
     width: 100%;
   }
 
-  #depotSection{
+  #depotSection {
     margin-left: 8.335%;
+  }
+
+  .rightOutput {
+    text-align: right;
+  }
+
+  .depotOutput {
+    border: 0;
+  }
+
+  #buttonSection {
+    display: none;
   }
 }

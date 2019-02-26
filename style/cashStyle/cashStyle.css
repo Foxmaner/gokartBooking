@@ -30,64 +30,80 @@ body{
   position: relative;
   bottom: 3vh;
   float: left;
+  z-index: 1
 }
 
 /* --*/
 /* Select style*/
 /* --*/
-
-.styled-select {
-   background: url(http://i62.tinypic.com/15xvbd5.png) no-repeat 96% 0;
-   height: 29px;
-   overflow: hidden;
-   width: 240px;
-   float: right;
-   position: relative;
-   bottom: 5vh;
-   right: 5px;
-}
-
-.styled-select select {
-   background: transparent;
-   border: none;
-   font-size: 14px;
-   height: 29px;
-   padding: 5px; /* If you add too much padding here, the options won't show in IE */
-   width: 268px;
-}
-
-.styled-select.slate {
-   background: url(http://i62.tinypic.com/2e3ybe1.jpg) no-repeat right center;
-   height: 34px;
-   width: 240px;
-}
-
-.styled-select.slate select {
-   border: 1px solid #ccc;
-   font-size: 16px;
-   height: 34px;
-   width: 268px;
-}
-
-.green   { background-color: #779126; }
-
-#selectSun{
-  background-image: url("../../media/icons/sunIcon.png");
-  padding-left: 10px;
-}
-
-#btn_updateWeather{
+#weatherInputWindow{
   position: absolute;
-  top: 0;
+  padding: 1vh;
+  top: 20vh;
+  left: 54.17%;
+  float: none;
+  border-bottom: 1px solid black;
+  border-left:  1px solid black;
+  z-index: 200;
+}
+#weatherWindowText{
+  display: inline;
+
 }
 #tempInput{
-  position: absolute;
-  top: 5vh;
+  display: inline;
+  height: auto;
+  width: 30%;
+
+  background-image: url("../../media/icons/tempIcon.png");
+  background-position:0px;
+  background-repeat: no-repeat;
+  background-size: 2rem;
 }
-#weatherRemarkInput{
-  position: absolute;
-  top: 10vh;
+
+#weatherSelect{
+  display: inline;
+  height: auto;
+  width: 30%;
+
+  background-image: url("../../media/icons/weather.png");
+  background-position:0px;
+  background-repeat: no-repeat;
+  background-size: 2rem;
+
+  border-bottom: 2px solid rgb(216,201,180);
+  background-color: transparent;
+
+
+  height: 2rem;
+  font-size: 2rem;
+
+
+  background-position:0px;
+  background-repeat: no-repeat;
+  background-size: 2rem;
+  padding-left: 40px;
+  width: auto;
+  margin-top: 1vh;
 }
+
+.weatherTextInputs{
+  border-bottom: 2px solid rgb(216,201,180);
+  background-color: transparent;
+
+
+  height: 2rem;
+  font-size: 2rem;
+
+
+  background-position:0px 0.2rem;
+  background-repeat: no-repeat;
+  background-size: 1.6rem;
+  padding-left: 40px;
+  width: auto;
+  margin-top: 1vh;
+}
+
 
 
 
@@ -152,7 +168,7 @@ float: left;
     height: 2rem;
     font-size: 2rem;
 
-    background-image: url("../../media/icons/kartIcon.PNG");
+    background-image: url("../../media/icons/kartIcon.png");
     background-position:0px 0.2rem;
     background-repeat: no-repeat;
     background-size: 1.6rem;
@@ -189,7 +205,7 @@ margin-top: 1vh:
 }
 
 #depotTitleIcon{
-  background-image: url("../../media/icons/cashIcon.PNG");
+  background-image: url("../../media/icons/cashIcon.png");
   /* Center and scale the image nicely */
   background-repeat: no-repeat;
   background-size: 80% auto;

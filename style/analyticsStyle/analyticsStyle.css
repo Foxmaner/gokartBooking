@@ -7,12 +7,13 @@
   border-collapse: collapse;
 }
 
-html{
-  margin:0px;
-  padding:0px;
-  width:100%;
+html {
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
 }
-body{
+
+body {
   width: 100%;
   min-height: 100vh;
   margin-top: 0;
@@ -22,13 +23,13 @@ body{
 /* --*/
 /* Wrapper*/
 /* --*/
-.wrapper{
+.wrapper {
   width: auto;
   height: auto;
   float: left;
 }
 
-.title{
+.title {
   position: relative;
   bottom: 3vh;
   float: left;
@@ -36,91 +37,110 @@ body{
 
 /* Zoom in/Zoom out animation */
 @keyframes breath {
-0%   { background-size: auto 110%; }
-50% { background-size: auto 120%; }
-100% { background-size: auto 110%; }
+  0% {
+    background-size: auto 110%;
+  }
+
+  50% {
+    background-size: auto 120%;
+  }
+
+  100% {
+    background-size: auto 110%;
+  }
 }
 
-#analyticsBackground{
-height: 100%;
-width: 100%;
-position: fixed;
-
-/*animation: breath 30s ease-in-out infinite;*/
-/* Links to the picture */
-background-image: url("../../media/pictures/topdownView.JPG");
-
-/* Add the blur effect */
-filter: blur(3px);
--webkit-filter: blur(3px);
-
-/* Center and scale the image nicely */
-background-repeat: no-repeat;
-background-size: cover;
-top: 0;
-
-z-index: -1;
-
-
+#analyticsBackground {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  /*animation: breath 30s ease-in-out infinite;*/
+  /* Links to the picture */
+  background-image: url("../../media/pictures/topdownView.JPG");
+  /* Add the blur effect */
+  filter: blur(3px);
+  -webkit-filter: blur(3px);
+  /* Center and scale the image nicely */
+  background-repeat: no-repeat;
+  background-size: cover;
+  top: 0;
+  z-index: -1;
 }
 
-
-
-
-#analyticsSection{
-  background-color: rgb(255,255,255,0.39);
-
+.sectionWindow {
+  padding-top: 1vh;
   padding-bottom: 1vh;
+}
 
+#analyticsSection {
+  background-color: rgb(255, 255, 255, 0.5);
   text-align: center;
-
-
-
   margin: auto;
-  margin-top: 20vh;
+  margin-top: 15vh;
+  min-height: 80vh;
 }
 
 #analyticsTitleIcon{
-  background-image: url("../../media/icons/analyticsIcon.PNG");
+  background-image: url("../../media/icons/analyticsIcon.png");
   /* Center and scale the image nicely */
   background-repeat: no-repeat;
   background-size: 80% auto;
   background-position: center;
-  background-color: rgb(219,203,178);
+  background-color: rgb(219, 203, 178);
   width: 10vh;
   height: 10vh;
   border-radius: 50%;
-
   float: none;
-  margin:0px auto;
-
+  margin: 0px auto;
   position: relative;
   bottom: 5vh;
-
-
 }
-#weatherForecastChart{
-float: left;
 
-}
-#getWeatherWindow{
+#weatherForecastChart {
   float: left;
-  
+}
+
+#getWeatherWindow {
+  float: left;
   display: none;
-  height: 20vh;
+  height: 100%;
 }
-#kartPieChart{
+
+#kartPieChart {
   float: left;
 }
 
-.dataButton{
-  background-color: rgb(96,116,29);
+.dataButton {
+  background-color: rgb(96, 116, 29);
   height: 3rem;
   font-size: 2rem;
   margin-top: 3vh;
 }
 
+.weatherText {
+  display: inline;
+}
 
+.weatherOutput {
+  display: inline;
+}
+
+#getWeatherButton {
+  background-color: rgb(96, 116, 29);
+  height: auto;
+  font-size: 2rem;
+  width: 80%;
+}
+
+#inputWeatherDate {
+  width: 80%;
+  text-align: center;
+}
+#endFiller{
+  float: none;
+  clear: both;
+  height: 1px;
+}
 
 /* For mobile phones: */
 [class*="col-"] {
@@ -230,4 +250,23 @@ float: left;
     width: 100%;
   }
 
+  .sectionWindow {
+    border: 0;
+  }
+
+  #getWeatherWindow {
+    border-right: 2px solid grey;
+    border-left: 2px solid grey;
+    height: 100%;
+  }
+
+  #endFiller {
+    clear: both;
+    margin: 0;
+    width: 100%;
+    padding: 0;
+    margin-top: 1vh;
+    height: 1vh;
+    float: none;
+  }
 }

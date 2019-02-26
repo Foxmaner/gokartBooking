@@ -91,14 +91,14 @@ var options = {
     id:'kartChart',
     group: 'social',
     width: "100%",
-    type: "area",
+    type: "line",
     animations: {
       initialAnimation: {
         enabled: false
       }
     }
   },
-  colors: ['#0015ff', '#008FFB','#00E396','#FEB019'],
+  colors: ['#0015ff', '#14c611','#f90233','#fbff35'],
   stroke: {
   curve: 'straight',
   dashArray: [0, 5, 5, 5]
@@ -109,11 +109,11 @@ var options = {
       data: totalSeries
     },
     {
-      name: "Stora karts: ",
+      name: "Stora karts",
       data: largeKartSeries
     },
     {
-      name: "Små karts: ",
+      name: "Små karts",
       data: smallKartSeries
     },
     {
@@ -126,8 +126,7 @@ var options = {
   },
   yaxis: {
     min: 0,
-    max: 700,
-    tickAmount: 14,
+
   },
   title: {
     text: "Antal karts",
@@ -142,21 +141,24 @@ var tempChartoptions = {
     id:'tempChart',
     group: 'social',
     width: "100%",
-    type: "area",
+    type: "line",
+    toolbar:{
+      show:false,
+    },
     animations: {
       initialAnimation: {
         enabled: false
       }
     }
   },
-  colors: ['#0015ff', '#008FFB','#00E396','#FEB019'],
+  colors: ['#0015ff'],
   stroke: {
   curve: 'straight',
   dashArray: [0, 5, 5, 5]
   },
   series: [
     {
-      name: "Tempratur",
+      name: "Temperatur",
       data: weatherTempSeries
     }
   ],
@@ -164,12 +166,9 @@ var tempChartoptions = {
     type: 'datetime'
   },
   yaxis: {
-    min: 0,
-    max: 50,
-    tickAmount: 10,
   },
   title: {
-    text: "Tempratur",
+    text: "Temperatur",
     align: 'left',
   },
 
@@ -186,7 +185,7 @@ var forecastChartoptions = {
     }
   },
   labels: ['Soligt', 'Molnigt', 'Regnigt'],
-  colors: ['#ebf442', '#b4bab5','#3025f9'],
+  colors: ['#ff8121', '#777777','#3025f9'],
   series: [0,0,0],
   title: {
     text: "Vädret",
@@ -205,7 +204,7 @@ var kartPieOptions = {
     }
   },
   labels: ['Stora', 'Små', 'Dubbla'],
-  colors: ['#ebf442', '#b4bab5','#3025f9'],
+  colors: ['#14c611','#f90233','#ff8121'],
   series: [0,0,0],
   title: {
     text: "Gokart uppdelning",
@@ -277,16 +276,20 @@ function generateData(inputObj) {
       y: object[i].dayTemp
     });
 
-    if (object[i].dayWeather=="sun") {
+    if (object[i].dayWeather=="Soligt") {
       countSun++;
-    }else if (object[i].dayWeather=="cloud") {
+    }else if (object[i].dayWeather=="Molnigt") {
       countCloud++;
-    }else if (object[i].dayWeather=="rain") {
+    }else if (object[i].dayWeather=="Regn") {
       countRain++;
     }
+    console.log("maxallTime");
+    console.log(object[i].dayTotal + ">" + maxAllTime);
 
+    //WHY THE FUCK DOES THIS WORK? i+1
     if (object[i].dayTotal>maxAllTime) {
-      maxAllTime=object[i].dayTotal;
+      console.log("lool");
+      maxAllTime=object[i+1].dayTotal;
     }
     var totalLargeKart = +totalLargeKart + +object[i].largeKart;
     var totalSmallKart = +totalSmallKart + +object[i].smallKart;
@@ -350,11 +353,17 @@ function getWeather(){
       console.log(this.responseText);
       obj = JSON.parse(this.responseText);
 
+      if(Object.entries(obj).length > 0){
       document.getElementById("outputWeatherDate").innerHTML = obj[0].dateStamp;
-      document.getElementById("outputWeatherTemp").innerHTML = obj[0].dayTemp;
+      document.getElementById("outputWeatherTemp").innerHTML = obj[0].dayTemp + "°C";
       document.getElementById("outputWeatherWeather").innerHTML = obj[0].dayWeather;
       document.getElementById("outputWeatherRemark").innerHTML = obj[0].dayRemark;
-
+    }else {
+      document.getElementById("outputWeatherDate").innerHTML = "N/A";
+      document.getElementById("outputWeatherTemp").innerHTML = "N/A" + "°C";
+      document.getElementById("outputWeatherWeather").innerHTML = "N/A";
+      document.getElementById("outputWeatherRemark").innerHTML = "Inget väder registrerat";
+    }
     }
   };
   xhttp.open("POST", "../../dbConnections/analyticsConnections/getDayWeatherData.php", true);
