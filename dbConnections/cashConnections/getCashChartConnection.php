@@ -44,6 +44,24 @@ if (isset($_GET["racenr"])) {
 		}
 
 
+  }else{
+    // code...
+    $conn = connecttoDB();
+    $raceNr = $_GET["racenr"];
+
+    $sql = "SELECT * FROM race WHERE ('$raceNr'-5) <= raceNr and raceNr <= ('$raceNr'+5) and CURDATE() = date(raceDate)";
+    if ($conn->query($sql)) {
+      $result = $conn->query($sql);
+      $myJSON = $result->fetch_all(MYSQLI_ASSOC);
+
+      $myJSON = json_encode($myJSON);
+      echo $myJSON;
+
+      } else {
+          echo "error" . $conn->error;
+    }
+
+
   }
 	mysqli_close($conn);
 }
