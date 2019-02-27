@@ -27,17 +27,23 @@ if ($conn->query($sql)) {
 if ($nRace<$_GET["racenr"]) {
   // code...
   $conn = connecttoDB();
-  $stmt = $conn->prepare("INSERT INTO race (raceNr, largeKart, smallKart, doubleKart) VALUES (?, ?, ?, ?)");
-  $stmt->bind_param("iiii", $inputRaceNr, $inputLarge, $inputSmall, $inputDouble);	//Bind ? till variabler. Bestäm format.
+
+  for ($i=$nRace; $i <= $_GET["racenr"]; $i++) {
+    // code...
+    $stmt = $conn->prepare("INSERT INTO race (raceNr, largeKart, smallKart, doubleKart) VALUES (?, ?, ?, ?)");
+    $stmt->bind_param("iiii", $inputRaceNr, $inputLarge, $inputSmall, $inputDouble);	//Bind ? till variabler. Bestäm format.
 
 
-  $inputLarge = 0;	//Sätt värden på variablerna
-  $inputSmall = 0;	//Sätt värden på variablerna
-  $inputDouble = 0;	//Sätt värden på variablerna
-  $inputRaceNr = $_GET["racenr"];	//Sätt värden på variablerna
-  $stmt->execute();		//Exekvera queryn
+    $inputLarge = 0;	//Sätt värden på variablerna
+    $inputSmall = 0;	//Sätt värden på variablerna
+    $inputDouble = 0;	//Sätt värden på variablerna
+    $inputRaceNr = $i;	//Sätt värden på variablerna
+    $stmt->execute();		//Exekvera queryn
 
-  $stmt->close();
+    $stmt->close();
+
+  }
+
   $conn->close();
 
 }
