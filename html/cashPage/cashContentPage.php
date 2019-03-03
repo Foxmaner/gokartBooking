@@ -46,7 +46,7 @@
 <div id="myChart" class="col-5 col-s-5">
 
 </div>
-<button onclick="getRaceData()"> ▶ </button>
+
 
 <?php
 echo "<script>";
