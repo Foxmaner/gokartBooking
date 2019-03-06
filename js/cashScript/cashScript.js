@@ -199,6 +199,7 @@ function btnArrowLeftPressed(){
 
   timeout = setTimeout(function () {
   selectPreviusRace();
+  updateChart();
 
   }, 200);
 }
@@ -209,6 +210,7 @@ function btnArrowRightPressed(){
 
   timeout = setTimeout(function () {
   selectNextRace();
+  updateChart();
 
   }, 200);
 }
