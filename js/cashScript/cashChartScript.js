@@ -116,11 +116,20 @@ function createDatasets(obj) {
   raceNr = [];
 
  for (var i = 0; i < obj.length; i++) {
-
    dataPack1[i] = obj[i].largeKart;
    dataPack2[i] = obj[i].smallKart;
    dataPack3[i] = obj[i].doubleKart;
    raceNr[i] = obj[i].raceNr;
+ }
+ if (obj.length<11) {
+   var startNr = raceNr[obj.length]=+1;
+   for (var i = obj.length+1; i <= 11; i++) {
+     dataPack1.push(0);
+     dataPack2.push(0);
+     dataPack3.push(0);
+     raceNr.push(startNr);
+     startNr++;
+   }
  }
 
 
