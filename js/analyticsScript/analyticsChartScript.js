@@ -1,4 +1,4 @@
-function getChartData(startDate, endDate){
+function getChartData(startDate, endDate) {
 
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
@@ -16,14 +16,14 @@ function getChartData(startDate, endDate){
 }
 
 function getDateData() {
-var startDate = document.getElementById("inputStartDate").value;
-var endDate = document.getElementById("inputEndDate").value;
+  var startDate = document.getElementById("inputStartDate").value;
+  var endDate = document.getElementById("inputEndDate").value;
 
-getChartData(startDate, endDate);
+  getChartData(startDate, endDate);
 
 }
 
-function selectData(action){
+function selectData(action) {
   if (action == 1) {
     document.getElementById("dataButtonAll").style.display = "none";
     document.getElementById("dataButtonSelected").style.display = "none";
@@ -32,23 +32,23 @@ function selectData(action){
 
     loadChart("2018-01-01", "3018-01-01");
 
-  }else {
+  } else {
     var startYear;
     var finishYear;
 
     alertify.prompt("Skriv in vilket år grafen ska börja", "",
       function(evt, value) {
         //2 = radera race data
-        startYear=value;
+        startYear = value;
 
-        setTimeout(function () {
+        setTimeout(function() {
           alertify.prompt("Skriv in vilket år grafen ska sluta", "",
             function(evt, value) {
               //2 = radera race data
-              finishYear=value;
+              finishYear = value;
 
-              startDate = startYear+"-01-01"
-              finishDate = finishYear+"-12-31"
+              startDate = startYear + "-01-01"
+              finishDate = finishYear + "-12-31"
 
               document.getElementById("dataButtonAll").style.display = "none";
               document.getElementById("dataButtonSelected").style.display = "none";
@@ -88,7 +88,7 @@ var kartPieSeries = [];
 var options = {
   chart: {
     height: 350,
-    id:'kartChart',
+    id: 'kartChart',
     group: 'social',
     width: "100%",
     type: "line",
@@ -98,13 +98,12 @@ var options = {
       }
     }
   },
-  colors: ['#0015ff', '#14c611','#f90233','#fbff35'],
+  colors: ['#0015ff', '#14c611', '#f90233', '#fbff35'],
   stroke: {
-  curve: 'straight',
-  dashArray: [0, 5, 5, 5]
+    curve: 'straight',
+    dashArray: [0, 5, 5, 5]
   },
-  series: [
-    {
+  series: [{
       name: "Totala antalet karts",
       data: totalSeries
     },
@@ -138,12 +137,12 @@ var options = {
 var tempChartoptions = {
   chart: {
     height: 200,
-    id:'tempChart',
+    id: 'tempChart',
     group: 'social',
     width: "100%",
     type: "line",
-    toolbar:{
-      show:false,
+    toolbar: {
+      show: false,
     },
     animations: {
       initialAnimation: {
@@ -153,20 +152,17 @@ var tempChartoptions = {
   },
   colors: ['#0015ff'],
   stroke: {
-  curve: 'straight',
-  dashArray: [0, 5, 5, 5]
+    curve: 'straight',
+    dashArray: [0, 5, 5, 5]
   },
-  series: [
-    {
-      name: "Temperatur",
-      data: weatherTempSeries
-    }
-  ],
+  series: [{
+    name: "Temperatur",
+    data: weatherTempSeries
+  }],
   xaxis: {
     type: 'datetime'
   },
-  yaxis: {
-  },
+  yaxis: {},
   title: {
     text: "Temperatur",
     align: 'left',
@@ -185,8 +181,8 @@ var forecastChartoptions = {
     }
   },
   labels: ['Soligt', 'Molnigt', 'Regnigt'],
-  colors: ['#ff8121', '#777777','#3025f9'],
-  series: [0,0,0],
+  colors: ['#ff8121', '#777777', '#3025f9'],
+  series: [0, 0, 0],
   title: {
     text: "Vädret",
     align: 'left',
@@ -204,8 +200,8 @@ var kartPieOptions = {
     }
   },
   labels: ['Stora', 'Små', 'Dubbla'],
-  colors: ['#14c611','#f90233','#ff8121'],
-  series: [0,0,0],
+  colors: ['#14c611', '#f90233', '#ff8121'],
+  series: [0, 0, 0],
   title: {
     text: "Gokart uppdelning",
     align: 'left',
@@ -215,16 +211,16 @@ var kartPieOptions = {
 
 
 var chart = new ApexCharts(
-  document.querySelector("#myChart"),options
+  document.querySelector("#myChart"), options
 );
 var tempChart = new ApexCharts(
-  document.querySelector("#tempChart"),tempChartoptions
+  document.querySelector("#tempChart"), tempChartoptions
 );
 var forecastChart = new ApexCharts(
-  document.querySelector("#weatherForecastChart"),forecastChartoptions
+  document.querySelector("#weatherForecastChart"), forecastChartoptions
 );
 var kartPieChart = new ApexCharts(
-  document.querySelector("#kartPieChart"),kartPieOptions
+  document.querySelector("#kartPieChart"), kartPieOptions
 );
 
 
@@ -239,7 +235,7 @@ function loadChart(startDate, endDate) {
 
 function generateData(inputObj) {
 
-    var maxAllTime = 0;
+  var maxAllTime = 0;
 
   object = JSON.parse(inputObj);
   console.log("object V");
@@ -276,28 +272,28 @@ function generateData(inputObj) {
       y: object[i].dayTemp
     });
 
-    if (object[i].dayWeather=="Soligt") {
+    if (object[i].dayWeather == "Soligt") {
       countSun++;
-    }else if (object[i].dayWeather=="Molnigt") {
+    } else if (object[i].dayWeather == "Molnigt") {
       countCloud++;
-    }else if (object[i].dayWeather=="Regn") {
+    } else if (object[i].dayWeather == "Regn") {
       countRain++;
     }
     console.log("maxallTime");
     console.log(object[i].dayTotal + ">" + maxAllTime);
 
     //WHY THE FUCK DOES THIS WORK? i+1
-    if (object[i].dayTotal>maxAllTime) {
+    if (object[i].dayTotal > maxAllTime) {
       console.log("lool");
-      maxAllTime=object[i+1].dayTotal;
+      maxAllTime = object[i].dayTotal;
     }
     var totalLargeKart = +totalLargeKart + +object[i].largeKart;
     var totalSmallKart = +totalSmallKart + +object[i].smallKart;
     var totalDoubleKart = +totalDoubleKart + +object[i].doubleKart;
 
   }
-  weatherForecastSeries.push(countSun,countCloud,countRain);
-  kartPieSeries.push(totalLargeKart,totalSmallKart,totalDoubleKart);
+  weatherForecastSeries.push(countSun, countCloud, countRain);
+  kartPieSeries.push(totalLargeKart, totalSmallKart, totalDoubleKart);
   console.log("serie");
   console.log(weatherForecastSeries);
 
@@ -308,32 +304,30 @@ function generateData(inputObj) {
   console.log(totalSeries);
   console.log(totalSeries, largeKartSeries, smallKartSeries, doubleKartSeries)
   chart.updateSeries([{
-  data: totalSeries
-  },{
-  data: largeKartSeries
-  },{
-  data: smallKartSeries
-  },{
-  data: doubleKartSeries
-  }
-  ]),
-  chart.addYaxisAnnotation({
-    y: maxAllTime,
-    borderColor: "red",
-    label: {
-      borderColor: "black",
-      style: {
-        color: "#fff",
-        background: "red"
-      },
-      text: "Rekord"
-    }
-  }),
-  tempChart.updateSeries([{
-  data: weatherTempSeries
-  }
-  ]),
-  forecastChart.updateSeries(weatherForecastSeries);
+      data: totalSeries
+    }, {
+      data: largeKartSeries
+    }, {
+      data: smallKartSeries
+    }, {
+      data: doubleKartSeries
+    }]),
+    chart.addYaxisAnnotation({
+      y: maxAllTime,
+      borderColor: "red",
+      label: {
+        borderColor: "black",
+        style: {
+          color: "#fff",
+          background: "red"
+        },
+        text: "Rekord"
+      }
+    }),
+    tempChart.updateSeries([{
+      data: weatherTempSeries
+    }]),
+    forecastChart.updateSeries(weatherForecastSeries);
   console.log("-");
   console.log(totalSeries);
   console.log(weatherTempSeries);
@@ -343,7 +337,7 @@ function generateData(inputObj) {
 
 
 
-function getWeather(){
+function getWeather() {
   var datum = document.getElementById("inputWeatherDate").value;
 
   var xhttp = new XMLHttpRequest();
@@ -353,17 +347,17 @@ function getWeather(){
       console.log(this.responseText);
       obj = JSON.parse(this.responseText);
 
-      if(Object.entries(obj).length > 0){
-      document.getElementById("outputWeatherDate").innerHTML = obj[0].dateStamp;
-      document.getElementById("outputWeatherTemp").innerHTML = obj[0].dayTemp + "°C";
-      document.getElementById("outputWeatherWeather").innerHTML = obj[0].dayWeather;
-      document.getElementById("outputWeatherRemark").innerHTML = obj[0].dayRemark;
-    }else {
-      document.getElementById("outputWeatherDate").innerHTML = "N/A";
-      document.getElementById("outputWeatherTemp").innerHTML = "N/A" + "°C";
-      document.getElementById("outputWeatherWeather").innerHTML = "N/A";
-      document.getElementById("outputWeatherRemark").innerHTML = "Inget väder registrerat";
-    }
+      if (Object.entries(obj).length > 0) {
+        document.getElementById("outputWeatherDate").innerHTML = obj[0].dateStamp;
+        document.getElementById("outputWeatherTemp").innerHTML = obj[0].dayTemp + "°C";
+        document.getElementById("outputWeatherWeather").innerHTML = obj[0].dayWeather;
+        document.getElementById("outputWeatherRemark").innerHTML = obj[0].dayRemark;
+      } else {
+        document.getElementById("outputWeatherDate").innerHTML = "N/A";
+        document.getElementById("outputWeatherTemp").innerHTML = "N/A" + "°C";
+        document.getElementById("outputWeatherWeather").innerHTML = "N/A";
+        document.getElementById("outputWeatherRemark").innerHTML = "Inget väder registrerat";
+      }
     }
   };
   xhttp.open("POST", "../../dbConnections/analyticsConnections/getDayWeatherData.php", true);
