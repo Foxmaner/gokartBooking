@@ -27,7 +27,7 @@ if (isset($_GET["racenr"])) {
   // code...
 
 
-  if($_GET["racenr"] < 11) {
+  if($_GET["racenr"] < 6) {
     // code...
     $conn = connecttoDB();
 
