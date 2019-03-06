@@ -235,6 +235,7 @@ function keyUp(e) {
 
     timeout = setTimeout(function () {
     selectPreviusRace();
+    updateChart();
 
     }, 200);
 
@@ -243,6 +244,7 @@ function keyUp(e) {
 
     timeout = setTimeout(function () {
     selectNextRace();
+    updateChart();
 
     }, 200);
 
