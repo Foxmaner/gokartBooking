@@ -4,7 +4,7 @@
 
   <div id="weatherInputWindow" class="col-2 col-m-5">
     <h3>Väder</h3>
-    <p id="weatherWindowText"></p><input type="number" id="tempInput" class="weatherTextInputs"> </input>
+    <p id="weatherWindowText"></p><input type="number" id="tempInput" class="weatherTextInputs" min="-30" max="50"> </input>
     <select id="weatherSelect" class="weatherTextInputs">
       <option value=""></option>
       <option id="selectSun" value="Soligt">Sol</option>
@@ -12,7 +12,7 @@
       <option id="selectRain" value="Regn">Regn</option>
     </select>
     <br>
-    <input type="text" id="weatherRemarkInput" class="weatherTextInputs col-8 col-m-8"> </input>
+    <input type="text" id="weatherRemarkInput" class="weatherTextInputs col-8 col-m-8" maxlength="255"> </input>
 
 
 
