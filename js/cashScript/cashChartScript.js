@@ -122,7 +122,7 @@ function createDatasets(obj) {
    raceNr[i] = obj[i].raceNr;
  }
  if (obj.length<11) {
-   var startNr = raceNr[obj.length]=+1;
+   var startNr = +raceNr[obj.length-1]+1;
    for (var i = obj.length+1; i <= 11; i++) {
      dataPack1.push(0);
      dataPack2.push(0);
