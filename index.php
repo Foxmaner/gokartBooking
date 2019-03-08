@@ -24,11 +24,24 @@ require 'html/topCode/top.php';
     <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Black+Ops+One" rel="stylesheet">
 
+    <script>
+        function startLog() {
+          console.log(`%c ________________________________________
+          < mooooooooooooooooooooooooooooooooooooo >
+           ----------------------------------------
+                  \\   ^__^
+                   \\  (oo)\\_______
+                      (__)\\       )\\/\\
+                          ||----w |
+                          ||     ||`, "font-family:monospace")
+        }
+    </script>
+
     <script src="plugins/alertifyjs/alertify.min.js"></script>
     <link rel="stylesheet" href="plugins/alertifyjs/css/alertify.css" />
     <link rel="stylesheet" href="plugins/alertifyjs/css/themes/default.min.css" />
   </head>
-  <body>
+  <body onload="startLog()">
     <noscript id="noscript">Sorry, your browser does not support JavaScript!</noscript>
 
       <?php
