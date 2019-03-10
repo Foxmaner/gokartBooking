@@ -18,11 +18,6 @@ var raceNr = document.getElementById("outputEditLopp").innerHTML;
 };
 
 
-
-
-
-
-
 var options = {
     chart: {
         height: 350,
@@ -31,9 +26,6 @@ var options = {
         toolbar: {
             show: true
         },
-        zoom: {
-            enabled: true
-        }
     },
     responsive: [{
         breakpoint: 480,
@@ -60,12 +52,13 @@ var options = {
         name: 'Dubbla',
         data: []
     }],
-    xaxis: {
-        categories: [],
-    },
     yaxis: {
       min: 0,
       max: 12,
+      tickAmount: 6,
+      labels: {
+            show: false,
+        },
     },
     annotations: {
     yaxis: [
@@ -83,8 +76,7 @@ var options = {
       }
     ]},
     legend: {
-        position: 'right',
-        offsetY: 40
+        show: false,
     },
     fill: {
         opacity: 1
@@ -119,8 +111,9 @@ function createDatasets(obj) {
    dataPack1[i] = obj[i].largeKart;
    dataPack2[i] = obj[i].smallKart;
    dataPack3[i] = obj[i].doubleKart;
-   raceNr[i] = obj[i].raceNr;
+   raceNr[i] = parseInt(obj[i].raceNr, 10);
  }
+
  if (obj.length<11) {
    var startNr = +raceNr[obj.length-1]+1;
    for (var i = obj.length+1; i <= 11; i++) {
@@ -135,8 +128,7 @@ function createDatasets(obj) {
 
  chart.updateOptions({
  xaxis: {
-   categories: raceNr,
-   tickAmount: 1
+   categories: raceNr
  },
  })
  chart.updateSeries([{
@@ -150,3 +142,55 @@ function createDatasets(obj) {
      data: dataPack3
  }]);
 }
+
+function setActiveRaceAnnotations(activeRace) {
+  console.log("ball");
+  console.log(activeRace);
+  console.log(Number.isInteger(raceNr[5]));
+
+  if (+activeRace>0) {
+    chart.clearAnnotations();
+    chart.addXaxisAnnotation({
+      x: +activeRace,
+      borderColor: "blue",
+      label: {
+        borderColor: "black",
+        style: {
+          color: "#fff",
+          background: "blue"
+        },
+        text: 'Aktivt race'
+      },
+    });
+
+    chart.addYaxisAnnotation({
+      position: 'front' ,
+      y: 10,
+      borderColor: "red",
+      label: {
+        borderColor: "black",
+        style: {
+          color: "#fff",
+          background: "red"
+        },
+        text: "Maxgräns"
+      },
+    });
+  }
+
+}
+
+function getActiveRace() {
+
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      //alert(this.responseText);
+      var obj = JSON.parse(this.responseText);
+      setActiveRaceAnnotations(this.responseText);
+    }
+  };
+  xhttp.open("GET", "../../dbConnections/cashConnections/getActiveRaceConnection.php", true);
+
+  xhttp.send();
+};

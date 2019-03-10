@@ -21,10 +21,10 @@ require '../topCode/top.php';
     <link rel="stylesheet" href="../../plugins/alertifyjs/css/alertify.css" />
     <link rel="stylesheet" href="../../plugins/alertifyjs/css/themes/default.min.css" />
 
-    <script src="../../plugins/apexcharts/dist/apexcharts.min.js"></script>
+    <script src="../../plugins/apexcharts/dist/apexcharts.js"></script>
 
   </head>
-  <body onload="selectNextRace();loadChart();getWeather()">
+  <body onload="selectNextRace();loadChart();getWeather();startUpdate()">
     <noscript id="noscript">Sorry, your browser does not support JavaScript!</noscript>
 
       <?php

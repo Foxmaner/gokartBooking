@@ -52,6 +52,16 @@ function outputEditRaceS() {
   document.getElementById("outputEditLopp").innerHTML = tempRaceNr;
 }
 
+function startUpdate() {
+  getActiveRace();
+  setInterval(function() {
+
+    getActiveRace();
+
+
+  }, 10000);
+}
+
 
 
 
