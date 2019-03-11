@@ -210,7 +210,7 @@ function btnArrowLeftPressed(){
   timeout = setTimeout(function () {
   selectPreviusRace();
   updateChart();
-
+  getActiveRace();
   }, 200);
 }
 function btnArrowRightPressed(){

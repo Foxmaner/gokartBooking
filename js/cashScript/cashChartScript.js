@@ -164,21 +164,58 @@ function setActiveRaceAnnotations(activeRace) {
         },
       });
 
+      chart.addYaxisAnnotation({
+        position: 'front',
+        y: 10,
+        borderColor: "red",
+        label: {
+          borderColor: "black",
+          style: {
+            color: "#fff",
+            background: "red"
+          },
+          text: "Maxgräns"
+        },
+      });
+
+    } else if (+(document.getElementById("outputEditLopp").innerHTML) < 6) {
+
+        if (+activeRace <= 11) {
+          chart.clearAnnotations();
+          chart.addXaxisAnnotation({
+            x: +activeRace,
+            borderColor: "blue",
+            label: {
+              borderColor: "black",
+              style: {
+                color: "#fff",
+                background: "blue"
+              },
+              text: 'Aktivt race'
+            },
+          });
+
+          chart.addYaxisAnnotation({
+            position: 'front',
+            y: 10,
+            borderColor: "red",
+            label: {
+              borderColor: "black",
+              style: {
+                color: "#fff",
+                background: "red"
+              },
+              text: "Maxgräns"
+            },
+          });
+        }
+
+
+    }else{
+      chart.clearAnnotations();
     }
 
-    chart.addYaxisAnnotation({
-      position: 'front',
-      y: 10,
-      borderColor: "red",
-      label: {
-        borderColor: "black",
-        style: {
-          color: "#fff",
-          background: "red"
-        },
-        text: "Maxgräns"
-      },
-    });
+
   }
 
 }
