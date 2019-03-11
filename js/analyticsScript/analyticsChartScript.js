@@ -131,7 +131,9 @@ var options = {
   },
   yaxis: {
     min: 0,
-
+    labels:{
+      minWidth:0,
+    }
   },
   title: {
     text: "Antal karts",
@@ -169,7 +171,12 @@ var tempChartoptions = {
   xaxis: {
     type: 'datetime'
   },
-  yaxis: {},
+  yaxis: {
+    min: 0,
+    labels:{
+      minWidth:0,
+    }
+  },
   title: {
     text: "Temperatur",
     align: 'left',
@@ -182,18 +189,13 @@ var forecastChartoptions = {
   chart: {
     width: "100%",
     type: "pie",
-    animations: {
-      initialAnimation: {
-        enabled: false
-      }
-    }
   },
   labels: ['Soligt', 'Molnigt', 'Regnigt'],
   colors: ['#ff8121', '#777777', '#3025f9'],
   series: [0, 0, 0],
   title: {
     text: "Vädret",
-    align: 'left',
+    align: 'center',
   }
 
 };
@@ -203,18 +205,13 @@ var kartPieOptions = {
   chart: {
     width: "100%",
     type: "pie",
-    animations: {
-      initialAnimation: {
-        enabled: false
-      }
-    }
   },
   labels: ['Stora', 'Små', 'Dubbla'],
   colors: ['#14c611', '#f90233', '#ff8121'],
   series: [0, 0, 0],
   title: {
     text: "Gokart uppdelning",
-    align: 'left',
+    align: 'center',
   }
 
 };
@@ -300,9 +297,9 @@ function generateData(inputObj) {
       console.log("lool");
       maxAllTime = object[i].dayTotal;
     }
-    var totalLargeKart = +totalLargeKart + +object[i].largeKart;
-    var totalSmallKart = +totalSmallKart + +object[i].smallKart;
-    var totalDoubleKart = +totalDoubleKart + +object[i].doubleKart;
+    var totalLargeKart = totalLargeKart + object[i].largeKart;
+    var totalSmallKart = totalSmallKart + object[i].smallKart;
+    var totalDoubleKart = totalDoubleKart + object[i].doubleKart;
 
   }
   weatherForecastSeries.push(countSun, countCloud, countRain);
@@ -336,16 +333,18 @@ function generateData(inputObj) {
         },
         text: "Rekord"
       }
-    }),
+    });
     tempChart.updateSeries([{
       data: weatherTempSeries
-    }]),
+    }]);
     forecastChart.updateSeries(weatherForecastSeries);
   console.log("-");
   console.log(totalSeries);
   console.log(weatherTempSeries);
   console.log("-");
-  kartPieChart.updateSeries(kartPieSeries);
+  kartPieChart.updateSeries([{
+    data: kartPieSeries
+  }]);
 }
 
 
