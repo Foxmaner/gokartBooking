@@ -4,10 +4,10 @@ error_reporting(-1); // Report all type of errors
 ini_set('display_errors', 1); // Display all errors
 ini_set('output_buffering', 0); // Do not buffer outputs, write directly
 
-
+//Generalla funktioner
 require '../../html/topCode/top.php';
 
-
+//Returnerar Adminlösenordet
 function getAdminPassword(){
   $conn = connecttoDB();
 
@@ -22,7 +22,7 @@ function getAdminPassword(){
   return $nRace;
 
 }
-
+//Validerar Adminlösenordet
 function validateAdminPassword($inputPassword){
   // code...
   $adminPassword =  getAdminPassword();
@@ -35,7 +35,7 @@ function validateAdminPassword($inputPassword){
 }
 
 
-
+//Tilkallar funktionen med inputLösenord
 validateAdminPassword($_POST["sentPassword"]);
 
 ?>

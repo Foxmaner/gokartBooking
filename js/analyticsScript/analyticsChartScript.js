@@ -1,3 +1,4 @@
+//Hämtar data för grafen
 function getChartData(startDate, endDate) {
 
   var xhttp = new XMLHttpRequest();
@@ -15,6 +16,7 @@ function getChartData(startDate, endDate) {
 
 }
 
+//Hämtar datum för grafen
 function getDateData() {
   var startDate = document.getElementById("inputStartDate").value;
   var endDate = document.getElementById("inputEndDate").value;
@@ -23,7 +25,10 @@ function getDateData() {
 
 }
 
+//Frågar vilken data du vill Hämta
+//Inom vilket tidsspann
 function selectData(action) {
+  //"Knappen 'all data' hämtar för 100 år"
   if (action == 1) {
     document.getElementById("dataButtonAll").style.display = "none";
     document.getElementById("dataButtonSelected").style.display = "none";
@@ -36,6 +41,7 @@ function selectData(action) {
     var startYear;
     var finishYear;
 
+    //Prompts för att hämta start/Slutår
     alertify.prompt("Skriv in vilket år grafen ska börja", "",
       function(evt, value) {
         //2 = radera race data
@@ -46,7 +52,7 @@ function selectData(action) {
             function(evt, value) {
               //2 = radera race data
               finishYear = value;
-
+              //Sätter första/Sista datumet på året
               startDate = startYear + "-01-01"
               finishDate = finishYear + "-12-31"
 
@@ -84,7 +90,7 @@ var kartPieSeries = [];
 
 
 
-
+//Inställningar för kartGrafen
 var options = {
   chart: {
     height: 350,
@@ -134,6 +140,7 @@ var options = {
 
 };
 
+//Inställningar för tempGrafen
 var tempChartoptions = {
   chart: {
     height: 200,
@@ -170,6 +177,7 @@ var tempChartoptions = {
 
 };
 
+//Inställningar för väderGrafen
 var forecastChartoptions = {
   chart: {
     width: "100%",
@@ -189,6 +197,8 @@ var forecastChartoptions = {
   }
 
 };
+
+//Inställningar för kartPajGrafen
 var kartPieOptions = {
   chart: {
     width: "100%",
@@ -209,7 +219,8 @@ var kartPieOptions = {
 
 };
 
-
+//Skapar alla 4 grafer
+//Kopplar dom till en div och inställningar
 var chart = new ApexCharts(
   document.querySelector("#myChart"), options
 );
@@ -223,7 +234,7 @@ var kartPieChart = new ApexCharts(
   document.querySelector("#kartPieChart"), kartPieOptions
 );
 
-
+//Renderar alla grafer och hämtar sedan datan
 function loadChart(startDate, endDate) {
   chart.render();
   tempChart.render();
@@ -233,6 +244,7 @@ function loadChart(startDate, endDate) {
   getChartData(startDate, endDate)
 }
 
+//Omvandlar all rådata till arrays aka datasets som graferna kan använda
 function generateData(inputObj) {
 
   var maxAllTime = 0;
@@ -249,6 +261,7 @@ function generateData(inputObj) {
   var totalSmallKart = 0;
   var totalDoubleKart = 0;
 
+  //Skapar datasets
   for (var i = 0; i < Object.keys(object).length; i++) {
     console.log(i);
     totalSeries.push({
@@ -282,7 +295,7 @@ function generateData(inputObj) {
     console.log("maxallTime");
     console.log(object[i].dayTotal + ">" + maxAllTime);
 
-    //WHY THE FUCK DOES THIS WORK? i+1
+    //Hittar dagen med flest karts
     if (object[i].dayTotal > maxAllTime) {
       console.log("lool");
       maxAllTime = object[i].dayTotal;
@@ -336,7 +349,7 @@ function generateData(inputObj) {
 }
 
 
-
+//Hämtar vädret på bestämd dag
 function getWeather() {
   var datum = document.getElementById("inputWeatherDate").value;
 

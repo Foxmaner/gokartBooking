@@ -4,6 +4,7 @@ error_reporting(-1); // Report all type of errors
 ini_set('display_errors', 1); // Display all errors
 ini_set('output_buffering', 0); // Do not buffer outputs, write directly
 
+//Generalla funktioner
 require '../../html/topCode/top.php';
 
 
@@ -14,7 +15,7 @@ $inputDouble = 0;
 $serverDate = 0;
 
 
-
+//Hämtar antalet race idag
 $sql = "SELECT COUNT(*) as count FROM race WHERE CURDATE() = date(raceDate)";
 if ($conn->query($sql)) {
   $result = $conn->query($sql);
@@ -24,6 +25,7 @@ if ($conn->query($sql)) {
       echo "error" . $conn->error;
 }
 
+//Skapar race som ännu inte skapats
 if ($nRace<$_GET["racenr"]) {
   // code...
   $conn = connecttoDB();

@@ -4,9 +4,10 @@ error_reporting(-1); // Report all type of errors
 ini_set('display_errors', 1); // Display all errors
 ini_set('output_buffering', 0); // Do not buffer outputs, write directly
 
-
+//Topkod med generella metoder
 require '../../html/topCode/top.php';
 
+//Retunerar antalet race under dagen
 function getRaceLength(){
   // code...
   $conn = connecttoDB();
@@ -28,7 +29,8 @@ if (isset($_POST["startDate"]) && isset($_POST["endDate"])) {
 
   $conn = connecttoDB();
 
-
+  //Hämtar relevant data
+  //Slår ihop 2 tabeller för att slippa flera SQL querys
   $stmt = $conn->prepare("SELECT DATE(raceDate) as raceDate,
 SUM(largeKart) as 'largeKart',
 SUM(smallKart) as 'smallKart',
