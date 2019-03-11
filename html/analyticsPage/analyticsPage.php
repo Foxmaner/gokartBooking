@@ -22,7 +22,7 @@ require '../topCode/top.php';
     <link rel="stylesheet" href="../../plugins/alertifyjs/css/alertify.css" />
     <link rel="stylesheet" href="../../plugins/alertifyjs/css/themes/default.min.css" />
 
-    <script src="../../plugins/apexcharts/dist/apexcharts.min.js"></script>
+    <script src="../../plugins/apexcharts1/dist/apexcharts.min.js"></script>
 
   </head>
   <body onload="">

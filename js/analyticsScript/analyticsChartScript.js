@@ -297,9 +297,9 @@ function generateData(inputObj) {
       console.log("lool");
       maxAllTime = object[i].dayTotal;
     }
-    var totalLargeKart = totalLargeKart + object[i].largeKart;
-    var totalSmallKart = totalSmallKart + object[i].smallKart;
-    var totalDoubleKart = totalDoubleKart + object[i].doubleKart;
+    var totalLargeKart = +totalLargeKart + +object[i].largeKart;
+    var totalSmallKart = +totalSmallKart + +object[i].smallKart;
+    var totalDoubleKart = +totalDoubleKart + +object[i].doubleKart;
 
   }
   weatherForecastSeries.push(countSun, countCloud, countRain);
@@ -338,13 +338,13 @@ function generateData(inputObj) {
       data: weatherTempSeries
     }]);
     forecastChart.updateSeries(weatherForecastSeries);
-  console.log("-");
-  console.log(totalSeries);
-  console.log(weatherTempSeries);
-  console.log("-");
-  kartPieChart.updateSeries([{
-    data: kartPieSeries
-  }]);
+//  console.log("-");
+//  console.log(totalSeries);
+//  console.log(weatherTempSeries);
+  //console.log("-");
+  console.log("ball");
+  console.log(kartPieSeries);
+  kartPieChart.updateSeries(kartPieSeries);
 }
 
 
