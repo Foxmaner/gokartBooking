@@ -212,7 +212,7 @@ function setActiveRaceAnnotations(activeRace) {
 
 
     }else{
-      chart.clearAnnotations();
+      
     }
 
 
