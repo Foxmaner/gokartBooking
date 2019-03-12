@@ -147,8 +147,8 @@ function setActiveRaceAnnotations(activeRace) {
 
   if (+activeRace > 0) {
     if (+(document.getElementById("outputEditLopp").innerHTML) >= 6 &&
-      +activeRace < (+(document.getElementById("outputEditLopp").innerHTML) + 6) &&
-      +activeRace > (+(document.getElementById("outputEditLopp").innerHTML) - 6)
+      +activeRace < (+(document.getElementById("outputEditLopp").innerHTML) + 5) &&
+      +activeRace > (+(document.getElementById("outputEditLopp").innerHTML) - 5)
     ) {
       chart.clearAnnotations();
       chart.addXaxisAnnotation({
@@ -212,7 +212,7 @@ function setActiveRaceAnnotations(activeRace) {
 
 
     }else{
-      
+
     }
 
 
