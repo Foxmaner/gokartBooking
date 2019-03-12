@@ -4,9 +4,10 @@ error_reporting(-1); // Report all type of errors
 ini_set('display_errors', 1); // Display all errors
 ini_set('output_buffering', 0); // Do not buffer outputs, write directly
 
-
+//Generalla funktioner
 require '../../html/topCode/top.php';
 
+//Rensar på eventuell skadlig kod
 function sanatize_input($data){
 	$data = trim($data);
 	$data = stripslashes($data);
@@ -15,7 +16,7 @@ function sanatize_input($data){
 }
 
 
-  // code...
+  // Ändrar inloggningslösenord
   $conn=connecttoDB();
   $inputPassword = $_GET["inputPassword"];
   $inputPassword = sanatize_input($inputPassword);

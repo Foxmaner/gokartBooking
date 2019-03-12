@@ -4,6 +4,7 @@ error_reporting(-1); // Report all type of errors
 ini_set('display_errors', 1); // Display all errors
 ini_set('output_buffering', 0); // Do not buffer outputs, write directly
 
+//Generalla funktioner
 require '../../html/topCode/top.php';
 
 
@@ -14,7 +15,7 @@ $inputDouble = 0;
 $serverDate = 0;
 
 
-
+//Hämtar antalet race idag
 $sql = "SELECT COUNT(*) as count FROM race WHERE CURDATE() = date(raceDate)";
 if ($conn->query($sql)) {
   $result = $conn->query($sql);
@@ -22,6 +23,31 @@ if ($conn->query($sql)) {
 
   } else {
       echo "error" . $conn->error;
+}
+
+//Skapar race som ännu inte skapats
+if ($nRace<$_GET["racenr"]) {
+  // code...
+  $conn = connecttoDB();
+
+  for ($i=$nRace+1; $i <= $_GET["racenr"]; $i++) {
+    // code...
+    $stmt = $conn->prepare("INSERT INTO race (raceNr, largeKart, smallKart, doubleKart) VALUES (?, ?, ?, ?)");
+    $stmt->bind_param("iiii", $inputRaceNr, $inputLarge, $inputSmall, $inputDouble);	//Bind ? till variabler. Bestäm format.
+
+
+    $inputLarge = 0;	//Sätt värden på variablerna
+    $inputSmall = 0;	//Sätt värden på variablerna
+    $inputDouble = 0;	//Sätt värden på variablerna
+    $inputRaceNr = $i;	//Sätt värden på variablerna
+    $stmt->execute();		//Exekvera queryn
+
+    $stmt->close();
+
+  }
+
+  $conn->close();
+
 }
 loadRace($_GET["racenr"]);
 

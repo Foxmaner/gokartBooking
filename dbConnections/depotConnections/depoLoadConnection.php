@@ -4,9 +4,10 @@ error_reporting(-1); // Report all type of errors
 ini_set('display_errors', 1); // Display all errors
 ini_set('output_buffering', 0); // Do not buffer outputs, write directly
 
-
+//Generalla funktioner
 require '../../html/topCode/top.php';
 
+//Hämtar dagens aktiva race
 function raceNr(){
 	$conn = connecttoDB();
 
@@ -23,6 +24,7 @@ function raceNr(){
 
 }
 
+//Hämtar längden på dagens races
 function getRaceLength(){
   $conn = connecttoDB();
 
@@ -41,7 +43,7 @@ function getRaceLength(){
 
 
 
-
+//Hämtar aktuell data för depon
 function loadData(){
 
 $conn = connecttoDB();
@@ -100,7 +102,7 @@ if ($nRace==1) {
 	$conn->close();
 
 }else{
-
+	//Skapar en ny instans i editdata, om en sådan inte finns
 	$conn = connecttoDB();
 
 	$stmt = $conn->prepare("INSERT INTO editdata (raceChange, activeRace) VALUES (?, ?)");

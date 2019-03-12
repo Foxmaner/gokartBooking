@@ -4,18 +4,17 @@
 
   <div id="weatherInputWindow" class="col-2 col-m-5">
     <h3>Väder</h3>
-    <p id="weatherWindowText"></p><input type="number" id="tempInput" class="weatherTextInputs"> </input>
-    <select id="weatherSelect">
+    <p id="weatherWindowText"></p><input type="number" id="tempInput" class="weatherTextInputs col-5 col-m-5" min="-30" max="50"> </input>
+
+    <select id="weatherSelect" class="weatherTextInputs col-6 col-m-6">
       <option value=""></option>
       <option id="selectSun" value="Soligt">Sol</option>
       <option id="selectCloud" value="Molnigt">Moln</option>
       <option id="selectRain" value="Regn">Regn</option>
     </select>
     <br>
-    <input type="text" id="weatherRemarkInput"> </input>
-
-
-
+    <input type="text" id="weatherRemarkInput" class="weatherTextInputs col-12 col-m-12" maxlength="255"> </input>
+    <br>
     <button onclick="updateWeather()" id="btn_updateWeather">Uppdatera vädret</button>
   </div>
   <h1 class="title col-12 col-m-12">Kassa</h1>
@@ -46,7 +45,7 @@
 <div id="myChart" class="col-5 col-s-5">
 
 </div>
-<button onclick="getRaceData()"> ▶ </button>
+
 
 <?php
 echo "<script>";

@@ -1,14 +1,28 @@
 function loadData(jsonInput) {
+  if (jsonInput=="") {
 
-  var obj = JSON.parse(jsonInput);
+    document.getElementById("outputNextRace").innerHTML = "Nästa race: " + "N/A";
+    document.getElementById("outputRaceLeft").innerHTML = "Race kvar: " + "N/A";
+    document.getElementById("outputQueueTime").innerHTML = "Kötid: " + "N/A";
 
-  document.getElementById("outputNextRace").innerHTML = "Nästa race: " + obj.nextRace;
-  document.getElementById("outputRaceLeft").innerHTML = "Race kvar: " + obj.racesLeft;
-  document.getElementById("outputQueueTime").innerHTML = "Kötid: " + obj.queueTime;
+    document.getElementById("outputLarge").innerHTML = "Stora: " + "N/A";
+    document.getElementById("outputSmall").innerHTML = "Små: " + "N/A";
+    document.getElementById("outputDouble").innerHTML = "Dubbla:" + "N/A";
 
-  document.getElementById("outputLarge").innerHTML = "Stora: " + obj.large;
-  document.getElementById("outputSmall").innerHTML = "Små: " + obj.small;
-  document.getElementById("outputDouble").innerHTML = "Dubbla:" + obj.double;
+  }else{
+
+    var obj = JSON.parse(jsonInput);
+
+    document.getElementById("outputNextRace").innerHTML = "Nästa race: " + obj.nextRace;
+    document.getElementById("outputRaceLeft").innerHTML = "Race kvar: " + obj.racesLeft;
+    document.getElementById("outputQueueTime").innerHTML = "Kötid: " + obj.queueTime;
+
+    document.getElementById("outputLarge").innerHTML = "Stora: " + obj.large;
+    document.getElementById("outputSmall").innerHTML = "Små: " + obj.small;
+    document.getElementById("outputDouble").innerHTML = "Dubbla:" + obj.double;
+
+
+  }
 }
 
 function updateData() {
