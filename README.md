@@ -1,14 +1,14 @@
 # Gokart bokningssystem
 
 Ett bokningssystem för en gokartbana
-* Förenklar kommunikation mellan depo och kassa
+* Förenklar kommunikation mellan depå och kassa
 * Lättöverskådlig statistik på analyssidan
 
 ## Hårdvarukrav
 
 Sidan är tänkt att användas av 2 datorer samtidigt.
 * Kassan: En Laptop, eller Desktop med tillgång till mus och ett vanligt tangentbord
-* Depo: En mindre dator, helst ett enhetskort likt Raspberry pi. Datorn kopplas till en skärm och tangentbord.
+* Depå: En mindre dator, helst ett enhetskort likt Raspberry pi. Datorn kopplas till en skärm och tangentbord.
 Tangentbordet behöver enbart ha vänster och högerpil.
 * Internet: Båda datorerna behöver tillgång till snabbt och stabilt internet eftersom att hemsidan hämtar data från internet flera gånger per minut
 
@@ -24,7 +24,7 @@ Tangentbordet behöver enbart ha vänster och högerpil.
 * Ta bort kart: "Q","A","Z"
 * **("Stor", "Liten", "Dubbel")**
 
-##### Deposidan
+##### Depåsidan
 * Byta race: "Höger piltangent", "Vänster piltangent"
 * **("Nästa race", "Föregående race")**
 
@@ -45,7 +45,7 @@ Sidan använder sig av ett flertal "open source projects" för att fungera:
 * **Apexcharts** | För alla grafer | [Hemsida](https://apexcharts.com/), [Github](https://apexcharts.com/)
 * **AlertifyJS** | För dialoger och notifikationer | [Hemsida](https://alertifyjs.com/), [Github](https://github.com/MohammadYounes/AlertifyJS)
 * **JQuery** | Javascript biblotek | [Hemsida](https://jquery.com/), [Github](https://github.com/jquery/jquery)
-* **pickadate.js** | För date inputs (Ej inplementerad) | [Hemsida](https://amsul.ca/pickadate.js/), [Github](https://github.com/amsul/pickadate.js)
+* **pickadate.js** | För date inputs (Ej implementerad) | [Hemsida](https://amsul.ca/pickadate.js/), [Github](https://github.com/amsul/pickadate.js)
 
 ## Kända problem (aka bortförklaringar)
 * CSS:en är fortfarande inte klar, det finns flertalet problem med responsiviteten. Sidan är skriven mestadels på en full-HD skärm och ser därför bäst ut i den upplösningen.
