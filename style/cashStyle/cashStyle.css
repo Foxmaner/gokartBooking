@@ -51,7 +51,7 @@ body{
 #tempInput{
   display: inline;
   height: 2rem;
-  width: 30%;
+
   margin-left: 10%;
 
   background-image: url("../../media/icons/tempIcon.png");
@@ -64,7 +64,7 @@ body{
 #weatherSelect{
   display: inline;
   height: 2rem;
-  width: 30%;
+
   margin-left: 10%;
 
   background-image: url("../../media/icons/weather.png");
