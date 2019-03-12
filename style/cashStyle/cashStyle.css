@@ -52,7 +52,7 @@ body{
   display: inline;
   height: 2rem;
 
-  margin-left: 10%;
+
 
   background-image: url("../../media/icons/tempIcon.png");
   background-position:0px;
@@ -65,7 +65,7 @@ body{
   display: inline;
   height: 2rem;
 
-  margin-left: 10%;
+  margin-left: 8.33%;
 
   background-image: url("../../media/icons/weather.png");
   background-position:0px;
