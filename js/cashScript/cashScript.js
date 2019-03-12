@@ -1,3 +1,4 @@
+//Hämtar vädret och skriver ut det på kassaSidan
 function getWeather() {
 
   var xhttp = new XMLHttpRequest();
@@ -15,6 +16,7 @@ function getWeather() {
   xhttp.send();
 }
 
+//Updaterar databasen med nytt väder
 function updateWeather() {
   var inputTemp = document.getElementById("tempInput").value;
   var inputWeather = document.getElementById("weatherSelect").value;
@@ -31,6 +33,7 @@ function updateWeather() {
   xhttp.send("inputTemp=" + inputTemp + "&inputWeather=" + inputWeather + "&inputRemark=" + inputRemark);
 }
 
+//Väljer nästa race
 function outputEditRaceA() {
   var tempRaceNr = document.getElementById("outputEditLopp").innerHTML;
 
@@ -41,7 +44,7 @@ function outputEditRaceA() {
 }
 
 
-
+//Väljer föregående race
 function outputEditRaceS() {
   var tempRaceNr = document.getElementById("outputEditLopp").innerHTML;
 
@@ -52,8 +55,15 @@ function outputEditRaceS() {
   document.getElementById("outputEditLopp").innerHTML = tempRaceNr;
 }
 
+//Startar uppdatering var 10:e sekund
 function startUpdate() {
-  getActiveRace();
+  //Hämtar 1 sekund efter start
+  setTimeout(
+    function() {
+      getActiveRace();
+    }, 1000);
+
+  //Hämtar sedan var 10:e sekund
   setInterval(function() {
 
     getActiveRace();
@@ -64,7 +74,7 @@ function startUpdate() {
 
 
 
-
+//Skriver ut aktivt race
 function loadRace(jsonInput) {
 
   var obj = JSON.parse(jsonInput);
@@ -75,9 +85,14 @@ function loadRace(jsonInput) {
 }
 
 
+//
+//OBS!
+//SelectNextRace och selectPreviusRace är identiska, jag skulle därför kunnat
+// effektivisera/förkorta koden
+//Men jag är för lat, så det blir framtida arbete....
+//
 
-
-
+//Ajax för att välja nästa race
 function selectNextRace() {
   var raceNr = document.getElementById("outputEditLopp").innerHTML;
 
@@ -95,7 +110,7 @@ function selectNextRace() {
 
 
 
-
+//Ajax för att välja föregående race
 function selectPreviusRace() {
   var raceNr = document.getElementById("outputEditLopp").innerHTML;
 
@@ -117,7 +132,7 @@ function selectPreviusRace() {
 
 
 
-
+//Ändrar race
 function editRace() {
   var large = document.getElementById("inputLargeKart").value;
   var small = document.getElementById("inputSmallKart").value;
@@ -137,64 +152,67 @@ function editRace() {
 }
 
 
-
-function selectTextInput(key){
+//En funktion som inte används just nu
+//Kanske kommer få sin FUNKTION(pun intended) i framtiden
+function selectTextInput(key) {
   //1 = upp;
   //2 = ner;
-  if (key==1) {
+  if (key == 1) {
     if (document.getElementById("inputSmallKart") === document.activeElement) {
       document.getElementById("inputLargeKart").focus();
-    }else if (document.getElementById("inputDoubleKart") === document.activeElement) {
+    } else if (document.getElementById("inputDoubleKart") === document.activeElement) {
       document.getElementById("inputSmallKart").focus();
-    }else if (document.getElementById("inputLargeKart") === document.activeElement) {
+    } else if (document.getElementById("inputLargeKart") === document.activeElement) {
 
-    }else {
+    } else {
       document.getElementById("inputLargeKart").focus();
     }
-  }else if (key==2) {
+  } else if (key == 2) {
     if (document.getElementById("inputSmallKart") === document.activeElement) {
       document.getElementById("inputDoubleKart").focus();
-    }else if (document.getElementById("inputLargeKart") === document.activeElement) {
+    } else if (document.getElementById("inputLargeKart") === document.activeElement) {
       document.getElementById("inputSmallKart").focus();
-    }else if (document.getElementById("inputDoubleKart") === document.activeElement) {
+    } else if (document.getElementById("inputDoubleKart") === document.activeElement) {
 
-    }else {
+    } else {
       document.getElementById("inputDoubleKart").focus();
     }
   }
 }
 
+//Funktion som inte används
 function editNumberInput(key) {
-  if (key==1) {
+  if (key == 1) {
 
-  }else if (key==0) {
+  } else if (key == 0) {
 
   }
 }
 
+//Ändrar antalet karts med knapptryck
 function editNumberInputValue(key) {
-  if (key==81) {
-    if (document.getElementById("inputLargeKart").value>0) {
+  if (key == 81) {
+    if (document.getElementById("inputLargeKart").value > 0) {
       document.getElementById("inputLargeKart").value--;
     }
-  }else if (key==87) {
-    if (document.getElementById("inputLargeKart").value<10) {
+  } else if (key == 87) {
+    if (document.getElementById("inputLargeKart").value < 10) {
       document.getElementById("inputLargeKart").value++;
     }
-  }else if (key==65) {
-    if (document.getElementById("inputSmallKart").value>0) {
+  } else if (key == 65) {
+    if (document.getElementById("inputSmallKart").value > 0) {
       document.getElementById("inputSmallKart").value--
     }
-  }else if (key==83) {
-    if (document.getElementById("inputSmallKart").value<6) {
+  } else if (key == 83) {
+    if (document.getElementById("inputSmallKart").value < 6) {
       document.getElementById("inputSmallKart").value++
     }
-  }else if (key==90) {
-    if (document.getElementById("inputDoubleKart").value>0) {
+  } else if (key == 90) {
+    if (document.getElementById("inputDoubleKart").value > 0) {
       document.getElementById("inputDoubleKart").value--
     }
-  }else if (key==88) {
-    if (document.getElementById("inputDoubleKart").value<2) {
+  } else if (key == 88) {
+    if (document.getElementById("inputDoubleKart").value < 2) {
       document.getElementById("inputDoubleKart").value++
     }
   }
@@ -202,25 +220,29 @@ function editNumberInputValue(key) {
 
 var timeout = null;
 
-function btnArrowLeftPressed(){
+//Väljer föregående race
+//Använder timeout för att minimera antalet AJAX requests
+function btnArrowLeftPressed() {
   clearTimeout(timeout);
 
   outputEditRaceS();
 
-  timeout = setTimeout(function () {
-  selectPreviusRace();
-  updateChart();
-  getActiveRace();
+  timeout = setTimeout(function() {
+    selectPreviusRace();
+    updateChart();
+    getActiveRace();
   }, 200);
 }
-function btnArrowRightPressed(){
+//Väljer nästa race
+//Använder timeout för att minimera antalet AJAX requests
+function btnArrowRightPressed() {
   clearTimeout(timeout);
 
   outputEditRaceA();
 
-  timeout = setTimeout(function () {
-  selectNextRace();
-  updateChart();
+  timeout = setTimeout(function() {
+    selectNextRace();
+    updateChart();
 
   }, 200);
 }
@@ -245,74 +267,74 @@ function keyUp(e) {
     outputEditRaceS();
 
 
-    timeout = setTimeout(function () {
-    selectPreviusRace();
-    updateChart();
+    timeout = setTimeout(function() {
+      selectPreviusRace();
+      updateChart();
 
     }, 200);
 
   } else if (e.keyCode === 39) { //39 is the keyCode # for the right arrow key
     outputEditRaceA();
 
-    timeout = setTimeout(function () {
-    selectNextRace();
-    updateChart();
+    timeout = setTimeout(function() {
+      selectNextRace();
+      updateChart();
 
     }, 200);
 
-  }else if (e.keyCode === 38) { //38 upp
+  } else if (e.keyCode === 38) { //38 upp
     selectTextInput(1);
-  }else if (e.keyCode === 40) { //40 ner
+  } else if (e.keyCode === 40) { //40 ner
     selectTextInput(2);
-  }else if (e.keyCode === 16) {//HögerShift
+  } else if (e.keyCode === 16) { //HögerShift
     editNumberInput(1);
-  }else if (e.keyCode === 17) {//HögerCOntroll
+  } else if (e.keyCode === 17) { //HögerCOntroll
     editNumberInput(0);
-  }else if (e.keyCode === 81) {
+  } else if (e.keyCode === 81) {
     editNumberInputValue(81);
 
-    timeout = setTimeout(function () {
-    editRace();
+    timeout = setTimeout(function() {
+      editRace();
 
     }, 200);
 
-  }else if (e.keyCode ===87) {
+  } else if (e.keyCode === 87) {
     editNumberInputValue(87);
 
-    timeout = setTimeout(function () {
-    editRace();
+    timeout = setTimeout(function() {
+      editRace();
 
     }, 200);
 
-  }else if (e.keyCode === 65) {
+  } else if (e.keyCode === 65) {
     editNumberInputValue(65);
 
-    timeout = setTimeout(function () {
-    editRace();
+    timeout = setTimeout(function() {
+      editRace();
 
     }, 200);
 
-  }else if (e.keyCode === 83) {
+  } else if (e.keyCode === 83) {
     editNumberInputValue(83);
 
-    timeout = setTimeout(function () {
-    editRace();
+    timeout = setTimeout(function() {
+      editRace();
 
     }, 200);
 
-  }else if (e.keyCode === 90) {
+  } else if (e.keyCode === 90) {
     editNumberInputValue(90);
 
-    timeout = setTimeout(function () {
-    editRace();
+    timeout = setTimeout(function() {
+      editRace();
 
     }, 200);
 
-  }else if (e.keyCode === 88) {
+  } else if (e.keyCode === 88) {
     editNumberInputValue(88);
 
-    timeout = setTimeout(function () {
-    editRace();
+    timeout = setTimeout(function() {
+      editRace();
 
     }, 200);
 
