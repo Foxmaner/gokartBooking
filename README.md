@@ -1,33 +1,48 @@
 # Gokart bokningssystem
 
-Ett bokningssystem för en gokartbana för att förenkla kommunikationen mellan depo och kassa.
+Ett bokningssystem för en gokartbana
+* Förenklar kommunikation mellan depo och kassa
+* Lättöverskådlig statistik på analyssidan
 
-## Installation
+## Hårdvarukrav
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
+Sidan är tänkt att användas av 2 datorer samtidigt.
+* Kassan: En Laptop, eller Desktop med tillgång till mus och ett vanligt tangentbord
+* Depo: En mindre dator, helst ett enhetskort likt Raspberry pi. Datorn kopplas till en skärm och tangentbord.
+Tangentbordet behöver enbart ha vänster och högerpil.
+* Internet: Båda datorerna behöver tillgång till snabbt och stabilt internet eftersom att hemsidan hämtar data från internet flera gånger per minut
 
-```bash
-pip install foobar
-```
+## Användning
 
-## Usage
+##### Kassasidan
+* Byta race: "Höger piltangent", "Vänster piltangent"
+* **("Nästa race", "Föregående race")**
 
-```python
-import foobar
 
-foobar.pluralize('word') # returns 'words'
-foobar.pluralize('goose') # returns 'geese'
-foobar.singularize('phenomena') # returns 'phenomenon'
-```
+
+* Lägg till kart: "W","S","X"
+* Ta bort kart: "Q","A","Z"
+* **("Stor", "Liten", "Dubbel")**
+
+##### Deposidan
+* Byta race: "Höger piltangent", "Vänster piltangent"
+* **("Nästa race", "Föregående race")**
+
+##### Analyssidan
+* Byta race: "Höger piltangent", "Vänster piltangent"
+* **("Nästa race", "Föregående race")**
 
 ## Framtida arbete
+* Snyggare style (CSS)
+* Bättre responsivitet. Desktop, tablet, mobil.
+* Lägga till "Glömt lösenord" system
+* Implementera pickadate
+* Ta bort onödig kod
+* Göra koden kompatibel för att hostas
 
 ## Biblotek
-En lista över använda biblotek
+Sidan använder sig av ett flertal "open source projects" för att fungera:
 * **Apexcharts** | För alla grafer | [Hemsida](https://apexcharts.com/), [Github](https://apexcharts.com/)
 * **AlertifyJS** | För dialoger och notifikationer | [Hemsida](https://alertifyjs.com/), [Github](https://github.com/MohammadYounes/AlertifyJS)
 * **JQuery** | Javascript biblotek | [Hemsida](https://jquery.com/), [Github](https://github.com/jquery/jquery)
 * **pickadate.js** | För date inputs (Ej inplementerad) | [Hemsida](https://amsul.ca/pickadate.js/), [Github](https://github.com/amsul/pickadate.js)
-
-## License
-[MIT](https://choosealicense.com/licenses/mit/)
