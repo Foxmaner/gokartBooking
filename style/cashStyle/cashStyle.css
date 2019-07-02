@@ -281,6 +281,15 @@ margin-top: 1vh:
   .col-s-12 {
     width: 100%;
   }
+
+  #cashSection{
+    margin-left: 29.17%;
+
+  }
+  #myChart{
+    margin-left: 29.17%;
+  }
+
 }
 
 @media only screen and (min-width: 768px) {
