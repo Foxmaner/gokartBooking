@@ -226,8 +226,13 @@ function getActiveRace() {
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       //alert(this.responseText);
-      var obj = JSON.parse(this.responseText);
-      setActiveRaceAnnotations(this.responseText);
+      if (this.responseText=="") {
+        
+      }else{
+        var obj = JSON.parse(this.responseText);
+        setActiveRaceAnnotations(this.responseText);
+      }
+
     }
   };
   xhttp.open("GET", "../../dbConnections/cashConnections/getActiveRaceConnection.php", true);
