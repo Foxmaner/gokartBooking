@@ -10,7 +10,7 @@ session_start();
 function connecttoDB(){
 	$servername = "localhost";
 	$username = "root";
-	$password = "";
+	$password = "<password>";
 	$minDB = "glabo_bokningar";
 	$conn = new mysqli($servername, $username, $password, $minDB);
 
