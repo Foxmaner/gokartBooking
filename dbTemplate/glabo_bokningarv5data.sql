@@ -23,7 +23,8 @@ SET time_zone = "+00:00";
 --
 
 -- --------------------------------------------------------
-
+create database glabo_bokningar;
+use glabo_bokningar;
 --
 -- Table structure for table `editdata`
 --
