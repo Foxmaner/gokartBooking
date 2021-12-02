@@ -6,7 +6,7 @@ function getRaceData() {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-      //alert(this.responseText);
+      console.log("BALLER");
       var obj = JSON.parse(this.responseText);
       createDatasets(obj);
     }
@@ -98,7 +98,7 @@ function updateChart() {
 
 function createDatasets(obj) {
   console.log("createDatasets() object V ");
-  console.log(obj);
+  console.log("BAJS" + JSON.stringify(obj));
 
   dataPack1 = [];
   dataPack2 = [];
@@ -225,7 +225,7 @@ function getActiveRace() {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-      //alert(this.responseText);
+      alert(this.responseText);
       var obj = JSON.parse(this.responseText);
       setActiveRaceAnnotations(this.responseText);
     }

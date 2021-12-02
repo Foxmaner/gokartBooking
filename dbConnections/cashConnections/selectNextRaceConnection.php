@@ -72,11 +72,11 @@ function loadRace($raceNr){
 		 $myObj->large = $row["largeKart"];
 		 $myObj->small = $row["smallKart"];
 		 $myObj->double = $row["doubleKart"];
-
+    
 		 $myJSON = json_encode($myObj);
 		 echo $myJSON;
-		 //print_r($myObj);
-
+		 print_r($myObj);
+     
 		}
 	$stmt->close();
   $conn->close();

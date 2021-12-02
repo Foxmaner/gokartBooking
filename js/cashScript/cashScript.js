@@ -76,9 +76,9 @@ function startUpdate() {
 
 //Skriver ut aktivt race
 function loadRace(jsonInput) {
-
+  
   var obj = JSON.parse(jsonInput);
-
+  
   document.getElementById("inputLargeKart").value = obj.large;
   document.getElementById("inputSmallKart").value = obj.small;
   document.getElementById("inputDoubleKart").value = obj.double;
@@ -100,7 +100,7 @@ function selectNextRace() {
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       loadRace(this.responseText);
-
+      console.log("baller" + this.responseText)
     }
   };
   xhttp.open("GET", "../../dbConnections/cashConnections/selectNextRaceConnection.php?racenr=" + raceNr, true);
